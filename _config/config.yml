@@ -1,0 +1,10 @@
+---
+Name: CwpNewThemeConfig
+After:
+  - 'framework/*'
+  - 'cms/*'
+---
+
+SiteConfig:
+  extensions:
+    - CWPCleanupSiteConfigExtension
