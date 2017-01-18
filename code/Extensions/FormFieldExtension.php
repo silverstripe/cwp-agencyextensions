@@ -14,6 +14,19 @@ class FormFieldExtension extends Extension
     public function updateAttributes(array &$attributes)
     {
         $type = $this->owner->class;
-        $attributes['class'] .= ' form-control';
+        switch ($type) {
+            case 'CheckboxField':
+            case 'CheckboxSetField':
+                $attributes['class'] .= ' checkbox';
+                break;
+            case 'OptionsetField':
+            case 'SelectionGroupField':
+                break;
+            case 'FormAction':
+                $attributes['class'] .= ' btn';
+                break;
+            default:
+                $attributes['class'] .= ' form-control';
+        }
     }
 }
