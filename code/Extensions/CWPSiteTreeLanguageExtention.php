@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Class CWPSiteTreeLanguageExtention
+ *
+ * @property SiteTree|CWPSiteTreeLanguageExtention $owner
+ */
 class CWPSiteTreeLanguageExtention extends DataExtension
 {
     /**
