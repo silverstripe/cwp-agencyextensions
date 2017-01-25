@@ -12,3 +12,7 @@ SiteConfig:
 SiteTree:
   extensions:
     - CWPSiteTreeLanguageExtention
+
+FormField:
+  extensions:
+    - CWPFormFieldExtension

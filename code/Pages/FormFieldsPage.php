@@ -8,6 +8,13 @@ class FormFieldsPage extends Page
 class FormFieldsPage_Controller extends Page_Controller
 {
     /**
+     * @var array
+     */
+    private static $allowed_actions = [
+        "Form",
+    ];
+
+    /**
      * @inheritdoc
      *
      * @return Form
