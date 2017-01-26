@@ -51,9 +51,12 @@ class CWPSearchController extends Page_Controller
 
     public function getTitle()
     {
-        $title = 'Search ';
-        $title .= $this->request->getVar('Search')?: '';
-        return $title;
+        return 'Search ';
+    }
+
+    public function getMetaTitle()
+    {
+        return $this->getTitle() . $this->request->getVar('Search');
     }
 
     public function getSearchQuery()
