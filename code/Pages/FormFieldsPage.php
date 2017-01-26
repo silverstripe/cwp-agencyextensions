@@ -69,6 +69,8 @@ class FormFieldsPage_Controller extends Page_Controller
         $required = RequiredFields::create([
             "TextField",
             "CheckboxField",
+            "CheckboxSetField",
+            "OptionsetField",
         ]);
 
         return Form::create($this, "Form", $fieldList, $actions, $required);
