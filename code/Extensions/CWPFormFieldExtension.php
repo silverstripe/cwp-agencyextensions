@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Class CWPFormFieldExtension
+ *
+ * @property FormField $owner
+ */
 class CWPFormFieldExtension extends Extension
 {
     /**
@@ -9,13 +14,20 @@ class CWPFormFieldExtension extends Extension
     {
         $type = $this->owner->class;
 
-        $ignored = [
+        $ariaFields = [
             "CheckboxField",
             "CheckboxSetField",
-            "OptionsetField",
+            "OptionsetField"
+        ];
+
+        if (in_array($type, $ariaFields)) {
+            unset($attributes['aria-required']);
+        }
+
+        $ignored = array_merge($ariaFields, [
             "SelectionGroupField",
             "FormAction",
-        ];
+        ]);
 
         if (in_array($type, $ignored)) {
             return;

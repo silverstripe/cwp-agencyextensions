@@ -1,10 +1,20 @@
 <?php
 
+/**
+ * Class FormFieldsPage
+ *
+ */
 class FormFieldsPage extends Page
 {
-
 }
 
+/**
+ * Class FormFieldsPage_Controller
+ *
+ * @property FormFieldsPage dataRecord
+ * @method FormFieldsPage data()
+ * @mixin FormFieldsPage dataRecord
+ */
 class FormFieldsPage_Controller extends Page_Controller
 {
     /**
