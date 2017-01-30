@@ -21,6 +21,7 @@ class CWPFormFieldExtension extends Extension
         ];
 
         if (in_array($type, $ariaFields)) {
+        	$attributes["class"] .= " list-unstyled";
             unset($attributes['aria-required']);
         }
 
