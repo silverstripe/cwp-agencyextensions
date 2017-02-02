@@ -5,6 +5,7 @@
  *
  * @property SiteConfig|CWPCleanupSiteConfigExtension $owner
  * @property string $EmptySearch
+ * @property string $NoSearchResults
  */
 class CWPCleanupSiteConfigExtension extends DataExtension
 {
