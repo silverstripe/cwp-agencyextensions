@@ -43,7 +43,7 @@ class FormFieldsPage_Controller extends Page_Controller
             CreditCardField::create("CreditCardField", "Credit Card Field"),
             CurrencyField::create("CurrencyField", "Currency Field"),
             DatalessField::create("DatalessField", "DatalessField"),
-            DateField::create("DateField", "Date Field"),
+            $dateField = DateField::create("DateField", "Date Field"),
             DatetimeField::create("DatetimeField", "Datetime Field"),
             DropdownField::create("DropdownField", "Dropdown Field", $options),
             EmailField::create("EmailField", "Email Field"),
@@ -64,11 +64,11 @@ class FormFieldsPage_Controller extends Page_Controller
             // TODO SelectionGroup::create("SelectionGroup", $options),
             TextareaField::create("TextareaField", "Textarea Field"),
             TextField::create("TextField", "Text Field"),
-            TimeField::create("TimeField", "Time Field"),
-            TreeDropdownField::create("TreeDropdownField", "Tree Dropdown Field", "SiteTree"),
-            TreeMultiselectField::create("TreeMultiselectField", "Tree Multiselect Field", "SiteTree")
+            $timeField = TimeField::create("TimeField", "Time Field"),
         ];
 
+        $dateField->setDescription('Date format: ' . $dateField->getConfig('dateformat'));
+        $timeField->setDescription('Time format: ' . $timeField->getConfig('timeformat'));
         $fieldList = FieldList::create($fields);
 
         $actions = FieldList::create([
