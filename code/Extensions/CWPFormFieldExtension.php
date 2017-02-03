@@ -28,6 +28,7 @@ class CWPFormFieldExtension extends Extension
         $ignored = array_merge($ariaFields, [
             "SelectionGroupField",
             "FormAction",
+            "FileField",
         ]);
 
         if (in_array($type, $ignored)) {
