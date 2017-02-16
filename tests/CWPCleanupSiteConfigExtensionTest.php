@@ -2,6 +2,8 @@
 
 class CWPCleanupSiteConfigExtensionTest extends SapphireTest
 {
+    protected $usesDatabase = true;
+
     /**
      * Nest the configuration for these tests
      *
