@@ -58,12 +58,14 @@ class FormFieldsPage_Controller extends Page_Controller
             MoneyField::create("MoneyField", "Money Field"),
             NumericField::create("NumericField", "Numeric Field"),
             OptionsetField::create("OptionsetField", "Optionset Field", $options),
-            PasswordField::create("PasswordField", "Password Field"),
+            PasswordField::create("PasswordField", "Password Field")
+                ->setDescription('This is a field description. Example text remains unchanged.'),
             PhoneNumberField::create("PhoneNumberField", "Phone Number Field"),
             ReadonlyField::create("ReadonlyField", "ReadonlyField", "Readonly"),
             // TODO SelectionGroup::create("SelectionGroup", $options),
             TextareaField::create("TextareaField", "Textarea Field"),
-            TextField::create("TextField", "Text Field"),
+            TextField::create("TextField", "Text Field")
+                ->setDescription('Please enter all the texts. Example text remains unchanged.'),
             $timeField = TimeField::create("TimeField", "Time Field"),
         ];
 
