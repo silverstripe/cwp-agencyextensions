@@ -8,9 +8,16 @@
   ],
   "license": "BSD-3-Clause",
   "require": {
-    "silverstripe/framework": "~3.1",
-    "silverstripe/cms": "~3.1",
-    "silverstripe-australia/gridfieldextensions": "~1.1",
-    "silverstripe/segment-field": "^1.0"
-  }
+    "silverstripe/framework": "~3.2",
+    "silverstripe/cms": "~3.2"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "~2.0"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://gitlab.cwp.govt.nz/cwp/new-theme.git"
+    }
+  ]
 }

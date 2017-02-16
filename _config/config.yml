@@ -1,0 +1,32 @@
+---
+Name: CwpNewThemeConfig
+After:
+  - 'framework/*'
+  - 'cms/*'
+---
+
+SiteConfig:
+  extensions:
+    - CWPCleanupSiteConfigExtension
+
+SiteTree:
+  extensions:
+    - CWPSiteTreeLanguageExtention
+Form:
+  extensions:
+    - CWPFormExtension
+
+FormField:
+  extensions:
+    - CWPFormFieldExtension
+
+Page_Controller:
+  extensions:
+    - CWPPageExtension
+
+CWPSearchController:
+  page_limit: 10
+
+Director:
+  rules:
+    search: 'CWPSearchController'
