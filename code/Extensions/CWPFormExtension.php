@@ -1,6 +1,8 @@
 <?php
 
 /**
+ * Class CWPFormExtension
+ *
  * @property Form $owner
  */
 class CWPFormExtension extends Extension

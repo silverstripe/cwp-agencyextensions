@@ -27,6 +27,10 @@ Page_Controller:
 CWPSearchController:
   page_limit: 10
 
+HomePage:
+  extensions:
+    - CWPHomePageExtension
+
 Director:
   rules:
     search: 'CWPSearchController'
