@@ -20,6 +20,10 @@ FormField:
   extensions:
     - CWPFormFieldExtension
 
+EditableFormField:
+  extensions:
+    - CWPEditableFormFieldExtension
+
 Page_Controller:
   extensions:
     - CWPPageExtension

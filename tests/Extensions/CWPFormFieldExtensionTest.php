@@ -9,17 +9,27 @@ class CWPFormFieldExtensionTest extends SapphireTest
     {
         $field = TextField::create('Testing');
         $id = $field->ID();
-        $this->assertSame("{$id}-message", $field->getMessageID());
+        $this->assertSame("{$id}_message", $field->getMessageID());
     }
 
     /**
-     * Test that a unique HTML ID can be returned for the FormField
+     * Test that a unique HTML ID can be returned for the FormField's label
      */
     public function testGetLabelId()
     {
         $field = NumericField::create('Testing');
         $id = $field->ID();
-        $this->assertSame("{$id}-label", $field->getLabelID());
+        $this->assertSame("{$id}_label", $field->getLabelID());
+    }
+
+    /**
+     * Test that a unique HTML ID can be returned for the FormField's right title
+     */
+    public function testGetRightTitleID()
+    {
+        $field = NumericField::create('Testing');
+        $id = $field->ID();
+        $this->assertSame("{$id}_right_title", $field->getRightTitleID());
     }
 
     /**
@@ -45,11 +55,13 @@ class CWPFormFieldExtensionTest extends SapphireTest
         $field = EmailField::create('Testing');
         $field->setError('Test message', 'required');
         $field->setDescription('Test description');
+        $field->setRightTitle('Test right title');
 
         $attributes = $field->getAttributes();
         $this->assertArrayHasKey('aria-describedby', $attributes);
         $this->assertContains($field->getMessageID(), $attributes['aria-describedby']);
         $this->assertContains($field->getLabelID(), $attributes['aria-describedby']);
+        $this->assertContains($field->getRightTitleID(), $attributes['aria-describedby']);
 
         $field->setDescription(null);
         $attributes = $field->getAttributes();
@@ -57,6 +69,7 @@ class CWPFormFieldExtensionTest extends SapphireTest
         $this->assertNotContains($field->getLabelID(), $attributes['aria-describedby']);
 
         $field->setError(null, null);
+        $field->setRightTitle(null);
         $attributes = $field->getAttributes();
         $this->assertArrayNotHasKey('aria-describedby', $attributes);
     }
