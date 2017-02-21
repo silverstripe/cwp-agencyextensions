@@ -8,17 +8,20 @@
 class CWPSiteTreeLanguageExtention extends DataExtension
 {
     /**
+     * Returns the native language name for the selected locale/language, "Unknown" if Translatable is not available
+     *
      * @return string
      */
-    public function GetSelectedLocale()
+    public function getSelectedLanguage()
     {
-        if (!class_exists("Translatable")) {
-            return "Unknown";
+        if (!class_exists('Translatable')) {
+            return 'Unknown';
         }
 
-        $name = i18n::get_locale_name(Translatable::get_current_locale());
-        $parts = explode("(", $name);
+        $language = explode('_', Translatable::get_current_locale());
+        $languageCode = array_shift($language);
+        $nativeName = i18n::get_language_name($languageCode, true);
 
-        return $parts[0];
+        return $nativeName;
     }
 }
