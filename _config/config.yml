@@ -35,6 +35,10 @@ CarouselItem:
   extensions:
     - CWPCarouselItemExtension
 
+DatedUpdateHolder:
+  extensions:
+    - CWPDatedUpdateHolderExtension
+
 Director:
   rules:
     search: 'CWPSearchController'
