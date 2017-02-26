@@ -27,19 +27,17 @@ class CWPFormFieldExtension extends Extension
             unset($attributes['aria-required']);
         }
 
-        $ignored = array_merge($ariaFields, [
+        $ignored = array_merge($ariaFields, array(
             "SelectionGroupField",
             "FormAction",
             "FileField",
-        ]);
+        ));
 
         if (in_array($type, $ignored)) {
             return;
         }
 
         $this->embellishAttributes($attributes, $type);
-
-        $attributes["class"] .= " form-control";
     }
 
     /**
@@ -49,7 +47,7 @@ class CWPFormFieldExtension extends Extension
      */
     public function getMessageID()
     {
-        return $this->owner->ID() . '-message';
+        return $this->owner->ID() . '_message';
     }
 
     /**
@@ -59,7 +57,17 @@ class CWPFormFieldExtension extends Extension
      */
     public function getLabelID()
     {
-        return $this->owner->ID() . '-label';
+        return $this->owner->ID() . '_label';
+    }
+
+    /**
+     * Get the form field's "right-title" ID attribute
+     *
+     * @return string
+     */
+    public function getRightTitleID()
+    {
+        return $this->owner->ID() . '_right_title';
     }
 
     /**
@@ -77,6 +85,16 @@ class CWPFormFieldExtension extends Extension
     }
 
     /**
+     * Return whether or not to add the "form-control" class to this FormField
+     *
+     * @return bool
+     */
+    public function getAddFormControlClass()
+    {
+        return !($this->owner instanceof CheckboxSetField);
+    }
+
+    /**
      * Adds an "aria-describedby" attribute if there are elements in the page that will describe this field
      *
      * @param  array $attributes
@@ -84,7 +102,7 @@ class CWPFormFieldExtension extends Extension
      */
     private function addAriaDescribedBy(&$attributes)
     {
-        $describedBy = [];
+        $describedBy = array();
 
         if ($this->owner->Message()) {
             $describedBy[] = $this->getMessageID();
@@ -92,6 +110,10 @@ class CWPFormFieldExtension extends Extension
 
         if ($this->owner->getDescription()) {
             $describedBy[] = $this->getLabelID();
+        }
+
+        if ($this->owner->RightTitle()) {
+            $describedBy[] = $this->getRightTitleID();
         }
 
         if (!empty($describedBy)) {
@@ -110,15 +132,15 @@ class CWPFormFieldExtension extends Extension
      */
     private function embellishAttributes(&$attributes, $type)
     {
-        $numericFields = [
+        $numericFields = array(
             CreditCardField::class,
             NumericField::class
-        ];
+        );
 
-        $moneyFields = [
+        $moneyFields = array(
             CurrencyField::class,
             MoneyField::class
-        ];
+        );
 
         if (in_array($type, $numericFields)) {
             $attributes['class'] .= ' number';
@@ -140,6 +162,10 @@ class CWPFormFieldExtension extends Extension
         }
         if ($type === EmailField::class) {
             $attributes['type'] = 'email';
+        }
+
+        if ($this->getAddFormControlClass()) {
+            $attributes['class'] .= ' form-control';
         }
 
         return $this;
