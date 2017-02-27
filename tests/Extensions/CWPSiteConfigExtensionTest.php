@@ -1,6 +1,6 @@
 <?php
 
-class CWPCleanupSiteConfigExtensionTest extends SapphireTest
+class CWPSiteConfigExtensionTest extends SapphireTest
 {
     protected $usesDatabase = true;
 
