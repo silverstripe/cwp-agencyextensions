@@ -7,7 +7,7 @@ After:
 
 SiteConfig:
   extensions:
-    - CWPCleanupSiteConfigExtension
+    - CWPSiteConfigExtension
 
 SiteTree:
   extensions:
