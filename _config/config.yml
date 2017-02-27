@@ -20,10 +20,6 @@ FormField:
   extensions:
     - CWPFormFieldExtension
 
-EditableFormField:
-  extensions:
-    - CWPEditableFormFieldExtension
-
 Page_Controller:
   extensions:
     - CWPPageExtension
@@ -42,6 +38,10 @@ CarouselItem:
 DatedUpdateHolder:
   extensions:
     - CWPDatedUpdateHolderExtension
+
+UserDefinedForm:
+  extensions:
+    - CWPUserDefinedFormExtension
 
 Director:
   rules:
