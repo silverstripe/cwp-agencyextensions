@@ -60,11 +60,13 @@ class CWPUserDefinedFormExtension extends DataExtension
             )),
             EditableTextField::create(array(
                 'Title' => 'Name',
-                'Required' => true
+                'Required' => true,
+                'RightTitle' => 'Please enter your first and last name'
             )),
             EditableEmailField::create(array(
                 'Title' => 'Email',
-                'Required' => true
+                'Required' => true,
+                'Placeholder' => 'example@example.com'
             )),
             EditableTextField::create(array(
                 'Title' => 'Subject'
