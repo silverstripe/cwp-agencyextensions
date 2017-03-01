@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.2.0 (2017-03-02)
+
+* CWPT-342: Add placeholder and description to some contact user form example fields (Robbie Averill)
+* CWPT-341: Add extension to create "contact us" user defined form (Robbie Averill)
+* FIX Rename CWPCleanupSiteConfigExtensionTest to CWPSiteConfigExtensionTest (Robbie Averill)
+* CWPT-339 Add Upload secundary footer logo in the CMS (Matias)
+* CWPT-306: Add support for user forms templates and configuration (Robbie Averill)
+* Adding new extension to show a results string based on the filters of news and events pages (Paul Jayme)
+* API Add extension to provide locale code with available translations (Robbie Averill)
+* CWPT-320: Implement a carousel in a jumbotron style (Robbie Averill)
+* CWPT-320: Add Jumbotron HTML editor to its own tab in the CMS for HomePages (Robbie Averill)
+* CWPT-303: Update documentation to include installation, requirements and some extra notes about purpose (Robbie Averill)
+* CWPT-284: Add centralised logic for ID retrieval, aria-describedby attribute and allow periods in currency fields (Robbie Averill)
+
 ## 0.1.0 (2017-02-16)
 
 * CWPT-271: Add translatable defaults for the empty and no search result phrases. Add tests. (Robbie Averill)
