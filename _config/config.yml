@@ -7,7 +7,7 @@ After:
 
 SiteConfig:
   extensions:
-    - CWPCleanupSiteConfigExtension
+    - CWPSiteConfigExtension
 
 SiteTree:
   extensions:
@@ -24,8 +24,24 @@ Page_Controller:
   extensions:
     - CWPPageExtension
 
+BasePage:
+  extensions:
+    - CWPBasePageExtension
+
 CWPSearchController:
   page_limit: 10
+
+CarouselItem:
+  extensions:
+    - CWPCarouselItemExtension
+
+DatedUpdateHolder:
+  extensions:
+    - CWPDatedUpdateHolderExtension
+
+UserDefinedForm:
+  extensions:
+    - CWPUserDefinedFormExtension
 
 Director:
   rules:
