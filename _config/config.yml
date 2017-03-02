@@ -24,10 +24,6 @@ Page_Controller:
   extensions:
     - CWPPageExtension
 
-BasePage:
-  extensions:
-    - CWPBasePageExtension
-
 CWPSearchController:
   page_limit: 10
 
