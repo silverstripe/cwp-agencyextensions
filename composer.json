@@ -1,5 +1,5 @@
 {
-  "name": "cwp/cwp-theme-module",
+  "name": "cwp/agency-extensions",
   "description": "Base module for the default CWP theme to add features",
   "type": "silverstripe-module",
   "keywords": [
@@ -13,11 +13,5 @@
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "~2.0"
-  },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://gitlab.cwp.govt.nz/cwp/new-theme.git"
-    }
-  ]
+  }
 }
