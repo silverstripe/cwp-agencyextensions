@@ -39,10 +39,6 @@ DatedUpdateHolder:
   extensions:
     - CWPDatedUpdateHolderExtension
 
-UserDefinedForm:
-  extensions:
-    - CWPUserDefinedFormExtension
-
 Director:
   rules:
     search: 'CWPSearchController'
