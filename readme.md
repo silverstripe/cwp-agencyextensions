@@ -1,6 +1,6 @@
 # CWP Themes module
 
-This module provides some added configuration and underlying functionality to support the `cwp/new-theme` and `cwp/new-theme_advanced` CWP themes.
+This module provides some added configuration and underlying functionality to support the `cwp/starter-theme` and `cwp/watea-theme` CWP themes.
 
 ## Installation
 
