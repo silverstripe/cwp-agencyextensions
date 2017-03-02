@@ -1,6 +1,6 @@
 <?php
 
-define("CWP_THEME_NAME", "new-theme");
+define("CWP_THEME_NAME", "starter");
 
 $cwpEditor = HtmlEditorConfig::get('cwp');
 
