@@ -6,7 +6,7 @@ This module provides some added configuration and underlying functionality to su
 
 This module will be installed as a dependency when you install one of the themes listed above.
 
-If you need to install this module on its own you can do so via `composer require cwp/cwp-theme-module`.
+If you need to install this module on its own you can do so via `composer require cwp/ageny-extensions`.
 
 ## Requirements
 

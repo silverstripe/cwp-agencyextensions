@@ -11,7 +11,7 @@
 
   /**
    * Load via:
-   * HtmlEditorConfig::get('cms')->enablePlugins(array('ssmacron', '../../../cwp-theme-module/tinymce_plugins/editor_plugin_src.js'))
+   * HtmlEditorConfig::get('cms')->enablePlugins(array('ssmacron', '../../../agency-extensions/tinymce_plugins/editor_plugin_src.js'))
    * HtmlEditorConfig::get('cms')->insertButtonsAfter ('ssmacron', 'ssicons');
    */
   tinymce.create('tinymce.plugins.ssicons', {
@@ -34,7 +34,7 @@
       ed.addButton('ssicons', {
         title: 'Insert an Icon',
         cmd : 'mceInsertIcons',
-        image : url + '../../../cwp-theme-module/tinymce_plugins/img/icon.png'
+        image : url + '../../../agency-extensions/tinymce_plugins/img/icon.png'
       });
 
     },
