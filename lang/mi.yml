@@ -1,0 +1,8 @@
+mi:
+  CarouselItem:
+    PLURALNAME: 'Ngā tuemi takawhawhe'
+    SINGULARNAME: 'Tuemi Takawhawhe'
+  CwpCarousel:
+    ArchivedField: 'Me pūranga tēnei tuemi takawhawhe?'
+    LinkField: Hono
+    NoteField: 'Tuhipoka: Me hanga e koe te tuemi takawhawhe i mua i te tāpiri atahanga'

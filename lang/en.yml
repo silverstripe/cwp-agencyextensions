@@ -1,0 +1,12 @@
+en:
+  CarouselItem:
+    PLURALNAME: 'Carousel Items'
+    SINGULARNAME: 'Carousel Item'
+    CAROUSEL_ITEM: 'Carousel item {pos}'
+  CwpCarousel:
+    ArchivedField: 'Archive this carousel item?'
+    LinkField: Link
+    NoteField: 'Note: You will need to create the carousel item before you can add an image'
+    PREVIOUS: 'Previous'
+    PAUSE: 'Pause'
+    NEXT: 'Next'
