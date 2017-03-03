@@ -3,28 +3,32 @@ class CarouselItem extends DataObject
 {
     private static $db = array(
         'Title' => 'Varchar(255)',
-        'Caption' => 'Text',
+        'Content' => 'HTMLText',
         'Archived' => 'Boolean',
-        'SortOrder' => 'Int'
+        'SortOrder' => 'Int',
+        'PrimaryCallToActionLabel' => 'Varchar(255)',
+        'SecondaryCallToActionLabel' => 'Varchar(255)'
     );
 
     private static $has_one = array(
         'Parent' => 'HomePage',
         'Image' => 'Image',
-        'Link' => 'SiteTree'
+        'PrimaryCallToAction' => 'SiteTree',
+        'SecondaryCallToAction' => 'SiteTree'
     );
 
     private static $summary_fields = array(
         'ImageThumb' => 'Image',
         'Title' => 'Title',
-        'Caption' => 'Text',
-        'Link.Title' => 'Link',
+        'Content.FirstSentence' => 'Text',
+        'PrimaryCallToAction.Title' => 'Primary CTA',
+        'SecondaryCallToAction.Title' => 'Secondary CTA',
         'ArchivedReadable' => 'Current Status'
     );
 
     private static $searchable_fields = array(
         'Title',
-        'Caption'
+        'Content'
     );
 
     public function getCMSFields()
@@ -32,13 +36,24 @@ class CarouselItem extends DataObject
         $fields = new FieldList(
             // Set title
             TextField::create('Title', 'Title', null, 255),
-            // Caption
-            TextareaField::create('Caption', 'Caption'),
+            // Content
+            HtmlEditorField::create('Content')->setRows(5),
             // Image
             UploadField::create('Image', 'Image')
                 ->setAllowedFileCategories('image'),
-            // Linked page id
-            TreeDropdownField::create('LinkID', _t('CwpCarousel.LinkField', 'Link'), 'SiteTree'),
+            // Call to actions
+            TextField::create('PrimaryCallToActionLabel'),
+            TreeDropdownField::create(
+                'PrimaryCallToActionID',
+                _t('CwpCarousel.PRIMARYCALLTOACTION', 'Primary Call To Action Link'),
+                'SiteTree'
+            ),
+            TextField::create('SecondaryCallToActionLabel'),
+            TreeDropdownField::create(
+                'SecondaryCallToActionID',
+                _t('CwpCarousel.SECONDARYCALLTOACTION', 'Secondary Call To Action Link'),
+                'SiteTree'
+            ),
             // Can archive option
             CompositeField::create(
                 LabelField::create(
@@ -48,6 +63,7 @@ class CarouselItem extends DataObject
                 CheckboxField::create('Archived', '')
             )->addExtraClass('field special')
         );
+
         $this->extend('updateCMSFields', $fields);
 
         return $fields;
