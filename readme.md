@@ -10,28 +10,7 @@ If you need to install this module on its own you can do so via `composer requir
 
 ## Requirements
 
-* SilverStripe CMS/framework 3.2 or above
-
-## CWP Search
-
-Search has its own form and search index. To override the search index used, you can create your own and add the following to your `config.yml`:
-
-```
-Injector:
-  CWPIndexer:
-    class: CWPModuleSearchIndex
-```
-
-Replace `CWPModuleSearchIndex` with your own Index class.
-
-To change the amount of search results per page, add the following to your configuration:
-
-```
-CWPSearchController:
-  page_limit: 10
-```
-
-The `page_limit` is changeable to whatever limit you prefer.
+* cwp/cwp 1.6.0 or above
 
 ## Bootstrap 3
 

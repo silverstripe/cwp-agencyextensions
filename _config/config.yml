@@ -1,25 +1,12 @@
 ---
 Name: CwpNewThemeConfig
-After:
-  - 'framework/*'
-  - 'cms/*'
 ---
-
 SiteConfig:
   extensions:
     - CWPSiteConfigExtension
-
 SiteTree:
   extensions:
     - CWPSiteTreeLanguageExtention
-
 Page_Controller:
   extensions:
     - CWPPageExtension
-
-CWPSearchController:
-  page_limit: 10
-
-Director:
-  rules:
-    search: 'CWPSearchController'
