@@ -1,3 +1,0 @@
-Injector:
-  CWPIndexer:
-    class: CWPModuleSearchIndex

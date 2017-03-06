@@ -72,32 +72,4 @@ class CWPSiteConfigExtension extends DataExtension
             ));
         }
     }
-
-    /**
-     * Return the text for an empty search parameter, defaulting to a translatable value if not already defined
-     *
-     * @return string
-     */
-    public function EmptySearch()
-    {
-        if ($this->owner->EmptySearch) {
-            return $this->owner->EmptySearch;
-        }
-
-        return _t('CWP.SITECONFIG.EmptySearch', 'Search field empty, please enter your search query.');
-    }
-
-    /**
-     * Return the text for an empty search result, defaulting to a translatable value if not already defined
-     *
-     * @return string
-     */
-    public function NoSearchResults()
-    {
-        if ($this->owner->NoSearchResults) {
-            return $this->owner->NoSearchResults;
-        }
-
-        return _t('CWP.SITECONFIG.NoResult', 'Sorry, your search query did not return any results.');
-    }
 }
