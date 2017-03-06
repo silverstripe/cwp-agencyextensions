@@ -1,0 +1,8 @@
+es:
+  CarouselItem:
+    PLURALNAME: 'Items del carrusel'
+    SINGULARNAME: 'Item del carrusel'
+  CwpCarousel:
+    ArchivedField: '¿Archiva este item del carrusel?'
+    LinkField: Enlace
+    NoteField: 'Nota: Ud necesitará crear el ítem de carrusel antes de poder agregarle una imagen'

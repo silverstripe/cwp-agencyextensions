@@ -20,10 +20,6 @@ Page_Controller:
 CWPSearchController:
   page_limit: 10
 
-CarouselItem:
-  extensions:
-    - CWPCarouselItemExtension
-
 Director:
   rules:
     search: 'CWPSearchController'

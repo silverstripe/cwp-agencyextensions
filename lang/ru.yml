@@ -1,0 +1,8 @@
+ru:
+  CarouselItem:
+    PLURALNAME: Слайдшоу
+    SINGULARNAME: Слайд
+  CwpCarousel:
+    ArchivedField: 'Отправить в архив этот слайд?'
+    LinkField: Ссылка
+    NoteField: 'Внимание: вы должны создать/сохранить слайд прежде чем вы сможете добавить изображение'

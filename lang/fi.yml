@@ -1,0 +1,8 @@
+fi:
+  CarouselItem:
+    PLURALNAME: 'Karusellin kohteet'
+    SINGULARNAME: 'Karusellin kohde'
+  CwpCarousel:
+    ArchivedField: 'Arkistoi tämä karuselliartikkeli?'
+    LinkField: Linkki
+    NoteField: 'Huomio: sinun täytyy luoda karusellisisältö ennen kuin lisäät siihen kuvan'

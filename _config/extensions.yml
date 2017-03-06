@@ -1,0 +1,10 @@
+---
+Name: agencyextensions
+---
+BaseHomePage:
+  extensions:
+    - CarouselPageExtension
+
+BasePage_Controller:
+  extensions:
+    - DefaultThemeExtension

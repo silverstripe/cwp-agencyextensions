@@ -1,0 +1,8 @@
+eo:
+  CarouselItem:
+    PLURALNAME: 'Karuselaj elementoj'
+    SINGULARNAME: 'Karusela elemento'
+  CwpCarousel:
+    ArchivedField: 'Ĉu enarkivigi ĉi tiun karuselan elementon?'
+    LinkField: Ligilo
+    NoteField: 'Notu: Necesas krei la karuselan elementon antaŭ ol vi povos aldoni bildon'

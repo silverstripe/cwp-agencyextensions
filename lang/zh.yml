@@ -1,0 +1,8 @@
+zh:
+  CarouselItem:
+    PLURALNAME: 旋转项
+    SINGULARNAME: 旋转项
+  CwpCarousel:
+    ArchivedField: 归档该旋转项？
+    LinkField: 链接
+    NoteField: 注意：在添加图片前您需要创建旋转项
