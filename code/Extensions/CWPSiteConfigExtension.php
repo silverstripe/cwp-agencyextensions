@@ -5,6 +5,7 @@
 class CWPSiteConfigExtension extends DataExtension
 {
     private static $db = array(
+        'AddThisProfileID' => 'Varchar(32)',
         'FooterLogoLink' => 'Varchar(255)',
         'FooterLogoDescription' => 'Varchar(255)',
         'FooterLogoSecondaryLink' => 'Varchar(255)',
@@ -46,6 +47,7 @@ class CWPSiteConfigExtension extends DataExtension
     public function updateCMSFields(FieldList $fields)
     {
         $this
+            ->addSocialMedia($fields)
             ->addLogosAndIcons($fields)
             ->addSearchOptions($fields)
             ->removeFieldsForCurrentTheme($fields);
@@ -65,6 +67,31 @@ class CWPSiteConfigExtension extends DataExtension
             }
             $fields->removeByName($fieldNames);
         }
+        return $this;
+    }
+
+    /**
+     * Add or extend social media fields
+     *
+     * @param  FieldList $fields
+     * @return $this
+     */
+    protected function addSocialMedia(FieldList $fields)
+    {
+        $fields->addFieldToTab(
+            'Root.SocialMedia',
+            $addThisID = TextField::create(
+                'AddThisProfileID',
+                _t('CwpConfig.AddThisField', 'AddThis Profile ID')
+            )
+        );
+        $addThisID->setRightTitle(
+            _t(
+                'CwpConfig.AddThisFieldDesc',
+                'Profile ID to be used all across the site (in the format <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
+            )
+        );
+
         return $this;
     }
 

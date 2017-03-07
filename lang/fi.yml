@@ -2,6 +2,23 @@ fi:
   CarouselItem:
     PLURALNAME: 'Karusellin kohteet'
     SINGULARNAME: 'Karusellin kohde'
+  CustomSiteConfig:
+    LogosIconsTab: Logot/ikonit
+  CwpConfig:
+    AddThisField: 'AddThis profiili-ID'
+    AddThisFieldDesc: 'Profiili-ID käytettäväksi läpi sivuston (formaatissa <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
+    AppleIconField114: 'Apple Touch Web Clip ikoni (114x114 px PNG)'
+    AppleIconField144: 'Apple Touch Web Clip ja Windows 8/10 Tile-ikoni (144x144 px PNG)'
+    AppleIconField57: 'Apple Touch Web Clip ikoni (57x57 px PNG)'
+    AppleIconField72: 'Apple Touch Web Clip ikoni (72x72 px PNG)'
+    FavIconField: 'Favicon .ico -formaatissa, koko 16x16, 32x32, tai 48x48'
+    FooterLogoDescField: 'Alatunnisteen logon kuvaus'
+    FooterLogoField: 'Alatunnisteen logo, näytetään alatunnisteessa'
+    FooterLogoLinkDesc: 'Sisällytä protokolla (esim. http:// tai https://) ellei kyseessä ole sisäinen linkki.'
+    FooterLogoLinkField: 'Alaindeksin logon linkki'
+    FooterLogoRetinaField: 'Korkearesoluutioinen logo alatunnisteeseen (suositellaan kaksinkertaista resoluutiota suhteessa peruslogoon)'
+    LogoRetinaUploadField: 'Korkearesoluutioinen logo vasempaan yläkulmaan (suositellaan kaksinkertaista resoluutiota suhteessa peruslogoon)'
+    LogoUploadField: 'Logo vasempaan yläkulmaan'
   CwpCarousel:
     ArchivedField: 'Arkistoi tämä karuselliartikkeli?'
     LinkField: Linkki

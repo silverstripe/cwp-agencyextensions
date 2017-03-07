@@ -1,3 +1,8 @@
 sv:
+  CustomSiteConfig:
+    LogosIconsTab: Logotyper/ikoner
+  CwpConfig:
+    FooterLogoField: 'Sidfots-logotyp, för användning i sidfoten'
+    FooterLogoLinkDesc: 'Vänligen ange protokollet (t ex http:// eller http://) om länken inte är intern'
   CwpCarousel:
     LinkField: Länk
