@@ -1,10 +1,18 @@
 ---
-Name: CwpNewThemeConfig
+Name: agencyextensionsconfig
 ---
-SiteConfig:
+BaseHomePage:
   extensions:
-    - CWPSiteConfigExtension
+    - CarouselPageExtension
+
+BasePage_Controller:
+  extensions:
+    - DefaultThemeExtension
 
 Page_Controller:
   extensions:
     - CWPPageExtension
+
+SiteConfig:
+  extensions:
+    - CWPSiteConfigExtension
