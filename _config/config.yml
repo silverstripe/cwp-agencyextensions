@@ -1,48 +1,18 @@
 ---
-Name: CwpNewThemeConfig
-After:
-  - 'framework/*'
-  - 'cms/*'
+Name: agencyextensionsconfig
 ---
+BaseHomePage:
+  extensions:
+    - CarouselPageExtension
 
-SiteConfig:
+BasePage_Controller:
   extensions:
-    - CWPSiteConfigExtension
-
-SiteTree:
-  extensions:
-    - CWPSiteTreeLanguageExtention
-Form:
-  extensions:
-    - CWPFormExtension
-
-FormField:
-  extensions:
-    - CWPFormFieldExtension
+    - DefaultThemeExtension
 
 Page_Controller:
   extensions:
     - CWPPageExtension
 
-BasePage:
+SiteConfig:
   extensions:
-    - CWPBasePageExtension
-
-CWPSearchController:
-  page_limit: 10
-
-CarouselItem:
-  extensions:
-    - CWPCarouselItemExtension
-
-DatedUpdateHolder:
-  extensions:
-    - CWPDatedUpdateHolderExtension
-
-UserDefinedForm:
-  extensions:
-    - CWPUserDefinedFormExtension
-
-Director:
-  rules:
-    search: 'CWPSearchController'
+    - CWPSiteConfigExtension

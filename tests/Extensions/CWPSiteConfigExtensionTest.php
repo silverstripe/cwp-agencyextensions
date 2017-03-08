@@ -36,58 +36,13 @@ class CWPSiteConfigExtensionTest extends SapphireTest
     }
 
     /**
-     * Test that the LogosIcons menu has had its title updated when using the CMS theme
-     */
-    public function testLogosIconsMenuHasNewTitle()
-    {
-        $fields = SiteConfig::create()->getCMSFields();
-        $this->assertSame('Icons', $fields->findOrMakeTab('Root.LogosIcons')->Title());
-    }
-
-    /**
      * Ensure that the two "search caption" fields exist and are in the right tab
      */
     public function testConfigurableSearchLabelsExistAndAreInCorrectTab()
     {
         $fields = SiteConfig::create()->getCMSFields();
-        $this->assertInstanceOf(TextareaField::class, $fields->fieldByName('Root.SearchOptions.EmptySearch'));
-        $this->assertInstanceOf(TextareaField::class, $fields->fieldByName('Root.SearchOptions.NoSearchResults'));
-    }
-
-    /**
-     * Test the default return value from EmptySearch
-     */
-    public function testEmptySearchDefault()
-    {
-        $result = SiteConfig::create()->EmptySearch();
-        $this->assertContains('please enter your search query', $result);
-    }
-
-    /**
-     * Test that EmptySearch can be overridden from SiteConfig settings
-     */
-    public function testEmptySearchReturnsConfiguredValueIfDefined()
-    {
-        $siteConfig = SiteConfig::create(['EmptySearch' => 'Please type something to search']);
-        $this->assertSame('Please type something to search', $siteConfig->EmptySearch());
-    }
-
-    /**
-     * Test the default return value from NoSearchResults
-     */
-    public function testNoSearchResultsDefault()
-    {
-        $result = SiteConfig::create()->NoSearchResults();
-        $this->assertContains('your search query did not return any results', $result);
-    }
-
-    /**
-     * Test that NoSearchResults can be overridden from SiteConfig settings
-     */
-    public function testNoSearchResultsReturnsConfiguredValueIfDefined()
-    {
-        $siteConfig = SiteConfig::create(['NoSearchResults' => 'Nothing returned.']);
-        $this->assertSame('Nothing returned.', $siteConfig->NoSearchResults());
+        $this->assertInstanceOf(TextField::class, $fields->fieldByName('Root.SearchOptions.EmptySearch'));
+        $this->assertInstanceOf(TextField::class, $fields->fieldByName('Root.SearchOptions.NoSearchResults'));
     }
 
     /**

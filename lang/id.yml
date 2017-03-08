@@ -1,0 +1,18 @@
+id:
+  CustomSiteConfig:
+    LogosIconsTab: Logo/Ikon
+  CwpConfig:
+    AddThisField: 'IP Profil AddThis'
+    AddThisFieldDesc: 'ID Profil untuk digunakan pada seluruh situs (dalam format <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
+    AppleIconField114: 'Ikon Apple Touch Web Clip (dimensi 114x114, format PNG)'
+    AppleIconField144: 'Ikon Apple Touch Web Clip dan Windows 8 Tile (dimensi 144x144, format PNG)'
+    AppleIconField57: 'Ikon Apple Touch Web Clip (dimensi 57x57, format PNG)'
+    AppleIconField72: 'Ikon Apple Touch Web Clip (dimensi 72x72, format PNG)'
+    FavIconField: 'Favicon, dalam format .ico, dimensi 16x16, 32x32, atau 48x48'
+    FooterLogoDescField: 'Deskripsi Logo footer'
+    FooterLogoField: 'Logo footer, tampil pada bagian bawah'
+    FooterLogoLinkDesc: 'Mohon isikan juga nama protokol (misal, http:// atau https://) kecuali untuk tautan internal.'
+    FooterLogoLinkField: 'Tautan Logo Footer'
+    FooterLogoRetinaField: 'Logo footer beresolusi tinggi (direkomendasikan berukuran dua kali tinggi dan lebar dari logo footer standar)'
+  CwpCarousel:
+    LinkField: Tautan
