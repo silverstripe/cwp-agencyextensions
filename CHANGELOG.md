@@ -1,5 +1,28 @@
 # Changelog
 
+## 0.3.0 (2017-03-09)
+
+* CWPT-439: Add hero to Carousel headings in CMS and add help tips to explain the difference between them, and recommendations for content (newleeland)
+* CWPT-313: Add tagline back in for starter/watea themes (Robbie Averill)
+* Move translations for custom CWP siteconfig from "cwp" to agency-extensions (Robbie Averill)
+* API Move CustomSiteConfig settings from cwp/cwp to agency-extensions, tidy up config (Robbie Averill)
+* API Remove getSelectedLanguage from SiteTree extension, moved to "cwp" module (Robbie Averill)
+* Remove custom search behaviour and rely on base page search Modify dependencies to cwp/cwp 1.6 (Damian Mooyman)
+* Remove tests (Damian Mooyman)
+* Remove form extensions (Damian Mooyman)
+* API Remove CarouselItemExtension and merge behaviour into CarouselItem (Robbie Averill)
+* Add translations for carousel items (Robbie Averill)
+* API Move carousel from "cwp" to "agency-extensions". Add "default" theme functionality. (Robbie Averill)
+* Remove FormFieldsPage (moved to demo site) (Damian Mooyman)
+* CWPT-374: Remove DatedUpdateHolderExtension - moved to "cwp" module (Robbie Averill)
+* CWPT-375: Remove CWPBasePageExtension - locale addition has been moved to "cwp" module (Robbie Averill)
+* FIX Rename module paths from cwp-theme-module to agency-extensions (Robbie Averill)
+* CWPT-387: Remove contact-us user form population, it has been moved to "cwp" (Robbie Averill)
+* Update theme names from new-theme to starter, remove unneeded VCS repository (Robbie Averill)
+* Rename module Remove nested repository (Damian Mooyman)
+* CWPT-361: Remove linting git hook and reference from documentation (Robbie Averill)
+* Adding a new icon set as a new button in the CMS which allows user to apply icons on both the front-end and back-end (Paul Jayme)
+
 ## 0.2.0 (2017-03-02)
 
 * CWPT-342: Add placeholder and description to some contact user form example fields (Robbie Averill)
