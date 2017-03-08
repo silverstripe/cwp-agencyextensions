@@ -31,7 +31,7 @@ class CarouselPageExtension extends DataExtension
     {
         $gridField = GridField::create(
             'CarouselItems',
-            'Carousel',
+            _t('BaseHomePage.HERO_CAROUSEL', 'Hero/Carousel'),
             $this->getCarouselItems(),
             GridFieldConfig_RelationEditor::create()
         );
@@ -46,6 +46,20 @@ class CarouselPageExtension extends DataExtension
         $gridConfig->removeComponentsByType('GridFieldSortableHeader');
         $gridField->setModelClass('CarouselItem');
 
-        $fields->addFieldToTab('Root.Carousel', $gridField);
+        $fields->findOrMakeTab(
+            'Root.Carousel',
+            _t('BaseHomePage.HERO_CAROUSEL', 'Hero/Carousel')
+        );
+
+        $fields->addFieldsToTab(
+            'Root.Carousel',
+            array(
+                LiteralField::create(
+                    'CarouselHelpTip',
+                    'NOTE: Carousel functionality will automatically be loaded when 2 or more items are added below'
+                ),
+                $gridField
+            )
+        );
     }
 }

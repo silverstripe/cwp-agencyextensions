@@ -37,10 +37,23 @@ class CarouselItem extends DataObject
             // Set title
             TextField::create('Title', 'Title', null, 255),
             // Content
-            HtmlEditorField::create('Content')->setRows(5),
+            HtmlEditorField::create('Content')
+                ->setRows(5)
+                ->setDescription(
+                    _t(
+                        'CwpCarousel.CONTENT_HELPTIP',
+                        'Recommended: Use less than 50 words. For carousel slides, use similar amount of content to ensure carousel height does not vary.'
+                    )
+                ),
             // Image
             UploadField::create('Image', 'Image')
-                ->setAllowedFileCategories('image'),
+                ->setAllowedFileCategories('image')
+                ->setDescription(
+                    _t(
+                        'CwpCarousel.IMAGE_HELPTIP',
+                        'Recommended: Use high resolution images greater than 1600x900px.'
+                    )
+                ),
             // Call to actions
             TextField::create('PrimaryCallToActionLabel'),
             TreeDropdownField::create(
