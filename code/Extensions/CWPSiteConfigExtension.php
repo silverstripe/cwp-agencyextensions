@@ -34,7 +34,6 @@ class CWPSiteConfigExtension extends DataExtension
      */
     protected $fieldsToRemoveByTheme = array(
         CWP_THEME_NAME => array(
-            'Tagline',
             'AddThisProfileID',
             'LogoRetina',
             'FooterLogoRetina'
