@@ -4,6 +4,7 @@ Name: agencyextensionsconfig
 BaseHomePage:
   extensions:
     - CarouselPageExtension
+    - CWPBaseHomePageExtension
 
 BasePage_Controller:
   extensions:

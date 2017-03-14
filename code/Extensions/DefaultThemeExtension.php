@@ -8,21 +8,11 @@
 class DefaultThemeExtension extends Extension
 {
     /**
-     * Determines whether the current theme is the "default" theme
-     *
-     * @return bool
-     */
-    public function getIsDefaultTheme()
-    {
-        return SSViewer::current_theme() === 'default';
-    }
-
-    /**
      * Add the default theme's requirements
      */
     public function onAfterInit()
     {
-        if (!$this->getIsDefaultTheme()) {
+        if (!$this->owner->getIsDefaultTheme()) {
             return;
         }
 
@@ -48,7 +38,7 @@ class DefaultThemeExtension extends Extension
      */
     public function updateBaseScripts(&$scripts)
     {
-        if (!$this->getIsDefaultTheme()) {
+        if (!$this->owner->getIsDefaultTheme()) {
             return;
         }
 
@@ -73,7 +63,7 @@ class DefaultThemeExtension extends Extension
      */
     public function updateBaseStyles(&$styles)
     {
-        if (!$this->getIsDefaultTheme()) {
+        if (!$this->owner->getIsDefaultTheme()) {
             return;
         }
 
