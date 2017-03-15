@@ -13,4 +13,4 @@ If you want to enable the plugin for your own custom theme you can define a cons
 
     define('CWP_AGENCY_ENABLE_FONTAWESOME_PLUGIN', true);
 
-**Note:** For the plugin to be able to usable it will require the [starter theme](https://gitlab.cwp.govt.nz/cwp/starter-theme) to be installed, since it will provide the CSS stylesheet required to render the icons in the CMS popup. Please [see here](https://gitlab.cwp.govt.nz/cwp/agency-extensions/issues/2) for the progress in removing this dependency for custom modules.
+You will need to ensure that your theme templates reference a FontAweome CSS stylesheet to allow the icons to be rendered. The Wātea theme has this enabled by default. If you need to add it, you could use [the BootstrapCDN for FontAwesome](https://www.bootstrapcdn.com/fontawesome/).
