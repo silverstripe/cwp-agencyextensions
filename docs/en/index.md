@@ -3,11 +3,11 @@ introduction: This documentation covers information regarding the extensions spe
 
 # Developer documentation for CWP agency extensions
 
-This codebase is referred to as the CWP agency extensions module. It runs alongside your own custom code as well as:
- 
- * SilverStripe CMS (open source CMS product).
- * SilverStripe commercially supported modules (which deliverers many of the default features). 
- * Two CWP specific modules (cwp and cwp-core) that implement specific configuration and features related to running websites on CWP.
+This codebase is referred to as the "CWP agency extensions" module. It runs alongside your own custom code as well as:
+
+ * SilverStripe CMS (open source CMS product)
+ * SilverStripe commercially supported modules (which deliverers many of the default features)
+ * Two CWP specific modules (`cwp/cwp` and `cwp/cwp-core`) that implement specific configuration and features related to running websites on CWP
 
 For general information about working with SilverStripe CMS code, please consult the
 [Official SilverStripe CMS developer documentation](https://docs.silverstripe.org/). 
