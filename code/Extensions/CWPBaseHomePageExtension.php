@@ -10,7 +10,7 @@ class CWPBaseHomePageExtension extends DataExtension
      */
     public function updateCMSFields(FieldList $fields)
     {
-        if (!CwpThemeHelper::create()->getIsDefaultTheme()) {
+        if (!CwpThemeHelper::singleton()->getIsDefaultTheme()) {
             /** @var CompositeField $compositeField */
             $compositeField = $fields->fieldByName('Root.Features.FeatureOne');
             if ($compositeField) {

@@ -5,28 +5,16 @@ class CwpThemeHelperTest extends SapphireTest
     protected $usesDatabase = true;
 
     /**
-     * @var CwpThemeHelper
-     */
-    protected $helper;
-
-    public function setUp()
-    {
-        parent::setUp();
-        Config::nest();
-        $this->helper = CwpThemeHelper::create();
-    }
-
-    /**
      * Ensure that the "default" theme can be detected correctly via configuration settings
      */
     public function testDetectDefaultThemeViaConfig()
     {
         Config::inst()->update('SSViewer', 'theme_enabled', true);
         Config::inst()->update('SSViewer', 'theme', 'default');
-        $this->assertTrue($this->helper->getIsDefaultTheme());
+        $this->assertTrue(CwpThemeHelper::singleton()->getIsDefaultTheme());
 
         Config::inst()->update('SSViewer', 'theme', 'starter');
-        $this->assertFalse($this->helper->getIsDefaultTheme());
+        $this->assertFalse(CwpThemeHelper::singleton()->getIsDefaultTheme());
     }
 
     /**
@@ -39,18 +27,12 @@ class CwpThemeHelperTest extends SapphireTest
         $siteConfig->write();
         $siteConfig->flushCache();
 
-        $this->assertTrue($this->helper->getIsDefaultTheme());
+        $this->assertTrue(CwpThemeHelper::singleton()->getIsDefaultTheme());
 
         $siteConfig->Theme = 'starter';
         $siteConfig->write();
         $siteConfig->flushCache();
 
-        $this->assertFalse($this->helper->getIsDefaultTheme());
-    }
-
-    public function tearDown()
-    {
-        Config::unnest();
-        parent::tearDown();
+        $this->assertFalse(CwpThemeHelper::singleton()->getIsDefaultTheme());
     }
 }

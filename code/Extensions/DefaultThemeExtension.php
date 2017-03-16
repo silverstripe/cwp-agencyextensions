@@ -12,7 +12,7 @@ class DefaultThemeExtension extends Extension
      */
     public function onAfterInit()
     {
-        if (!CwpThemeHelper::create()->getIsDefaultTheme()) {
+        if (!CwpThemeHelper::singleton()->getIsDefaultTheme()) {
             return;
         }
 
@@ -38,7 +38,7 @@ class DefaultThemeExtension extends Extension
      */
     public function updateBaseScripts(&$scripts)
     {
-        if (!CwpThemeHelper::create()->getIsDefaultTheme()) {
+        if (!CwpThemeHelper::singleton()->getIsDefaultTheme()) {
             return;
         }
 
@@ -63,7 +63,7 @@ class DefaultThemeExtension extends Extension
      */
     public function updateBaseStyles(&$styles)
     {
-        if (!CwpThemeHelper::create()->getIsDefaultTheme()) {
+        if (!CwpThemeHelper::singleton()->getIsDefaultTheme()) {
             return;
         }
 

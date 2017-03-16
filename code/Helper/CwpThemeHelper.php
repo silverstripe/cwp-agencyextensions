@@ -1,6 +1,11 @@
 <?php
+
 /**
  * The CWP theme helper provides some quick helper methods to support the CWP themes
+ *
+ * Removed in cwp theme 2.0
+ *
+ * @deprecated 2.0
  */
 class CwpThemeHelper extends Object
 {
