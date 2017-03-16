@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.4.0 (2017-03-16)
+
+* Change CwpThemeHelper to singleton and deprecate in 2.0 (Damian Mooyman)
+* API Add CwpThemeHelper to provide functionality for using/checking against CWP themes (Robbie Averill)
+* CWPT-417: Add extension to remove icons in home page for non-default theme (Robbie Averill)
+* FIX Remove theme condition for including FA plugin, enabled by default. Update docs to reference. (Robbie Averill)
+* DOCS Remove section from FontAwesome plugin docs regarding requiring "starter" theme, add note for frontend stylesheet. (Robbie Averill)
+* Add BSD-3 clause license (Robbie Averill)
+* Add gitattributes with export-ignore for "docs" folder (Robbie Averill)
+* CWPT-385: Simplify documentation, moved to "cwp" module. Add some flexibility around FontAwesome plugin config. (Robbie Averill)
+* FIX replaced tinyMce function for adding buttons from insertButtonAfter to addButtonsToLine - FontAwesome feature now displays in CMS (Paul Jayme)
+
 ## 0.3.0 (2017-03-09)
 
 * CWPT-439: Add hero to Carousel headings in CMS and add help tips to explain the difference between them, and recommendations for content (newleeland)
