@@ -1,5 +1,6 @@
 # Changelog
 
+## 1.0.0-beta1 (2017-03-20)
 ## 0.4.0 (2017-03-16)
 
 * Change CwpThemeHelper to singleton and deprecate in 2.0 (Damian Mooyman)
