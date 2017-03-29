@@ -10,7 +10,15 @@
 class CwpThemeHelper extends Object
 {
     /**
-     * Decide whether the current configured theme is the "default" CWP theme
+     * Define the theme names that will have combined styles and scripts added - see {@link DefaultThemeExtension}
+     *
+     * @config
+     * @var string[]
+     */
+    private static $default_themes = array('default');
+
+    /**
+     * Decide whether the current configured theme is the "default" CWP theme or a variation of it
      *
      * @return bool
      */
@@ -23,6 +31,6 @@ class CwpThemeHelper extends Object
         } else {
             $theme = false;
         }
-        return $theme === 'default';
+        return in_array($theme, $this->config()->default_themes);
     }
 }
