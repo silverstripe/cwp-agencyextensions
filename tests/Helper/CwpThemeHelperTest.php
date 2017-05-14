@@ -35,4 +35,16 @@ class CwpThemeHelperTest extends SapphireTest
 
         $this->assertFalse(CwpThemeHelper::singleton()->getIsDefaultTheme());
     }
+
+    /**
+     * Ensure that a customised default theme name can be detected
+     */
+    public function testRenamedDefaultThemeCanBeDetected()
+    {
+        Config::inst()->update('SSViewer', 'theme_enabled', true);
+        Config::inst()->update('SSViewer', 'theme', 'default-but-updated');
+        Config::inst()->update('CwpThemeHelper', 'default_themes', array('default-but-updated'));
+
+        $this->assertTrue(CwpThemeHelper::singleton()->getIsDefaultTheme());
+    }
 }
