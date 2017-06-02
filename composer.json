@@ -8,7 +8,7 @@
   ],
   "license": "BSD-3-Clause",
   "require": {
-    "cwp/cwp": "^1.6@dev"
+    "cwp/cwp": "^1.6"
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "~2.0"
