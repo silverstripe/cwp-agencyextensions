@@ -1,5 +1,6 @@
 # Changelog
 
+## 1.0.0 (2017-06-02)
 ## 1.0.0-rc1 (2017-05-15)
 
 * API Allow "default" theme installations that are renamed to use default theme styles and scripts (Robbie Averill)
