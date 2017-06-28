@@ -17,10 +17,10 @@ class DefaultThemeExtension extends Extension
         }
 
         // Include base scripts that are needed on all pages
-        Requirements::combine_files('scripts.js', $this->owner->getBaseScripts());
+        Requirements::combine_files('scripts.js', $this->getBaseAssets('scripts'));
 
         // Include base styles that are needed on all pages
-        $styles = $this->owner->getBaseStyles();
+        $styles = $this->getBaseAssets('styles');
 
         // Combine by media type.
         Requirements::combine_files('styles.css', $styles['all']);
@@ -69,17 +69,39 @@ class DefaultThemeExtension extends Extension
 
         $themeDir = SSViewer::get_theme_folder();
 
-        $styles = array_merge($styles, array(
-            'all' => array(
-                "$themeDir/css/layout.css",
-                "$themeDir/css/typography.css"
-            ),
-            'screen' => array(
-                "$themeDir/css/responsive.css"
-            ),
-            'print' => array(
-                "$themeDir/css/print.css"
-            )
+        $styles['all'] = !empty($styles['all']) ? $styles['all'] : array();
+        $styles['screen'] = !empty($styles['screen']) ? $styles['screen'] : array();
+        $styles['print'] = !empty($styles['print']) ? $styles['print'] : array();
+
+        $styles['all'] = array_merge($styles['all'], array(
+            "$themeDir/css/layout.css",
+            "$themeDir/css/typography.css"
         ));
+
+        $styles['screen'] = array_merge($styles['screen'], array(
+            "$themeDir/css/responsive.css"
+        ));
+
+        $styles['print'] = array_merge($styles['print'], array(
+            "$themeDir/css/print.css"
+        ));
+    }
+
+    /**
+     * Get base styles or scripts from either the owner class that this extension is applied to, or create a new
+     * BasePage_Controller to use instead. This prevents missing theme assets on the Security controller.
+     *
+     * @param string $type "styles" or "scripts"
+     * @return array
+     */
+    protected function getBaseAssets($type)
+    {
+        $method = 'getBase' . ucfirst($type);
+        if ($this->owner->hasMethod($method)) {
+            return $this->owner->$method();
+        }
+
+        $basePageController = BasePage_Controller::create();
+        return $basePageController->$method();
     }
 }

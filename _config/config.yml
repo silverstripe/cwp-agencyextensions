@@ -10,6 +10,10 @@ BasePage_Controller:
   extensions:
     - DefaultThemeExtension
 
+Security:
+  extensions:
+    - DefaultThemeExtension
+
 Page_Controller:
   extensions:
     - CWPPageExtension
