@@ -17,28 +17,36 @@ class DefaultThemeExtension extends Extension
         }
 
         // Include base scripts that are needed on all pages
-        Requirements::combine_files('scripts.js', $this->owner->getBaseScripts());
+        Requirements::combine_files('scripts.js', $this->getBaseAssets('scripts'));
 
         // Include base styles that are needed on all pages
-        $styles = $this->owner->getBaseStyles();
+        $styles = $this->getBaseAssets('styles');
 
         // Combine by media type.
-        Requirements::combine_files('styles.css', $styles['all']);
-        Requirements::combine_files('screen.css', $styles['screen'], 'screen');
-        Requirements::combine_files('print.css', $styles['print'], 'print');
+        if (!empty($styles['all'])) {
+            Requirements::combine_files('styles.css', $styles['all']);
+        }
+        if (!empty($styles['screen'])) {
+            Requirements::combine_files('screen.css', $styles['screen'], 'screen');
+        }
+        if (!empty($styles['print'])) {
+            Requirements::combine_files('print.css', $styles['print'], 'print');
+        }
 
         // Extra folder to keep the relative paths consistent when combining.
         Requirements::set_combined_files_folder(ASSETS_DIR . '/_combinedfiles/cwp-' . SSViewer::current_theme());
     }
 
     /**
-     * Add required base scripts for the default theme
+     * Add required base scripts for the default theme. You can disable this with configuration.
      *
      * @param array $scripts
      */
     public function updateBaseScripts(&$scripts)
     {
-        if (!CwpThemeHelper::singleton()->getIsDefaultTheme()) {
+        if (!CwpThemeHelper::singleton()->getIsDefaultTheme()
+            || Config::inst()->get(get_class($this), 'disable_default_scripts')
+        ) {
             return;
         }
 
@@ -57,29 +65,53 @@ class DefaultThemeExtension extends Extension
     }
 
     /**
-     * Add required base stylesheets for the default theme
+     * Add required base stylesheets for the default theme. You can disable this with configuration.
      *
      * @param array $styles
      */
     public function updateBaseStyles(&$styles)
     {
-        if (!CwpThemeHelper::singleton()->getIsDefaultTheme()) {
+        if (!CwpThemeHelper::singleton()->getIsDefaultTheme()
+            || Config::inst()->get(get_class($this), 'disable_default_styles')
+        ) {
             return;
         }
 
         $themeDir = SSViewer::get_theme_folder();
 
-        $styles = array_merge($styles, array(
-            'all' => array(
-                "$themeDir/css/layout.css",
-                "$themeDir/css/typography.css"
-            ),
-            'screen' => array(
-                "$themeDir/css/responsive.css"
-            ),
-            'print' => array(
-                "$themeDir/css/print.css"
-            )
+        $styles['all'] = !empty($styles['all']) ? $styles['all'] : array();
+        $styles['screen'] = !empty($styles['screen']) ? $styles['screen'] : array();
+        $styles['print'] = !empty($styles['print']) ? $styles['print'] : array();
+
+        $styles['all'] = array_merge($styles['all'], array(
+            "$themeDir/css/layout.css",
+            "$themeDir/css/typography.css"
         ));
+
+        $styles['screen'] = array_merge($styles['screen'], array(
+            "$themeDir/css/responsive.css"
+        ));
+
+        $styles['print'] = array_merge($styles['print'], array(
+            "$themeDir/css/print.css"
+        ));
+    }
+
+    /**
+     * Get base styles or scripts from either the owner class that this extension is applied to, or create a new
+     * BasePage_Controller to use instead. This prevents missing theme assets on the Security controller.
+     *
+     * @param string $type "styles" or "scripts"
+     * @return array
+     */
+    protected function getBaseAssets($type)
+    {
+        $method = 'getBase' . ucfirst($type);
+        if ($this->owner->hasMethod($method)) {
+            return $this->owner->$method();
+        }
+
+        $basePageController = BasePage_Controller::create();
+        return $basePageController->$method();
     }
 }
