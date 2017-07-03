@@ -23,22 +23,30 @@ class DefaultThemeExtension extends Extension
         $styles = $this->getBaseAssets('styles');
 
         // Combine by media type.
-        Requirements::combine_files('styles.css', $styles['all']);
-        Requirements::combine_files('screen.css', $styles['screen'], 'screen');
-        Requirements::combine_files('print.css', $styles['print'], 'print');
+        if (!empty($styles['all'])) {
+            Requirements::combine_files('styles.css', $styles['all']);
+        }
+        if (!empty($styles['screen'])) {
+            Requirements::combine_files('screen.css', $styles['screen'], 'screen');
+        }
+        if (!empty($styles['print'])) {
+            Requirements::combine_files('print.css', $styles['print'], 'print');
+        }
 
         // Extra folder to keep the relative paths consistent when combining.
         Requirements::set_combined_files_folder(ASSETS_DIR . '/_combinedfiles/cwp-' . SSViewer::current_theme());
     }
 
     /**
-     * Add required base scripts for the default theme
+     * Add required base scripts for the default theme. You can disable this with configuration.
      *
      * @param array $scripts
      */
     public function updateBaseScripts(&$scripts)
     {
-        if (!CwpThemeHelper::singleton()->getIsDefaultTheme()) {
+        if (!CwpThemeHelper::singleton()->getIsDefaultTheme()
+            || Config::inst()->get(get_class($this), 'disable_default_scripts')
+        ) {
             return;
         }
 
@@ -57,13 +65,15 @@ class DefaultThemeExtension extends Extension
     }
 
     /**
-     * Add required base stylesheets for the default theme
+     * Add required base stylesheets for the default theme. You can disable this with configuration.
      *
      * @param array $styles
      */
     public function updateBaseStyles(&$styles)
     {
-        if (!CwpThemeHelper::singleton()->getIsDefaultTheme()) {
+        if (!CwpThemeHelper::singleton()->getIsDefaultTheme()
+            || Config::inst()->get(get_class($this), 'disable_default_styles')
+        ) {
             return;
         }
 
