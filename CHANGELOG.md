@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.1 (2017-07-04)
+
+* FIX Add configuration option to disable default theme assets (Robbie Averill) - e113f96
+* FIX Ensure users can add custom styles and scripts with extensions and works in Security (Robbie Averill) - 76ddd70
+
 ## 1.0.0 (2017-06-02)
 ## 1.0.0-rc1 (2017-05-15)
 
