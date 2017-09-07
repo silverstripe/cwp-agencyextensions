@@ -4,7 +4,12 @@
 define('CWP_THEME_NAME', 'starter');
 
 $cwpEditor = HtmlEditorConfig::get('cwp');
-$cwpEditor->setOption('content_css', 'themes/' . SSViewer::current_theme() . '/dist/css/editor.css');
+
+// By default the agency extensions editor CSS stylesheet is added to HtmlEditorConfig. You can disable
+// this by setting the config below to true in your configuration.
+if (!Config::inst()->get('CwpThemeHelper', 'disable_editor_css')) {
+    $cwpEditor->setOption('content_css', 'themes/' . SSViewer::current_theme() . '/dist/css/editor.css');
+}
 
 // By default the FontAwesome plugin for TinyMCE is enabled. You can disable it by defining
 // CWP_AGENCY_DISABLE_FONTAWESOME_PLUGIN = true in your environment configuration.
