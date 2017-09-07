@@ -18,6 +18,14 @@ class CwpThemeHelper extends Object
     private static $default_themes = array('default');
 
     /**
+     * Change this in user code to disable the agency extensions editor.css from being added to HtmlEditorConfig
+     *
+     * @config
+     * @var bool
+     */
+    private static $disable_editor_css = false;
+
+    /**
      * Decide whether the current configured theme is the "default" CWP theme or a variation of it
      *
      * @return bool
