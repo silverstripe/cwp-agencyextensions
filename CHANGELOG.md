@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0 (2017-09-08)
+
+* NEW Add config static to prevent editor.css from being used by user code (Robbie Averill) - e22ed4f
+* Update branch alias for 1.1.x-dev (Robbie Averill) - c146476
+* Remove obsolete branch alias (Robbie Averill) - b96fb1b
+
 ## 1.0.1 (2017-07-04)
 
 * FIX Add configuration option to disable default theme assets (Robbie Averill) - e113f96
