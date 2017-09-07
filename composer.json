@@ -13,5 +13,9 @@
   "require-dev": {
     "friendsofphp/php-cs-fixer": "~2.0"
   },
-  "extra": []
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.1.x-dev"
+    }
+  }
 }
