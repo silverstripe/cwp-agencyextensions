@@ -1,5 +1,8 @@
 # CWP Agency Extensions Module
 
+[![Build Status](https://travis-ci.org/silverstripe/cwp-agencyextensions.svg?branch=master)](https://travis-ci.org/silverstripe/cwp-agencyextensions)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/silverstripe/cwp-agencyextensions/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/silverstripe/cwp-agencyextensions/?branch=master)
+
 This module provides some added configuration and underlying functionality that may be useful to allow clients/agencies to adjust website functionality theirselves, or to provide additional functionality that may not always be required for a CWP project.
 
 ## Summary of contents
