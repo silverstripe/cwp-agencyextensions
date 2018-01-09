@@ -1,4 +1,21 @@
 <?php
+
+namespace CWP\AgencyExtensions\Extensions;
+
+
+
+
+
+
+use SilverStripe\Assets\Image;
+use SilverStripe\Assets\File;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\View\SSViewer;
+use SilverStripe\Forms\TextField;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\ORM\DataExtension;
+
+
 /**
  * Class CWPCleanupSiteConfigExtension
  */
@@ -15,16 +32,16 @@ class CWPSiteConfigExtension extends DataExtension
     );
 
     private static $has_one = array(
-        'Logo' => 'Image',
-        'LogoRetina' => 'Image',
-        'FooterLogo' => 'Image',
-        'FooterLogoRetina' => 'Image',
-        'FooterLogoSecondary' => 'Image',
-        'FavIcon' => 'File',
-        'AppleTouchIcon144' => 'File',
-        'AppleTouchIcon114' => 'File',
-        'AppleTouchIcon72' => 'File',
-        'AppleTouchIcon57' => 'File'
+        'Logo' => Image::class,
+        'LogoRetina' => Image::class,
+        'FooterLogo' => Image::class,
+        'FooterLogoRetina' => Image::class,
+        'FooterLogoSecondary' => Image::class,
+        'FavIcon' => File::class,
+        'AppleTouchIcon144' => File::class,
+        'AppleTouchIcon114' => File::class,
+        'AppleTouchIcon72' => File::class,
+        'AppleTouchIcon57' => File::class
     );
 
     /**

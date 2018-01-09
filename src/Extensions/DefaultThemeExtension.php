@@ -1,4 +1,21 @@
 <?php
+
+namespace CWP\AgencyExtensions\Extensions;
+
+
+
+
+
+
+
+use CWP\AgencyExtensions\Helper\CwpThemeHelper;
+use SilverStripe\View\Requirements;
+use SilverStripe\View\SSViewer;
+use SilverStripe\Core\Config\Config;
+use CWP\CWP\PageTypes\BasePageController;
+use SilverStripe\Core\Extension;
+
+
 /**
  * This extension provides some extra requirements and functionality for the "default" CWP theme. It extends
  * the BasePage_Controller.
@@ -111,7 +128,7 @@ class DefaultThemeExtension extends Extension
             return $this->owner->$method();
         }
 
-        $basePageController = BasePage_Controller::create();
+        $basePageController = BasePageController::create();
         return $basePageController->$method();
     }
 }

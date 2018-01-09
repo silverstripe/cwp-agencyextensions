@@ -1,5 +1,19 @@
 <?php
 
+namespace CWP\AgencyExtensions\Tests\Helper;
+
+
+
+
+
+use SilverStripe\Core\Config\Config;
+use SilverStripe\View\SSViewer;
+use CWP\AgencyExtensions\Helper\CwpThemeHelper;
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\Dev\SapphireTest;
+
+
+
 class CwpThemeHelperTest extends SapphireTest
 {
     protected $usesDatabase = true;
@@ -9,11 +23,11 @@ class CwpThemeHelperTest extends SapphireTest
      */
     public function testDetectDefaultThemeViaConfig()
     {
-        Config::inst()->update('SSViewer', 'theme_enabled', true);
-        Config::inst()->update('SSViewer', 'theme', 'default');
+        Config::inst()->update(SSViewer::class, 'theme_enabled', true);
+        Config::inst()->update(SSViewer::class, 'theme', 'default');
         $this->assertTrue(CwpThemeHelper::singleton()->getIsDefaultTheme());
 
-        Config::inst()->update('SSViewer', 'theme', 'starter');
+        Config::inst()->update(SSViewer::class, 'theme', 'starter');
         $this->assertFalse(CwpThemeHelper::singleton()->getIsDefaultTheme());
     }
 
@@ -41,9 +55,9 @@ class CwpThemeHelperTest extends SapphireTest
      */
     public function testRenamedDefaultThemeCanBeDetected()
     {
-        Config::inst()->update('SSViewer', 'theme_enabled', true);
-        Config::inst()->update('SSViewer', 'theme', 'default-but-updated');
-        Config::inst()->update('CwpThemeHelper', 'default_themes', array('default-but-updated'));
+        Config::inst()->update(SSViewer::class, 'theme_enabled', true);
+        Config::inst()->update(SSViewer::class, 'theme', 'default-but-updated');
+        Config::inst()->update(CwpThemeHelper::class, 'default_themes', array('default-but-updated'));
 
         $this->assertTrue(CwpThemeHelper::singleton()->getIsDefaultTheme());
     }

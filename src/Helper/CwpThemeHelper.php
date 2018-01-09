@@ -1,5 +1,16 @@
 <?php
 
+namespace CWP\AgencyExtensions\Helper;
+
+use Object;
+
+
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\View\SSViewer;
+
+
+
 /**
  * The CWP theme helper provides some quick helper methods to support the CWP themes
  *
@@ -32,10 +43,10 @@ class CwpThemeHelper extends Object
      */
     public function getIsDefaultTheme()
     {
-        if (class_exists('SiteConfig') && ($config = SiteConfig::current_site_config()) && $config->Theme) {
+        if (class_exists(SiteConfig::class) && ($config = SiteConfig::current_site_config()) && $config->Theme) {
             $theme = $config->Theme;
-        } elseif (Config::inst()->get('SSViewer', 'theme_enabled') && Config::inst()->get('SSViewer', 'theme')) {
-            $theme = Config::inst()->get('SSViewer', 'theme');
+        } elseif (Config::inst()->get(SSViewer::class, 'theme_enabled') && Config::inst()->get(SSViewer::class, 'theme')) {
+            $theme = Config::inst()->get(SSViewer::class, 'theme');
         } else {
             $theme = false;
         }

@@ -1,9 +1,31 @@
 <?php
 
+namespace CWP\AgencyExtensions\Extensions;
+
+
+
+
+
+
+use GridFieldSortableRows;
+
+use CWP\AgencyExtensions\Model\CarouselItem;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldAddNewButton;
+use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
+use SilverStripe\Forms\GridField\GridFieldDeleteAction;
+use SilverStripe\Forms\GridField\GridFieldSortableHeader;
+use SilverStripe\Forms\LiteralField;
+use SilverStripe\ORM\DataExtension;
+
+
+
 class CarouselPageExtension extends DataExtension
 {
     private static $has_many = array(
-        'CarouselItems' => 'CarouselItem'
+        'CarouselItems' => CarouselItem::class
     );
 
     /**
@@ -36,15 +58,15 @@ class CarouselPageExtension extends DataExtension
             GridFieldConfig_RelationEditor::create()
         );
         $gridConfig = $gridField->getConfig();
-        $gridConfig->getComponentByType('GridFieldAddNewButton')->setButtonName(
+        $gridConfig->getComponentByType(GridFieldAddNewButton::class)->setButtonName(
             _t('BaseHomePage.AddNewButton', 'Add new')
         );
-        $gridConfig->removeComponentsByType('GridFieldAddExistingAutocompleter');
-        $gridConfig->removeComponentsByType('GridFieldDeleteAction');
+        $gridConfig->removeComponentsByType(GridFieldAddExistingAutocompleter::class);
+        $gridConfig->removeComponentsByType(GridFieldDeleteAction::class);
         $gridConfig->addComponent(new GridFieldDeleteAction());
         $gridConfig->addComponent(new GridFieldSortableRows('SortOrder'));
-        $gridConfig->removeComponentsByType('GridFieldSortableHeader');
-        $gridField->setModelClass('CarouselItem');
+        $gridConfig->removeComponentsByType(GridFieldSortableHeader::class);
+        $gridField->setModelClass(CarouselItem::class);
 
         $fields->findOrMakeTab(
             'Root.Carousel',

@@ -1,5 +1,20 @@
 <?php
 
+namespace CWP\AgencyExtensions\Tests\Extensions;
+
+
+
+
+use SelectUploadField;
+
+use SilverStripe\Core\Config\Config;
+use SilverStripe\View\SSViewer;
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Dev\SapphireTest;
+
+
+
 class CWPSiteConfigExtensionTest extends SapphireTest
 {
     protected $usesDatabase = true;
@@ -13,7 +28,7 @@ class CWPSiteConfigExtensionTest extends SapphireTest
     {
         parent::setUp();
         Config::nest();
-        Config::inst()->update('SSViewer', 'theme', CWP_THEME_NAME);
+        Config::inst()->update(SSViewer::class, 'theme', CWP_THEME_NAME);
     }
 
     /**
@@ -30,7 +45,7 @@ class CWPSiteConfigExtensionTest extends SapphireTest
      */
     public function testFieldsAreNotRemovedWhenNotUsingCwpTheme()
     {
-        Config::inst()->update('SSViewer', 'theme', 'simple');
+        Config::inst()->update(SSViewer::class, 'theme', 'simple');
         $fields = SiteConfig::create()->getCMSFields();
         $this->assertInstanceOf(SelectUploadField::class, $fields->fieldByName('Root.LogosIcons.LogoRetina'));
     }

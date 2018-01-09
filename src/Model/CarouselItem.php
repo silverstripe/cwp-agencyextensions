@@ -1,4 +1,28 @@
 <?php
+
+namespace CWP\AgencyExtensions\Model;
+
+
+
+
+use HtmlEditorField;
+
+
+
+
+
+use SilverStripe\Assets\Image;
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Forms\TextField;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\TreeDropdownField;
+use SilverStripe\Forms\LabelField;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\CompositeField;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\ORM\DataObject;
+
+
 class CarouselItem extends DataObject
 {
     private static $db = array(
@@ -12,9 +36,9 @@ class CarouselItem extends DataObject
 
     private static $has_one = array(
         'Parent' => 'HomePage',
-        'Image' => 'Image',
-        'PrimaryCallToAction' => 'SiteTree',
-        'SecondaryCallToAction' => 'SiteTree'
+        'Image' => Image::class,
+        'PrimaryCallToAction' => SiteTree::class,
+        'SecondaryCallToAction' => SiteTree::class
     );
 
     private static $summary_fields = array(
@@ -46,7 +70,7 @@ class CarouselItem extends DataObject
                     )
                 ),
             // Image
-            UploadField::create('Image', 'Image')
+            UploadField::create(Image::class, Image::class)
                 ->setAllowedFileCategories('image')
                 ->setDescription(
                     _t(
@@ -59,13 +83,13 @@ class CarouselItem extends DataObject
             TreeDropdownField::create(
                 'PrimaryCallToActionID',
                 _t('CwpCarousel.PRIMARYCALLTOACTION', 'Primary Call To Action Link'),
-                'SiteTree'
+                SiteTree::class
             ),
             TextField::create('SecondaryCallToActionLabel'),
             TreeDropdownField::create(
                 'SecondaryCallToActionID',
                 _t('CwpCarousel.SECONDARYCALLTOACTION', 'Secondary Call To Action Link'),
-                'SiteTree'
+                SiteTree::class
             ),
             // Can archive option
             CompositeField::create(

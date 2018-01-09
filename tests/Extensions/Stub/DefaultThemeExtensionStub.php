@@ -1,4 +1,13 @@
 <?php
+
+namespace CWP\AgencyExtensions\Tests\Extensions\Stub;
+
+
+
+use SilverStripe\Core\Extension;
+use SilverStripe\Dev\TestOnly;
+
+
 /**
  * A stub that imitates a CWP agency's implementation of adding custom scripts or styles
  */

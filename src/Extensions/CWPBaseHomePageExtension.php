@@ -1,5 +1,16 @@
 <?php
 
+namespace CWP\AgencyExtensions\Extensions;
+
+
+
+
+use SilverStripe\Forms\FieldList;
+use CWP\AgencyExtensions\Helper\CwpThemeHelper;
+use SilverStripe\ORM\DataExtension;
+
+
+
 class CWPBaseHomePageExtension extends DataExtension
 {
     /**
