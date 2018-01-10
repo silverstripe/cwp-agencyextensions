@@ -7,13 +7,14 @@ namespace CWP\AgencyExtensions\Extensions;
 
 
 
-use SilverStripe\Assets\Image;
+use SilverStripe\ORM\DataExtension;
+use SilverStripe\Core\Environment;
 use SilverStripe\Assets\File;
 use SilverStripe\Forms\FieldList;
+use SilverStripe\Assets\Image;
 use SilverStripe\View\SSViewer;
 use SilverStripe\Forms\TextField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
-use SilverStripe\ORM\DataExtension;
 
 
 /**
@@ -49,13 +50,20 @@ class CWPSiteConfigExtension extends DataExtension
      *
      * @var array
      */
-    protected $fieldsToRemoveByTheme = array(
-        CWP_THEME_NAME => array(
-            'AddThisProfileID',
-            'LogoRetina',
-            'FooterLogoRetina'
-        )
-    );
+    protected $fieldsToRemoveByTheme = [];
+
+    public function __construct()
+    {
+        $cwpThemeName = Environment::getEnv('CWP_THEME_NAME');
+        $this->fieldsToRemoveByTheme = [
+            $cwpThemeName => array(
+                'AddThisProfileID',
+                'LogoRetina',
+                'FooterLogoRetina'
+            )
+        ];
+        parent::__construct();
+    }
 
     /**
      * @param FieldList $fields

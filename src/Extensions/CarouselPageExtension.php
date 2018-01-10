@@ -7,7 +7,7 @@ namespace CWP\AgencyExtensions\Extensions;
 
 
 
-use GridFieldSortableRows;
+use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 
 use CWP\AgencyExtensions\Model\CarouselItem;
 use SilverStripe\Forms\FieldList;
@@ -64,7 +64,9 @@ class CarouselPageExtension extends DataExtension
         $gridConfig->removeComponentsByType(GridFieldAddExistingAutocompleter::class);
         $gridConfig->removeComponentsByType(GridFieldDeleteAction::class);
         $gridConfig->addComponent(new GridFieldDeleteAction());
-        $gridConfig->addComponent(new GridFieldSortableRows('SortOrder'));
+        if (class_exists(GridFieldSortableRows::class)) {
+            $gridConfig->addComponent(new GridFieldSortableRows('SortOrder'));
+        }
         $gridConfig->removeComponentsByType(GridFieldSortableHeader::class);
         $gridField->setModelClass(CarouselItem::class);
 

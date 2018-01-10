@@ -7,6 +7,8 @@ use Object;
 
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Core\Config\Config;
+use SilverStripe\Core\Config\Configurable;
+use SilverStripe\Core\Injector\Injectable;
 use SilverStripe\View\SSViewer;
 
 
@@ -18,8 +20,11 @@ use SilverStripe\View\SSViewer;
  *
  * @deprecated 2.0
  */
-class CwpThemeHelper extends Object
+class CwpThemeHelper
 {
+    use Configurable;
+    use Injectable;
+
     /**
      * Define the theme names that will have combined styles and scripts added - see {@link DefaultThemeExtension}
      *

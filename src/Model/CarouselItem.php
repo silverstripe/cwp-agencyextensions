@@ -106,7 +106,7 @@ class CarouselItem extends DataObject
         return $fields;
     }
 
-    public function canCreate($member = null)
+    public function canCreate($member = null, $context = array())
     {
         return $this->Parent()->canCreate($member);
     }

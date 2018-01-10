@@ -8,10 +8,11 @@ namespace CWP\AgencyExtensions\Tests\Extensions;
 use SelectUploadField;
 
 use SilverStripe\Core\Config\Config;
-use SilverStripe\View\SSViewer;
-use SilverStripe\SiteConfig\SiteConfig;
-use SilverStripe\Forms\TextField;
+use SilverStripe\Core\Environment;
 use SilverStripe\Dev\SapphireTest;
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\View\SSViewer;
+use SilverStripe\Forms\TextField;
 
 
 
@@ -28,7 +29,7 @@ class CWPSiteConfigExtensionTest extends SapphireTest
     {
         parent::setUp();
         Config::nest();
-        Config::inst()->update(SSViewer::class, 'theme', CWP_THEME_NAME);
+        Config::inst()->update(SSViewer::class, 'theme', Environment::getEnv('CWP_THEME_NAME'));
     }
 
     /**
