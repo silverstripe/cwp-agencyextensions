@@ -5,10 +5,10 @@ namespace CWP\AgencyExtensions\Model;
 
 
 
-use HtmlEditorField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 
 
-
+use SilverStripe\Versioned\Versioned;
 
 
 use SilverStripe\Assets\Image;
@@ -25,35 +25,45 @@ use SilverStripe\ORM\DataObject;
 
 class CarouselItem extends DataObject
 {
-    private static $db = array(
+    private static $table_name = 'CarouselItem';
+
+    private static $extensions = [
+        Versioned::class
+    ];
+
+    private static $db = [
         'Title' => 'Varchar(255)',
         'Content' => 'HTMLText',
         'Archived' => 'Boolean',
         'SortOrder' => 'Int',
         'PrimaryCallToActionLabel' => 'Varchar(255)',
         'SecondaryCallToActionLabel' => 'Varchar(255)'
-    );
+    ];
 
-    private static $has_one = array(
+    private static $has_one = [
         'Parent' => 'HomePage',
         'Image' => Image::class,
         'PrimaryCallToAction' => SiteTree::class,
         'SecondaryCallToAction' => SiteTree::class
-    );
+    ];
 
-    private static $summary_fields = array(
+    private static $owns = [
+        'Image'
+    ];
+
+    private static $summary_fields = [
         'ImageThumb' => 'Image',
         'Title' => 'Title',
         'Content.FirstSentence' => 'Text',
         'PrimaryCallToAction.Title' => 'Primary CTA',
         'SecondaryCallToAction.Title' => 'Secondary CTA',
         'ArchivedReadable' => 'Current Status'
-    );
+    ];
 
-    private static $searchable_fields = array(
+    private static $searchable_fields = [
         'Title',
         'Content'
-    );
+    ];
 
     public function getCMSFields()
     {
@@ -65,16 +75,16 @@ class CarouselItem extends DataObject
                 ->setRows(5)
                 ->setDescription(
                     _t(
-                        'CwpCarousel.CONTENT_HELPTIP',
+                        __CLASS__ . '.CONTENT_HELPTIP',
                         'Recommended: Use less than 50 words. For carousel slides, use similar amount of content to ensure carousel height does not vary.'
                     )
                 ),
             // Image
-            UploadField::create(Image::class, Image::class)
+            UploadField::create('Image', 'Image')
                 ->setAllowedFileCategories('image')
                 ->setDescription(
                     _t(
-                        'CwpCarousel.IMAGE_HELPTIP',
+                        __CLASS__ . '.IMAGE_HELPTIP',
                         'Recommended: Use high resolution images greater than 1600x900px.'
                     )
                 ),
@@ -82,23 +92,18 @@ class CarouselItem extends DataObject
             TextField::create('PrimaryCallToActionLabel'),
             TreeDropdownField::create(
                 'PrimaryCallToActionID',
-                _t('CwpCarousel.PRIMARYCALLTOACTION', 'Primary Call To Action Link'),
+                _t(__CLASS__ . '.PRIMARYCALLTOACTION', 'Primary Call To Action Link'),
                 SiteTree::class
             ),
             TextField::create('SecondaryCallToActionLabel'),
             TreeDropdownField::create(
                 'SecondaryCallToActionID',
-                _t('CwpCarousel.SECONDARYCALLTOACTION', 'Secondary Call To Action Link'),
+                _t(__CLASS__ . '.SECONDARYCALLTOACTION', 'Secondary Call To Action Link'),
                 SiteTree::class
             ),
             // Can archive option
-            CompositeField::create(
-                LabelField::create(
-                    'LabelArchive',
-                    _t('CwpCarousel.ArchivedField', 'Archive this carousel item?')
-                )->addExtraClass('left'),
-                CheckboxField::create('Archived', '')
-            )->addExtraClass('field special')
+            CheckboxField::create('Archived', _t(__CLASS__ . '.ARCHIVED', 'Archived'))
+                ->setDescription(_t(__CLASS__ . '.ArchivedField', 'Archive this carousel item?'))
         );
 
         $this->extend('updateCMSFields', $fields);

@@ -7,14 +7,17 @@ The carousel extension provides the ability to add a carousel of images and/or t
 
 ## Configuration
 
-To add the extension, add the following to your YAML configuration (e.g. `_config/config.yml`):
+To add the extension to a page, add the extension to your Page type via the YAML configuration. E.g. in `_config/config.yml`:
 
-    BaseHomePage:
-      extensions:
-        - CarouselPageExtension
+```yml
+CWP\CWP\PageTypes\BaseHomePage:
+  extensions:
+    - CWP\AgencyExtensions\Extensions\CarouselPageExtension
+```
 
 This will add a "Carousel" tab in the CMS when you edit a BaseHomePage. From here you can manage the slides for your
 carousel.
+**Note:** The configuration in the example is enabled by default (Carousels are applied to CWP's BaseHomePage).
 
 ## Usage
 

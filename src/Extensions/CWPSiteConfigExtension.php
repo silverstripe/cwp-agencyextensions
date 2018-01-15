@@ -14,7 +14,9 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Assets\Image;
 use SilverStripe\View\SSViewer;
 use SilverStripe\Forms\TextField;
-use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\FileHandleField;
+use SilverStripe\Core\Injector\Injector;
+use SilverStripe\Core\Config\Configurable;
 
 
 /**
@@ -22,6 +24,14 @@ use SilverStripe\AssetAdmin\Forms\UploadField;
  */
 class CWPSiteConfigExtension extends DataExtension
 {
+    use Configurable;
+
+    private static $hide_fields = [
+        'AddThisProfileID',
+        'LogoRetina',
+        'FooterLogoRetina'
+    ];
+
     private static $db = array(
         'AddThisProfileID' => 'Varchar(32)',
         'FooterLogoLink' => 'Varchar(255)',
@@ -46,26 +56,6 @@ class CWPSiteConfigExtension extends DataExtension
     );
 
     /**
-     * Define fields that should be removed for specific CWP themes
-     *
-     * @var array
-     */
-    protected $fieldsToRemoveByTheme = [];
-
-    public function __construct()
-    {
-        $cwpThemeName = Environment::getEnv('CWP_THEME_NAME');
-        $this->fieldsToRemoveByTheme = [
-            $cwpThemeName => array(
-                'AddThisProfileID',
-                'LogoRetina',
-                'FooterLogoRetina'
-            )
-        ];
-        parent::__construct();
-    }
-
-    /**
      * @param FieldList $fields
      */
     public function updateCMSFields(FieldList $fields)
@@ -85,10 +75,7 @@ class CWPSiteConfigExtension extends DataExtension
      */
     protected function removeFieldsForCurrentTheme(FieldList $fields)
     {
-        foreach ($this->fieldsToRemoveByTheme as $themeName => $fieldNames) {
-            if (SSViewer::current_theme() !== $themeName) {
-                continue;
-            }
+        foreach ($this->config()->hide_fields as $fieldNames) {
             $fields->removeByName($fieldNames);
         }
         return $this;
@@ -138,17 +125,18 @@ class CWPSiteConfigExtension extends DataExtension
 
         $fields->addFieldToTab(
             'Root.LogosIcons',
-            $logoField = UploadField::create(
+            $logoField = Injector::inst()->create(
+                FileHandleField::class,
                 'Logo',
                 _t('CwpConfig.LogoUploadField', 'Logo, to appear in the top left')
             )
         );
         $logoField->getValidator()->setAllowedExtensions($logoTypes);
-        $logoField->setConfig('allowedMaxFileNumber', 1);
 
         $fields->addFieldToTab(
             'Root.LogosIcons',
-            $logoRetinaField = UploadField::create(
+            $logoRetinaField = Injector::inst()->create(
+                FileHandleField::class,
                 'LogoRetina',
                 _t(
                     'CwpConfig.LogoRetinaUploadField',
@@ -157,21 +145,21 @@ class CWPSiteConfigExtension extends DataExtension
             )
         );
         $logoRetinaField->getValidator()->setAllowedExtensions($logoTypes);
-        $logoRetinaField->setConfig('allowedMaxFileNumber', 1);
 
         $fields->addFieldToTab(
             'Root.LogosIcons',
-            $footerLogoField = UploadField::create(
+            $footerLogoField = Injector::inst()->create(
+                FileHandleField::class,
                 'FooterLogo',
                 _t('CwpConfig.FooterLogoField', 'Footer logo, to appear in the footer')
             )
         );
         $footerLogoField->getValidator()->setAllowedExtensions($logoTypes);
-        $footerLogoField->setConfig('allowedMaxFileNumber', 1);
 
         $fields->addFieldToTab(
             'Root.LogosIcons',
-            $footerLogoRetinaField = UploadField::create(
+            $footerLogoRetinaField = Injector::inst()->create(
+                FileHandleField::class,
                 'FooterLogoRetina',
                 _t(
                     'CwpConfig.FooterLogoRetinaField',
@@ -180,7 +168,6 @@ class CWPSiteConfigExtension extends DataExtension
             )
         );
         $footerLogoRetinaField->getValidator()->setAllowedExtensions($logoTypes);
-        $footerLogoRetinaField->setConfig('allowedMaxFileNumber', 1);
 
         $fields->addFieldToTab(
             'Root.LogosIcons',
@@ -206,13 +193,13 @@ class CWPSiteConfigExtension extends DataExtension
 
         $fields->addFieldToTab(
             'Root.LogosIcons',
-            $footerLogoSecondaryField = UploadField::create(
+            $footerLogoSecondaryField = Injector::inst()->create(
+                FileHandleField::class,
                 'FooterLogoSecondary',
                 _t('CwpConfig.FooterLogoSecondaryField', 'Secondary Footer Logo, to appear in the footer.')
             )
         );
         $footerLogoSecondaryField->getValidator()->setAllowedExtensions($logoTypes);
-        $footerLogoSecondaryField->setConfig('allowedMaxFileNumber', 1);
 
         $fields->addFieldToTab('Root.LogosIcons', $footerSecondaryLink = TextField::create(
             'FooterLogoSecondaryLink',
@@ -229,17 +216,18 @@ class CWPSiteConfigExtension extends DataExtension
 
         $fields->addFieldToTab(
             'Root.LogosIcons',
-            $favIconField = UploadField::create(
+            $favIconField = Injector::inst()->create(
+                FileHandleField::class,
                 'FavIcon',
                 _t('CwpConfig.FavIconField', 'Favicon, in .ico format, dimensions of 16x16, 32x32, or 48x48')
             )
         );
         $favIconField->getValidator()->setAllowedExtensions($iconTypes);
-        $favIconField->setConfig('allowedMaxFileNumber', 1);
 
         $fields->addFieldToTab(
             'Root.LogosIcons',
-            $atIcon144 = UploadField::create(
+            $atIcon144 = Injector::inst()->create(
+                FileHandleField::class,
                 'AppleTouchIcon144',
                 _t(
                     'CwpConfig.AppleIconField144',
@@ -248,37 +236,36 @@ class CWPSiteConfigExtension extends DataExtension
             )
         );
         $atIcon144->getValidator()->setAllowedExtensions($appleTouchTypes);
-        $atIcon144->setConfig('allowedMaxFileNumber', 1);
 
         $fields->addFieldToTab(
             'Root.LogosIcons',
-            $atIcon114 = UploadField::create(
+            $atIcon114 = Injector::inst()->create(
+                FileHandleField::class,
                 'AppleTouchIcon114',
                 _t('CwpConfig.AppleIconField114', 'Apple Touch Web Clip Icon (dimensions of 114x114, PNG format)')
             )
         );
         $atIcon114->getValidator()->setAllowedExtensions($appleTouchTypes);
-        $atIcon114->setConfig('allowedMaxFileNumber', 1);
 
         $fields->addFieldToTab(
             'Root.LogosIcons',
-            $atIcon72 = UploadField::create(
+            $atIcon72 = Injector::inst()->create(
+                FileHandleField::class,
                 'AppleTouchIcon72',
                 _t('CwpConfig.AppleIconField72', 'Apple Touch Web Clip Icon (dimensions of 72x72, PNG format)')
             )
         );
         $atIcon72->getValidator()->setAllowedExtensions($appleTouchTypes);
-        $atIcon72->setConfig('allowedMaxFileNumber', 1);
 
         $fields->addFieldToTab(
             'Root.LogosIcons',
-            $atIcon57 = UploadField::create(
+            $atIcon57 = Injector::inst()->create(
+                FileHandleField::class,
                 'AppleTouchIcon57',
                 _t('CwpConfig.AppleIconField57', 'Apple Touch Web Clip Icon (dimensions of 57x57, PNG format)')
             )
         );
         $atIcon57->getValidator()->setAllowedExtensions($appleTouchTypes);
-        $atIcon57->setConfig('allowedMaxFileNumber', 1);
 
         return $this;
     }

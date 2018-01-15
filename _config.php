@@ -8,22 +8,16 @@ use SilverStripe\Core\Manifest\ModuleLoader;
 use SilverStripe\View\ThemeResourceLoader;
 use SilverStripe\View\SSViewer;
 
-// The name for the 'starter-theme' theme. This is also valid for 'Watea', since it is a subtheme.
-Environment::setEnv('CWP_THEME_NAME', 'starter');
-
 $cwpEditor = HtmlEditorConfig::get('cwp');
 
 // By default the agency extensions editor CSS stylesheet is added to HtmlEditorConfig. You can disable
 // this by setting the config below to true in your configuration.
 if (!Config::inst()->get(CwpThemeHelper::class, 'disable_editor_css')) {
-    $cwpEditor->setOption(
-        'content_css', 
-        ThemeResourceLoader::inst()->findThemedCSS(
-            'editor.css', 
-            SSViewer::get_themes()
-        )
+    $editorCSS = ThemeResourceLoader::inst()->findThemedCSS(
+        'editor.css', 
+        SSViewer::get_themes()
     );
-    // $cwpEditor->setOption('content_css', 'themes/' . SSViewer::current_theme() . '/dist/css/editor.css');
+    $cwpEditor->setOption('content_css', $editorCSS);
 }
 
 // By default the FontAwesome plugin for TinyMCE is enabled. You can disable it by defining

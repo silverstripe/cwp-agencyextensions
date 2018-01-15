@@ -4,15 +4,6 @@ Name: agencyextensionsconfig
 CWP\CWP\PageTypes\BaseHomePage:
   extensions:
     - CWP\AgencyExtensions\Extensions\CarouselPageExtension
-    - CWP\AgencyExtensions\Extensions\CWPBaseHomePageExtension
-
-CWP\CWP\PageTypes\BasePageController:
-  extensions:
-    - CWP\AgencyExtensions\Extensions\DefaultThemeExtension
-
-SilverStripe\Security\Security:
-  extensions:
-    - CWP\AgencyExtensions\Extensions\DefaultThemeExtension
 
 PageController:
   extensions:
