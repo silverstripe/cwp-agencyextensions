@@ -75,7 +75,7 @@ class CWPSiteConfigExtension extends DataExtension
      */
     protected function removeFieldsForCurrentTheme(FieldList $fields)
     {
-        foreach ($this->config()->hide_fields as $fieldNames) {
+        foreach ((array)$this->config()->hide_fields as $fieldNames) {
             $fields->removeByName($fieldNames);
         }
         return $this;
