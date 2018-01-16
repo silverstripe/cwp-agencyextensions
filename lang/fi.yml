@@ -1,10 +1,8 @@
 fi:
-  CarouselItem:
+  CWP\AgencyExtensions\Model\CarouselItem:
     PLURALNAME: 'Karusellin kohteet'
     SINGULARNAME: 'Karusellin kohde'
-  CustomSiteConfig:
-    LogosIconsTab: Logot/ikonit
-  CwpConfig:
+  CWP\AgencyExtensions\Extensions\CWPSiteConfigExtension:
     AddThisField: 'AddThis profiili-ID'
     AddThisFieldDesc: 'Profiili-ID käytettäväksi läpi sivuston (formaatissa <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
     AppleIconField114: 'Apple Touch Web Clip ikoni (114x114 px PNG)'
@@ -19,6 +17,7 @@ fi:
     FooterLogoRetinaField: 'Korkearesoluutioinen logo alatunnisteeseen (suositellaan kaksinkertaista resoluutiota suhteessa peruslogoon)'
     LogoRetinaUploadField: 'Korkearesoluutioinen logo vasempaan yläkulmaan (suositellaan kaksinkertaista resoluutiota suhteessa peruslogoon)'
     LogoUploadField: 'Logo vasempaan yläkulmaan'
+    LogosIconsTab: Logot/ikonit
   CwpCarousel:
     ArchivedField: 'Arkistoi tämä karuselliartikkeli?'
     LinkField: Linkki

@@ -1,7 +1,6 @@
 de:
-  CustomSiteConfig:
-    LogosIconsTab: Logos/Symbole
   CwpCarousel:
     LinkField: Link
-  CwpConfig:
+  CWP\AgencyExtensions\Extensions\CWPSiteConfigExtension:
     AddThisField: 'Diese Profilkennung hinzufügen'
+    LogosIconsTab: Logos/Symbole

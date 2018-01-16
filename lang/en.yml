@@ -1,15 +1,13 @@
 en:
-  BaseHomePage:
+  CWP\AgencyExtensions\Extensions\CarouselPageExtension:
     HERO_CAROUSEL: 'Hero/Carousel'
     CarouselHelpTip: 'NOTE: Carousel functionality will automatically be loaded when 2 or more items are added below'
-  CarouselItem:
+  CWP\AgencyExtensions\Model\CarouselItem:
     PLURALNAME: 'Carousel Items'
     SINGULARNAME: 'Carousel Item'
     CAROUSEL_ITEM: 'Carousel item {pos}'
     CONTENT_HELPTIP: 'Recommended: Use less than 50 words. For carousel slides, use similar amount of content to ensure carousel height does not vary.'
     IMAGE_HELPTIP: 'Recommended: Use high resolution images greater than 1600x900px.'
-  CustomSiteConfig:
-    LogosIconsTab: Logos/Icons
   CwpCarousel:
     ArchivedField: 'Archive this carousel item?'
     LinkField: Link
@@ -17,7 +15,7 @@ en:
     PREVIOUS: 'Previous'
     PAUSE: 'Pause'
     NEXT: 'Next'
-  CwpConfig:
+  CWP\AgencyExtensions\Extensions\CWPSiteConfigExtension:
     AddThisField: 'AddThis Profile ID'
     AddThisFieldDesc: 'Profile ID to be used all across the site (in the format <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
     AppleIconField114: 'Apple Touch Web Clip Icon (dimensions of 114x114, PNG format)'
@@ -32,3 +30,4 @@ en:
     FooterLogoRetinaField: 'High resolution footer logo (recommended twice the height and width of the standard footer logo)'
     LogoRetinaUploadField: 'High resolution logo, to appear in the top left (recommended twice the height and width of the standard logo)'
     LogoUploadField: 'Logo, to appear in the top left'
+    LogosIconsTab: Logos/Icons

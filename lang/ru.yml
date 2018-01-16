@@ -1,13 +1,12 @@
 ru:
-  CarouselItem:
+  CWP\AgencyExtensions\Model\CarouselItem:
     PLURALNAME: Слайдшоу
     SINGULARNAME: Слайд
-  CustomSiteConfig:
-    LogosIconsTab: Логотипы/Иконки
   CwpCarousel:
     ArchivedField: 'Отправить в архив этот слайд?'
     LinkField: Ссылка
     NoteField: 'Внимание: вы должны создать/сохранить слайд прежде чем вы сможете добавить изображение'
-  CwpConfig:
+  CWP\AgencyExtensions\Extensions\CWPSiteConfigExtension:
     AddThisField: 'Добавить этот Профайл'
     AddThisFieldDesc: 'Индфикатор профайл для использования на сайте должен быть в формате <strong>ra-XXXXXXXXXXXXXXXX</strong>'
+    LogosIconsTab: Логотипы/Иконки

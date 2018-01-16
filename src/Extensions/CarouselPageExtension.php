@@ -19,14 +19,19 @@ use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use SilverStripe\Forms\GridField\GridFieldSortableHeader;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\ORM\DataExtension;
+use SilverStripe\Forms\GridField\GridFieldVersionedState;
 
 
 
 class CarouselPageExtension extends DataExtension
 {
-    private static $has_many = array(
+    private static $has_many = [
         'CarouselItems' => CarouselItem::class
-    );
+    ];
+
+    private static $owns = [
+        'CarouselItems'
+    ];
 
     /**
      * @return DataList
@@ -53,17 +58,22 @@ class CarouselPageExtension extends DataExtension
     {
         $gridField = GridField::create(
             'CarouselItems',
-            _t('BaseHomePage.HERO_CAROUSEL', 'Hero/Carousel'),
+            _t(__CLASS__ . 'TITLE', 'Hero/Carousel'),
             $this->getCarouselItems(),
             GridFieldConfig_RelationEditor::create()
         );
+        $gridField->setDescription( _t(
+            __CLASS__ . 'NOTE',
+            'NOTE: Carousel functionality will automatically be loaded when 2 or more items are added below'
+        ));
         $gridConfig = $gridField->getConfig();
         $gridConfig->getComponentByType(GridFieldAddNewButton::class)->setButtonName(
-            _t('BaseHomePage.AddNewButton', 'Add new')
+            _t(__CLASS__ . 'ADDNEW', 'Add new')
         );
         $gridConfig->removeComponentsByType(GridFieldAddExistingAutocompleter::class);
         $gridConfig->removeComponentsByType(GridFieldDeleteAction::class);
         $gridConfig->addComponent(new GridFieldDeleteAction());
+        $gridConfig->addComponent(new GridFieldVersionedState());
         if (class_exists(GridFieldSortableRows::class)) {
             $gridConfig->addComponent(new GridFieldSortableRows('SortOrder'));
         }
@@ -72,18 +82,9 @@ class CarouselPageExtension extends DataExtension
 
         $fields->findOrMakeTab(
             'Root.Carousel',
-            _t('BaseHomePage.HERO_CAROUSEL', 'Hero/Carousel')
+            _t(__CLASS__ . 'TITLE', 'Hero/Carousel')
         );
 
-        $fields->addFieldsToTab(
-            'Root.Carousel',
-            array(
-                LiteralField::create(
-                    'CarouselHelpTip',
-                    'NOTE: Carousel functionality will automatically be loaded when 2 or more items are added below'
-                ),
-                $gridField
-            )
-        );
+        $fields->addFieldToTab('Root.Carousel', $gridField);
     }
 }

@@ -1,7 +1,7 @@
 fr:
   AssetTableField:
     PAGES: page(s)
-  BaseHomePage:
+  CWP\AgencyExtensions\Extensions\CarouselPageExtension:
     DESCRIPTION: 'Generic content page'
     Title: Titre
   BasePage:
@@ -9,7 +9,7 @@ fr:
     DESCRIPTION: 'Generic content page'
     PLURALNAME: 'Base Pages'
     TagsTabTitle: Tags
-  CwpConfig:
+  CWP\AgencyExtensions\Extensions\CWPSiteConfigExtension:
     AddThisField: 'ID du profil AddThis'
   CwpSearchPage:
     DESCRIPTION: 'Generic content page'

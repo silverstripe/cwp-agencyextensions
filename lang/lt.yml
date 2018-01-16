@@ -1,5 +1,5 @@
 lt:
-  BaseHomePage:
+  CWP\AgencyExtensions\Extensions\CarouselPageExtension:
     DESCRIPTION: 'Standartinio turinio puslapis'
     FeatureContentFieldLabel: Turinys
     Title: Pavadinimas

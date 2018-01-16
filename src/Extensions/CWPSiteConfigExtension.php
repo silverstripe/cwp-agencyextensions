@@ -93,7 +93,7 @@ class CWPSiteConfigExtension extends DataExtension
             'Root.SocialMedia',
             $addThisID = TextField::create(
                 'AddThisProfileID',
-                _t('CwpConfig.AddThisField', 'AddThis Profile ID')
+                _t(__CLASS__ . '.AddThisField', 'AddThis Profile ID')
             )
         );
         $addThisID->setRightTitle(
@@ -120,7 +120,7 @@ class CWPSiteConfigExtension extends DataExtension
 
         $fields->findOrMakeTab(
             'Root.LogosIcons',
-            _t('CustomSiteConfig.LogosIconsTab', 'Logos/Icons')
+            _t(__CLASS__ . '.LogosIconsTab', 'Logos/Icons')
         );
 
         $fields->addFieldToTab(
@@ -128,7 +128,7 @@ class CWPSiteConfigExtension extends DataExtension
             $logoField = Injector::inst()->create(
                 FileHandleField::class,
                 'Logo',
-                _t('CwpConfig.LogoUploadField', 'Logo, to appear in the top left')
+                _t(__CLASS__ . '.LogoUploadField', 'Logo, to appear in the top left')
             )
         );
         $logoField->getValidator()->setAllowedExtensions($logoTypes);
@@ -151,7 +151,7 @@ class CWPSiteConfigExtension extends DataExtension
             $footerLogoField = Injector::inst()->create(
                 FileHandleField::class,
                 'FooterLogo',
-                _t('CwpConfig.FooterLogoField', 'Footer logo, to appear in the footer')
+                _t(__CLASS__ . '.FooterLogoField', 'Footer logo, to appear in the footer')
             )
         );
         $footerLogoField->getValidator()->setAllowedExtensions($logoTypes);
@@ -173,7 +173,7 @@ class CWPSiteConfigExtension extends DataExtension
             'Root.LogosIcons',
             $footerLink = TextField::create(
                 'FooterLogoLink',
-                _t('CwpConfig.FooterLogoLinkField', 'Footer Logo link')
+                _t(__CLASS__ . '.FooterLogoLinkField', 'Footer Logo link')
             )
         );
         $footerLink->setRightTitle(
@@ -187,7 +187,7 @@ class CWPSiteConfigExtension extends DataExtension
             'Root.LogosIcons',
             TextField::create(
                 'FooterLogoDescription',
-                _t('CwpConfig.FooterLogoDescField', 'Footer Logo description')
+                _t(__CLASS__ . '.FooterLogoDescField', 'Footer Logo description')
             )
         );
 
@@ -196,14 +196,14 @@ class CWPSiteConfigExtension extends DataExtension
             $footerLogoSecondaryField = Injector::inst()->create(
                 FileHandleField::class,
                 'FooterLogoSecondary',
-                _t('CwpConfig.FooterLogoSecondaryField', 'Secondary Footer Logo, to appear in the footer.')
+                _t(__CLASS__ . '.FooterLogoSecondaryField', 'Secondary Footer Logo, to appear in the footer.')
             )
         );
         $footerLogoSecondaryField->getValidator()->setAllowedExtensions($logoTypes);
 
         $fields->addFieldToTab('Root.LogosIcons', $footerSecondaryLink = TextField::create(
             'FooterLogoSecondaryLink',
-            _t('CwpConfig.FooterLogoSecondaryLinkField', 'Secondary Footer Logo link.')
+            _t(__CLASS__ . '.FooterLogoSecondaryLinkField', 'Secondary Footer Logo link.')
         ));
         $footerSecondaryLink->setRightTitle(_t(
             'CwpConfig.FooterLogoSecondaryLinkDesc',
@@ -211,7 +211,7 @@ class CWPSiteConfigExtension extends DataExtension
         ));
         $fields->addFieldToTab('Root.LogosIcons', TextField::create(
             'FooterLogoSecondaryDescription',
-            _t('CwpConfig.FooterLogoSecondaryDescField', 'Secondary Footer Logo description')
+            _t(__CLASS__ . '.FooterLogoSecondaryDescField', 'Secondary Footer Logo description')
         ));
 
         $fields->addFieldToTab(
@@ -219,7 +219,7 @@ class CWPSiteConfigExtension extends DataExtension
             $favIconField = Injector::inst()->create(
                 FileHandleField::class,
                 'FavIcon',
-                _t('CwpConfig.FavIconField', 'Favicon, in .ico format, dimensions of 16x16, 32x32, or 48x48')
+                _t(__CLASS__ . '.FavIconField', 'Favicon, in .ico format, dimensions of 16x16, 32x32, or 48x48')
             )
         );
         $favIconField->getValidator()->setAllowedExtensions($iconTypes);
@@ -242,7 +242,7 @@ class CWPSiteConfigExtension extends DataExtension
             $atIcon114 = Injector::inst()->create(
                 FileHandleField::class,
                 'AppleTouchIcon114',
-                _t('CwpConfig.AppleIconField114', 'Apple Touch Web Clip Icon (dimensions of 114x114, PNG format)')
+                _t(__CLASS__ . '.AppleIconField114', 'Apple Touch Web Clip Icon (dimensions of 114x114, PNG format)')
             )
         );
         $atIcon114->getValidator()->setAllowedExtensions($appleTouchTypes);
@@ -252,7 +252,7 @@ class CWPSiteConfigExtension extends DataExtension
             $atIcon72 = Injector::inst()->create(
                 FileHandleField::class,
                 'AppleTouchIcon72',
-                _t('CwpConfig.AppleIconField72', 'Apple Touch Web Clip Icon (dimensions of 72x72, PNG format)')
+                _t(__CLASS__ . '.AppleIconField72', 'Apple Touch Web Clip Icon (dimensions of 72x72, PNG format)')
             )
         );
         $atIcon72->getValidator()->setAllowedExtensions($appleTouchTypes);
@@ -262,7 +262,7 @@ class CWPSiteConfigExtension extends DataExtension
             $atIcon57 = Injector::inst()->create(
                 FileHandleField::class,
                 'AppleTouchIcon57',
-                _t('CwpConfig.AppleIconField57', 'Apple Touch Web Clip Icon (dimensions of 57x57, PNG format)')
+                _t(__CLASS__ . '.AppleIconField57', 'Apple Touch Web Clip Icon (dimensions of 57x57, PNG format)')
             )
         );
         $atIcon57->getValidator()->setAllowedExtensions($appleTouchTypes);

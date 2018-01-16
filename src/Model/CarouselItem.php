@@ -6,11 +6,8 @@ namespace CWP\AgencyExtensions\Model;
 
 
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
-
-
 use SilverStripe\Versioned\Versioned;
-
-
+use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Assets\Image;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Forms\TextField;
@@ -21,6 +18,7 @@ use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\ORM\DataObject;
+use SilverStripe\Forms\FileHandleField;
 
 
 class CarouselItem extends DataObject
@@ -31,10 +29,11 @@ class CarouselItem extends DataObject
         Versioned::class
     ];
 
+    private static $versioned_gridfield_extensions = true;
+
     private static $db = [
         'Title' => 'Varchar(255)',
         'Content' => 'HTMLText',
-        'Archived' => 'Boolean',
         'SortOrder' => 'Int',
         'PrimaryCallToActionLabel' => 'Varchar(255)',
         'SecondaryCallToActionLabel' => 'Varchar(255)'
@@ -52,12 +51,12 @@ class CarouselItem extends DataObject
     ];
 
     private static $summary_fields = [
-        'ImageThumb' => 'Image',
+        'Image.CMSThumbnail' => 'Image',
         'Title' => 'Title',
         'Content.FirstSentence' => 'Text',
         'PrimaryCallToAction.Title' => 'Primary CTA',
         'SecondaryCallToAction.Title' => 'Secondary CTA',
-        'ArchivedReadable' => 'Current Status'
+        'Status' => 'Current Status'
     ];
 
     private static $searchable_fields = [
@@ -80,7 +79,7 @@ class CarouselItem extends DataObject
                     )
                 ),
             // Image
-            UploadField::create('Image', 'Image')
+            Injector::inst()->create(FileHandleField::class, 'Image', 'Image')
                 ->setAllowedFileCategories('image')
                 ->setDescription(
                     _t(
@@ -100,10 +99,7 @@ class CarouselItem extends DataObject
                 'SecondaryCallToActionID',
                 _t(__CLASS__ . '.SECONDARYCALLTOACTION', 'Secondary Call To Action Link'),
                 SiteTree::class
-            ),
-            // Can archive option
-            CheckboxField::create('Archived', _t(__CLASS__ . '.ARCHIVED', 'Archived'))
-                ->setDescription(_t(__CLASS__ . '.ArchivedField', 'Archive this carousel item?'))
+            )
         );
 
         $this->extend('updateCMSFields', $fields);
@@ -131,16 +127,8 @@ class CarouselItem extends DataObject
         return $this->Parent()->canView($member);
     }
 
-    public function ImageThumb()
+    public function Status()
     {
-        return $this->Image()->SetWidth(50);
-    }
-
-    public function ArchivedReadable()
-    {
-        if ($this->Archived == 1) {
-            return _t('GridField.Archived', 'Archived');
-        }
-        return _t('GridField.Live', 'Live');
+        return $this->latestPublished() ? 'Live' : 'Draft';
     }
 }

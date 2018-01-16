@@ -2,7 +2,7 @@ it:
   AssetTableField:
     BACKLINKCOUNT: 'Usato in:'
     PAGES: pagina(e)
-  BaseHomePage:
+  CWP\AgencyExtensions\Extensions\CarouselPageExtension:
     AddNewButton: 'Aggiungi nuova'
     FeatureContentFieldLabel: Contenuto
     PLURALNAME: 'Pagine Principali'
