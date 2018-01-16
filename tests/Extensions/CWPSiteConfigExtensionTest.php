@@ -2,9 +2,6 @@
 
 namespace CWP\AgencyExtensions\Tests\Extensions;
 
-
-
-
 use SilverStripe\Forms\FileHandleField;
 
 
@@ -16,7 +13,6 @@ use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\View\SSViewer;
 use SilverStripe\Forms\TextField;
 use CWP\AgencyExtensions\Extensions\CWPSiteConfigExtension;
-
 
 class CWPSiteConfigExtensionTest extends SapphireTest
 {

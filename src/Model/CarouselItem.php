@@ -2,9 +2,6 @@
 
 namespace CWP\AgencyExtensions\Model;
 
-
-
-
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Versioned\Versioned;
 use SilverStripe\Core\Injector\Injector;
@@ -19,7 +16,6 @@ use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\FileHandleField;
-
 
 class CarouselItem extends DataObject
 {
@@ -75,7 +71,8 @@ class CarouselItem extends DataObject
                 ->setDescription(
                     _t(
                         __CLASS__ . '.CONTENT_HELPTIP',
-                        'Recommended: Use less than 50 words. For carousel slides, use similar amount of content to ensure carousel height does not vary.'
+                        'Recommended: Use less than 50 words. For carousel slides, use a similar amount of content ' .
+                        'as other items to ensure carousel height does not vary.'
                     )
                 ),
             // Image

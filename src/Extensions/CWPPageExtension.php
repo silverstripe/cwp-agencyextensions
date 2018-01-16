@@ -2,12 +2,8 @@
 
 namespace CWP\AgencyExtensions\Extensions;
 
-
-
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Core\Extension;
-
-
 
 /**
  * Class CWPPageExtension

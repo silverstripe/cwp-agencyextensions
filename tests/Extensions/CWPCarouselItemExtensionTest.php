@@ -2,14 +2,10 @@
 
 namespace CWP\AgencyExtensions\Tests\Extensions;
 
-
-
 use CWP\AgencyExtensions\Model\CarouselItem;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Dev\SapphireTest;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
-
-
 
 class CWPCarouselItemExtensionTest extends SapphireTest
 {

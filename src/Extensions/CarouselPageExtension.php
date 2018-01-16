@@ -2,11 +2,6 @@
 
 namespace CWP\AgencyExtensions\Extensions;
 
-
-
-
-
-
 use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 
 use CWP\AgencyExtensions\Model\CarouselItem;
@@ -20,8 +15,6 @@ use SilverStripe\Forms\GridField\GridFieldSortableHeader;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\GridField\GridFieldVersionedState;
-
-
 
 class CarouselPageExtension extends DataExtension
 {
@@ -62,7 +55,7 @@ class CarouselPageExtension extends DataExtension
             $this->getCarouselItems(),
             GridFieldConfig_RelationEditor::create()
         );
-        $gridField->setDescription( _t(
+        $gridField->setDescription(_t(
             __CLASS__ . 'NOTE',
             'NOTE: Carousel functionality will automatically be loaded when 2 or more items are added below'
         ));

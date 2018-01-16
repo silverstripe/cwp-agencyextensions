@@ -2,11 +2,6 @@
 
 namespace CWP\AgencyExtensions\Extensions;
 
-
-
-
-
-
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Core\Environment;
 use SilverStripe\Assets\File;
@@ -17,7 +12,6 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\FileHandleField;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Core\Config\Configurable;
-
 
 /**
  * Class CWPCleanupSiteConfigExtension
@@ -140,7 +134,8 @@ class CWPSiteConfigExtension extends DataExtension
                 'LogoRetina',
                 _t(
                     'CwpConfig.LogoRetinaUploadField',
-                    'High resolution logo, to appear in the top left (recommended twice the height and width of the standard logo)'
+                    'High resolution logo, to appear in the top left ' .
+                    '(recommended to be twice the height and width of the standard logo)'
                 )
             )
         );
