@@ -22,7 +22,7 @@
     },
     "extra": {
         "expose": [
-            "tinymce_plugins"
+            "TinyMCE-FontAwesome-Plugin/fontawesome"
         ],
         "branch-alias": {
             "dev-master": "2.x-dev"
