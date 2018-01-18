@@ -15,7 +15,7 @@ SilverStripe\SiteConfig\SiteConfig:
 
 ---
 Except:
-  envVarSet: CWP_AGENCY_DISABLE_FONTAWESOME_PLUGIN
+  envvarset: CWP_AGENCY_DISABLE_FONTAWESOME_PLUGIN
 ---
 SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
