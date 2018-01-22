@@ -1,7 +1,5 @@
 id:
-  CustomSiteConfig:
-    LogosIconsTab: Logo/Ikon
-  CwpConfig:
+  CWP\AgencyExtensions\Extensions\CWPSiteConfigExtension:
     AddThisField: 'IP Profil AddThis'
     AddThisFieldDesc: 'ID Profil untuk digunakan pada seluruh situs (dalam format <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
     AppleIconField114: 'Ikon Apple Touch Web Clip (dimensi 114x114, format PNG)'
@@ -14,5 +12,6 @@ id:
     FooterLogoLinkDesc: 'Mohon isikan juga nama protokol (misal, http:// atau https://) kecuali untuk tautan internal.'
     FooterLogoLinkField: 'Tautan Logo Footer'
     FooterLogoRetinaField: 'Logo footer beresolusi tinggi (direkomendasikan berukuran dua kali tinggi dan lebar dari logo footer standar)'
+    LogosIconsTab: Logo/Ikon
   CwpCarousel:
     LinkField: Tautan

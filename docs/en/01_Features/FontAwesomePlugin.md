@@ -11,6 +11,8 @@ You will need to ensure that your theme templates reference a FontAweome CSS sty
 
 ## Disabling the plugin
 
-The plugin is enabled by default. If you want to disable the plugin you can define a constant in your `_ss_environment.php` file:
+The plugin is enabled by default. If you want to disable the plugin you can define a constant in your [environment variables](https://docs.silverstripe.org/en/4/getting_started/environment_management/) or `.env` file:
 
-    define('CWP_AGENCY_DISABLE_FONTAWESOME_PLUGIN', true);
+```sh
+CWP_AGENCY_DISABLE_FONTAWESOME_PLUGIN=1
+```

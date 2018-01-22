@@ -1,23 +1,26 @@
 ---
 Name: agencyextensionsconfig
 ---
-BaseHomePage:
+CWP\CWP\PageTypes\BaseHomePage:
   extensions:
-    - CarouselPageExtension
-    - CWPBaseHomePageExtension
+    - CWP\AgencyExtensions\Extensions\CarouselPageExtension
 
-BasePage_Controller:
+PageController:
   extensions:
-    - DefaultThemeExtension
+    - CWP\AgencyExtensions\Extensions\CWPPageExtension
 
-Security:
+SilverStripe\SiteConfig\SiteConfig:
   extensions:
-    - DefaultThemeExtension
+    - CWP\AgencyExtensions\Extensions\CWPSiteConfigExtension
 
-Page_Controller:
-  extensions:
-    - CWPPageExtension
-
-SiteConfig:
-  extensions:
-    - CWPSiteConfigExtension
+---
+Name: agencyextensionsfontawesome
+Except:
+  envvarset: CWP_AGENCY_DISABLE_FONTAWESOME_PLUGIN
+---
+SilverStripe\Admin\LeftAndMain:
+  extra_requirements_css:
+    - "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+SilverStripe\Forms\HTMLEditor\TinyMCEConfig:
+  editor_css:
+    - "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"

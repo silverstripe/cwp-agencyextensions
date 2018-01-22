@@ -1,5 +1,5 @@
 sk:
-  BaseHomePage:
+  CWP\AgencyExtensions\Extensions\CarouselPageExtension:
     DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
     FeatureContentFieldLabel: Obsah
     Title: Názov

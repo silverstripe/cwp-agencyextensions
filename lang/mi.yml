@@ -1,8 +1,8 @@
 mi:
-  CarouselItem:
+  CWP\AgencyExtensions\Model\CarouselItem:
     PLURALNAME: 'Ngā tuemi takawhawhe'
     SINGULARNAME: 'Tuemi Takawhawhe'
-  CwpConfig:
+  CWP\AgencyExtensions\Extensions\CWPSiteConfigExtension:
     AddThisField: TāpiriTēneiTTKōtaha
     AddThisFieldDesc: 'Me whakamahi i te TT kōtaha puta noa i te pae (ki te hōputu <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
     AppleIconField114: 'Ata Topenga Tukutuku Pā Apple (ko te 114x114 ngā ahu, hōputu PNG) '

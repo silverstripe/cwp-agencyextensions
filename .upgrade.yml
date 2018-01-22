@@ -1,0 +1,7 @@
+mappings:
+  CarouselPageExtension: CWP\AgencyExtensions\Extensions\CarouselPageExtension
+  CWPPageExtension: CWP\AgencyExtensions\Extensions\CWPPageExtension
+  CWPSiteConfigExtension: CWP\AgencyExtensions\Extensions\CWPSiteConfigExtension
+  CarouselItem: CWP\AgencyExtensions\Model\CarouselItem
+  CWPCarouselItemExtensionTest: CWP\AgencyExtensions\Tests\Extensions\CWPCarouselItemExtensionTest
+  CWPSiteConfigExtensionTest: CWP\AgencyExtensions\Tests\Extensions\CWPSiteConfigExtensionTest

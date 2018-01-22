@@ -1,14 +1,12 @@
 ar:
-  CarouselItem:
+  CWP\AgencyExtensions\Model\CarouselItem:
     PLURALNAME: 'العناصر الدائرية'
     SINGULARNAME: 'عنصر دائرى'
-  CustomSiteConfig:
-    LogosIconsTab: الشعارات/الأيقونات
   CwpCarousel:
     ArchivedField: 'هل تود أن تقوم بتخزين هذا العنصر الدائرى؟'
     LinkField: رابط
     NoteField: 'ملاحظة: سوف تحتاج أن تقوم بإنشاء العنصر الدائرى قبل أن تتمكن من إضافة صورة'
-  CwpConfig:
+  CWP\AgencyExtensions\Extensions\CWPSiteConfigExtension:
     AddThisField: 'قم بإضافة'
     AddThisFieldDesc: 'ملف التعريف الشخصى الذى سيتم استخدامه عبر الموقع (بصيغة <strong>ra-XXXXXXXXXXXXXXXX<strong/>)'
     AppleIconField114: 'أيقونة كليب الويب الخاص بأبل تتش (أبعاد 114x114, صيغة بى إن جى)'
@@ -23,3 +21,4 @@ ar:
     FooterLogoRetinaField: 'شعار تذييل للصفحة عالى الدقة (ينصح بضعف طول و عرض شعار تذييل الصفحة العادى)'
     LogoRetinaUploadField: 'شعار عالى الدقة, ليظهر فى أعلى اليسار (يوصى بضعف الطول و العرض للشعار التقليدى)'
     LogoUploadField: 'الشعار, ليظهر أعلى اليسار'
+    LogosIconsTab: الشعارات/الأيقونات

@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/silverstripe/cwp-agencyextensions.svg?branch=master)](https://travis-ci.org/silverstripe/cwp-agencyextensions)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/silverstripe/cwp-agencyextensions/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/silverstripe/cwp-agencyextensions/?branch=master)
 
-This module provides some added configuration and underlying functionality that may be useful to allow clients/agencies to adjust website functionality theirselves, or to provide additional functionality that may not always be required for a CWP project.
+This module provides some added configuration and underlying functionality that may be useful to allow clients/agencies to adjust website functionality theirselves, or to provide additional functionality that may not always be required for a CWP project. It provides the content management side of the functionality provided by the Watea theme (specifically the Carousel).
 
 ## Summary of contents
 
@@ -29,7 +29,9 @@ composer require cwp/agency-extensions
 
 ## Requirements
 
-* `cwp/cwp` 1.6.0 or above
+* `cwp/cwp` 2.0 or above
+
+**Note** For use with CWP versions less than 2, please see the `1.x` [release line](https://github.com/silverstripe/cwp-agencyextensions/releases).
 
 ## Documentation
 
@@ -43,3 +45,7 @@ composer require cwp/agency-extensions
 This library follows [Semver](http://semver.org). According to Semver, you will be able to upgrade to any minor or patch version of this library without any breaking changes to the public API. Semver also requires that we clearly define the public API for this library.
 
 All methods, with `public` visibility, are part of the public API. All other methods are not part of the public API. Where possible, we'll try to keep `protected` methods backwards-compatible in minor/patch versions, but if you're overriding methods then please test your work before upgrading.
+
+## Notes
+
+This library includes a version of the [TinyMCE-FontAwesome-Plugin by Josh18](https://github.com/josh18/TinyMCE-FontAwesome-Plugin) which is open and permissive via the [expat/MIT Licence](https://en.wikipedia.org/wiki/MIT_License).

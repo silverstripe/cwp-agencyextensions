@@ -1,25 +1,27 @@
 <?php
 
+namespace CWP\AgencyExtensions\Tests\Extensions;
+
+use SilverStripe\Forms\FileHandleField;
+
+
+
+use SilverStripe\Core\Config\Config;
+use SilverStripe\Core\Environment;
+use SilverStripe\Dev\SapphireTest;
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\View\SSViewer;
+use SilverStripe\Forms\TextField;
+use CWP\AgencyExtensions\Extensions\CWPSiteConfigExtension;
+
 class CWPSiteConfigExtensionTest extends SapphireTest
 {
     protected $usesDatabase = true;
 
     /**
-     * Nest the configuration for these tests
-     *
-     * {@inheritDoc}
-     */
-    public function setUp()
-    {
-        parent::setUp();
-        Config::nest();
-        Config::inst()->update('SSViewer', 'theme', CWP_THEME_NAME);
-    }
-
-    /**
      * Ensure that other fields that are removed are only removed when the CWP theme is enabled
      */
-    public function testFieldsAreRemovedWhenUsingCwpTheme()
+    public function testRetinaFieldsAreRemovedByDefault()
     {
         $fields = SiteConfig::create()->getCMSFields();
         $this->assertNull($fields->fieldByName('Root.LogosIcons.LogoRetina'));
@@ -28,11 +30,11 @@ class CWPSiteConfigExtensionTest extends SapphireTest
     /**
      * Test that the existing fields are not removed when not using the CWP theme
      */
-    public function testFieldsAreNotRemovedWhenNotUsingCwpTheme()
+    public function testFieldsAreNotRemovedWhenConfiguredNotTo()
     {
-        Config::inst()->update('SSViewer', 'theme', 'simple');
+        Config::modify()->set(CWPSiteConfigExtension::class, 'hide_fields', null);
         $fields = SiteConfig::create()->getCMSFields();
-        $this->assertInstanceOf(SelectUploadField::class, $fields->fieldByName('Root.LogosIcons.LogoRetina'));
+        $this->assertInstanceOf(FileHandleField::class, $fields->fieldByName('Root.LogosIcons.LogoRetina'));
     }
 
     /**
@@ -43,16 +45,5 @@ class CWPSiteConfigExtensionTest extends SapphireTest
         $fields = SiteConfig::create()->getCMSFields();
         $this->assertInstanceOf(TextField::class, $fields->fieldByName('Root.SearchOptions.EmptySearch'));
         $this->assertInstanceOf(TextField::class, $fields->fieldByName('Root.SearchOptions.NoSearchResults'));
-    }
-
-    /**
-     * Unnest the configuration after these tests
-     *
-     * {@inheritDoc}
-     */
-    public function tearDown()
-    {
-        Config::unnest();
-        parent::tearDown();
     }
 }

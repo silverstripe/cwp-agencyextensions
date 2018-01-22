@@ -1,5 +1,5 @@
 fa_IR:
-  BaseHomePage:
+  CWP\AgencyExtensions\Extensions\CarouselPageExtension:
     DESCRIPTION: 'صفحه محتوای عمومی'
     FeatureContentFieldLabel: محتوا
     Title: عنوان

@@ -1,5 +1,12 @@
 <?php
 
+namespace CWP\AgencyExtensions\Tests\Extensions;
+
+use CWP\AgencyExtensions\Model\CarouselItem;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Dev\SapphireTest;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+
 class CWPCarouselItemExtensionTest extends SapphireTest
 {
     /**
@@ -9,7 +16,7 @@ class CWPCarouselItemExtensionTest extends SapphireTest
     {
         $carouselItem = new CarouselItem;
         $fields = $carouselItem->getCMSFields();
-        $this->assertInstanceOf('HtmlEditorField', $fields->fieldByName('Content'));
+        $this->assertInstanceOf(HtmlEditorField::class, $fields->fieldByName('Content'));
         $this->assertNull($fields->fieldByName('Caption'));
     }
 
@@ -21,7 +28,7 @@ class CWPCarouselItemExtensionTest extends SapphireTest
         $carouselItem = new CarouselItem;
         $fields = $carouselItem->getCMSFields();
 
-        $this->assertInstanceOf('TextField', $fields->fieldByName('PrimaryCallToActionLabel'));
-        $this->assertInstanceOf('TextField', $fields->fieldByName('SecondaryCallToActionLabel'));
+        $this->assertInstanceOf(TextField::class, $fields->fieldByName('PrimaryCallToActionLabel'));
+        $this->assertInstanceOf(TextField::class, $fields->fieldByName('SecondaryCallToActionLabel'));
     }
 }
