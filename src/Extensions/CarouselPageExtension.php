@@ -2,9 +2,8 @@
 
 namespace CWP\AgencyExtensions\Extensions;
 
-use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
-
 use CWP\AgencyExtensions\Model\CarouselItem;
+use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use SilverStripe\Forms\GridField\GridField;
@@ -12,9 +11,9 @@ use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use SilverStripe\Forms\GridField\GridFieldSortableHeader;
-use SilverStripe\Forms\LiteralField;
-use SilverStripe\ORM\DataExtension;
+use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 use SilverStripe\Forms\GridField\GridFieldVersionedState;
+use SilverStripe\Forms\LiteralField;
 
 class CarouselPageExtension extends DataExtension
 {

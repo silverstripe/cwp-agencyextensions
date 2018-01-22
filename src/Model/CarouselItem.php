@@ -51,8 +51,7 @@ class CarouselItem extends DataObject
         'Title' => 'Title',
         'Content.FirstSentence' => 'Text',
         'PrimaryCallToAction.Title' => 'Primary CTA',
-        'SecondaryCallToAction.Title' => 'Secondary CTA',
-        'Status' => 'Current Status'
+        'SecondaryCallToAction.Title' => 'Secondary CTA'
     ];
 
     private static $searchable_fields = [
@@ -122,10 +121,5 @@ class CarouselItem extends DataObject
     public function canView($member = null)
     {
         return $this->Parent()->canView($member);
-    }
-
-    public function Status()
-    {
-        return $this->latestPublished() ? 'Live' : 'Draft';
     }
 }

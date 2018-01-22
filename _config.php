@@ -8,8 +8,8 @@ use SilverStripe\Core\Manifest\ModuleLoader;
 // CWP_AGENCY_DISABLE_FONTAWESOME_PLUGIN = true in your environment configuration.
 if (!Environment::getEnv('CWP_AGENCY_DISABLE_FONTAWESOME_PLUGIN')) {
     $cwpEditor = HtmlEditorConfig::get('cwp');
-    $pluginPath = ModuleLoader::getModule('agency-extensions')
-        ->getResource('TinyMCE-FontAwesome-Plugin/fontawesome/plugin.min.js')
+    $pluginPath = ModuleLoader::getModule('cwp/agency-extensions')
+        ->getResource('thirdparty/TinyMCE-FontAwesome-Plugin/fontawesome/plugin.min.js')
         ->getURL();
     $cwpEditor->enablePlugins(['fontawesome' => $pluginPath]);
     $cwpEditor->addButtonsToLine(2, 'fontawesome');

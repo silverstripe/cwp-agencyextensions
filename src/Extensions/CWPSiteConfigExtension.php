@@ -2,16 +2,16 @@
 
 namespace CWP\AgencyExtensions\Extensions;
 
+use SilverStripe\Core\Config\Configurable;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Core\Environment;
-use SilverStripe\Assets\File;
 use SilverStripe\Forms\FieldList;
+use SilverStripe\Assets\File;
+use SilverStripe\Forms\FileHandleField;
 use SilverStripe\Assets\Image;
+use SilverStripe\Core\Injector\Injector;
 use SilverStripe\View\SSViewer;
 use SilverStripe\Forms\TextField;
-use SilverStripe\Forms\FileHandleField;
-use SilverStripe\Core\Injector\Injector;
-use SilverStripe\Core\Config\Configurable;
 
 /**
  * Class CWPCleanupSiteConfigExtension
