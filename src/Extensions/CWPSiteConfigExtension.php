@@ -50,6 +50,19 @@ class CWPSiteConfigExtension extends DataExtension
         'AppleTouchIcon57' => File::class
     );
 
+    private static $owns = [
+        'Logo',
+        'LogoRetina',
+        'FooterLogo',
+        'FooterLogoRetina',
+        'FooterLogoSecondary',
+        'FavIcon',
+        'AppleTouchIcon144',
+        'AppleTouchIcon114',
+        'AppleTouchIcon72',
+        'AppleTouchIcon57'
+    ];
+
     /**
      * @param FieldList $fields
      */
