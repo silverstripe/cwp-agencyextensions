@@ -313,7 +313,8 @@ class CWPSiteConfigExtension extends DataExtension
         return $this;
     }
 
-    public function onAfterWrite() {
+    public function onAfterWrite()
+    {
         if (!$this->owner->hasExtension(Versioned::class)) {
             $this->owner->publishRecursive();
         }

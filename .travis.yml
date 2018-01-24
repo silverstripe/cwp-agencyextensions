@@ -23,7 +23,7 @@ before_script:
 
   # Install composer dependencies
   - composer validate
-  - composer require --no-update silverstripe/recipe-cms:1.0.x-dev cwp/starter-theme:2.x-dev silverstripe/fulltextsearch:^3
+  - composer require --no-update silverstripe/recipe-cms:1.x-dev cwp/starter-theme:2.x-dev silverstripe/fulltextsearch:^3
   - composer install --prefer-dist --no-interaction --no-progress --no-suggest --optimize-autoloader --verbose --profile
 
 script:
