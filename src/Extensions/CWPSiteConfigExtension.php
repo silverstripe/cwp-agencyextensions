@@ -12,6 +12,7 @@ use SilverStripe\Assets\Image;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\View\SSViewer;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Versioned\Versioned;
 
 /**
  * Class CWPCleanupSiteConfigExtension
@@ -297,5 +298,11 @@ class CWPSiteConfigExtension extends DataExtension
         );
 
         return $this;
+    }
+
+    public function onAfterWrite() {
+        if (!$this->owner->hasExtension(Versioned::class)) {
+            $this->owner->publishRecursive();
+        }
     }
 }

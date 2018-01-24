@@ -8,7 +8,8 @@
     ],
     "license": "BSD-3-Clause",
     "require": {
-        "cwp/cwp": "^2"
+        "cwp/cwp": "^2",
+        "silverstripe/framework": "^4.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7",
