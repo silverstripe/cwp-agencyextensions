@@ -12,6 +12,7 @@ use SilverStripe\Assets\Image;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\View\SSViewer;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Versioned\Versioned;
 
 /**
  * Class CWPCleanupSiteConfigExtension
@@ -48,6 +49,19 @@ class CWPSiteConfigExtension extends DataExtension
         'AppleTouchIcon72' => File::class,
         'AppleTouchIcon57' => File::class
     );
+
+    private static $owns = [
+        'Logo',
+        'LogoRetina',
+        'FooterLogo',
+        'FooterLogoRetina',
+        'FooterLogoSecondary',
+        'FavIcon',
+        'AppleTouchIcon144',
+        'AppleTouchIcon114',
+        'AppleTouchIcon72',
+        'AppleTouchIcon57'
+    ];
 
     /**
      * @param FieldList $fields
@@ -297,5 +311,12 @@ class CWPSiteConfigExtension extends DataExtension
         );
 
         return $this;
+    }
+
+    public function onAfterWrite()
+    {
+        if (!$this->owner->hasExtension(Versioned::class)) {
+            $this->owner->publishRecursive();
+        }
     }
 }
