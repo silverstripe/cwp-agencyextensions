@@ -11,6 +11,7 @@ use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use SilverStripe\Forms\GridField\GridFieldSortableHeader;
+use SilverStripe\ORM\DataList;
 use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 use SilverStripe\Forms\GridField\GridFieldVersionedState;
 use SilverStripe\Forms\LiteralField;
@@ -31,14 +32,6 @@ class CarouselPageExtension extends DataExtension
     public function getCarouselItems()
     {
         return $this->owner->getComponents('CarouselItems')->sort('SortOrder');
-    }
-
-    /**
-     * @return DataList
-     */
-    public function getVisibleCarouselItems()
-    {
-        return $this->getCarouselItems()->filter('Archived', false);
     }
 
     /**
