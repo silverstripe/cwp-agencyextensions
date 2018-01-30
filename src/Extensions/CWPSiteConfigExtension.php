@@ -2,16 +2,13 @@
 
 namespace CWP\AgencyExtensions\Extensions;
 
-use SilverStripe\Core\Config\Configurable;
-use SilverStripe\ORM\DataExtension;
-use SilverStripe\Core\Environment;
-use SilverStripe\Forms\FieldList;
 use SilverStripe\Assets\File;
-use SilverStripe\Forms\FileHandleField;
 use SilverStripe\Assets\Image;
 use SilverStripe\Core\Injector\Injector;
-use SilverStripe\View\SSViewer;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\FileHandleField;
 use SilverStripe\Forms\TextField;
+use SilverStripe\ORM\DataExtension;
 use SilverStripe\Versioned\Versioned;
 
 /**
@@ -19,16 +16,7 @@ use SilverStripe\Versioned\Versioned;
  */
 class CWPSiteConfigExtension extends DataExtension
 {
-    use Configurable;
-
-    private static $hide_fields = [
-        'AddThisProfileID',
-        'LogoRetina',
-        'FooterLogoRetina'
-    ];
-
     private static $db = array(
-        'AddThisProfileID' => 'Varchar(32)',
         'FooterLogoLink' => 'Varchar(255)',
         'FooterLogoDescription' => 'Varchar(255)',
         'FooterLogoSecondaryLink' => 'Varchar(255)',
@@ -69,49 +57,8 @@ class CWPSiteConfigExtension extends DataExtension
     public function updateCMSFields(FieldList $fields)
     {
         $this
-            ->addSocialMedia($fields)
             ->addLogosAndIcons($fields)
-            ->addSearchOptions($fields)
-            ->removeFieldsForCurrentTheme($fields);
-    }
-
-    /**
-     * Remove fields from the given FieldList depending on the current theme and the configured fields to remove
-     *
-     * @param  FieldList $fields
-     * @return $this
-     */
-    protected function removeFieldsForCurrentTheme(FieldList $fields)
-    {
-        foreach ((array)$this->config()->hide_fields as $fieldNames) {
-            $fields->removeByName($fieldNames);
-        }
-        return $this;
-    }
-
-    /**
-     * Add or extend social media fields
-     *
-     * @param  FieldList $fields
-     * @return $this
-     */
-    protected function addSocialMedia(FieldList $fields)
-    {
-        $fields->addFieldToTab(
-            'Root.SocialMedia',
-            $addThisID = TextField::create(
-                'AddThisProfileID',
-                _t(__CLASS__ . '.AddThisField', 'AddThis Profile ID')
-            )
-        );
-        $addThisID->setRightTitle(
-            _t(
-                'CwpConfig.AddThisFieldDesc',
-                'Profile ID to be used all across the site (in the format <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
-            )
-        );
-
-        return $this;
+            ->addSearchOptions($fields);
     }
 
     /**
@@ -313,6 +260,10 @@ class CWPSiteConfigExtension extends DataExtension
         return $this;
     }
 
+    /**
+     * Auto-publish any images attached to the SiteConfig object if it's not versioned. Versioned objects will
+     * handle their related objects via the "owns" API by default.
+     */
     public function onAfterWrite()
     {
         if (!$this->owner->hasExtension(Versioned::class)) {

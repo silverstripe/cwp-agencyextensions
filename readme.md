@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/silverstripe/cwp-agencyextensions.svg?branch=master)](https://travis-ci.org/silverstripe/cwp-agencyextensions)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/silverstripe/cwp-agencyextensions/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/silverstripe/cwp-agencyextensions/?branch=master)
+[![codecov](https://codecov.io/gh/silverstripe/cwp-agencyextensions/branch/master/graph/badge.svg)](https://codecov.io/gh/silverstripe/cwp-agencyextensions)
 
 This module provides some added configuration and underlying functionality that may be useful to allow clients/agencies to adjust website functionality theirselves, or to provide additional functionality that may not always be required for a CWP project. It provides the content management side of the functionality provided by the Watea theme (specifically the Carousel).
 
@@ -13,8 +14,6 @@ This module provides the following (may not be a definitive list):
 * Customise search results labels from SiteConfig
 * Upload custom header and footer logos from SiteConfig
 * Upload custom favicon and Apple touch logos from SiteConfig
-* Define an AddThis social media profile ID (used in CWP default theme, for example) from SiteConfig
-* Add frontend asset requirements for the CWP default theme
 * [FontAwesome](http://fontawesome.io) icon popup dialog to the TinyMCE content editor (Wātea theme only, by default)
 
 ## Installation
