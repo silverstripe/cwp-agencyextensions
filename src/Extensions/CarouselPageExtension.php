@@ -12,7 +12,7 @@ use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use SilverStripe\Forms\GridField\GridFieldSortableHeader;
 use SilverStripe\ORM\DataList;
-use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\GridField\GridFieldVersionedState;
 use SilverStripe\Forms\LiteralField;
 
@@ -59,9 +59,7 @@ class CarouselPageExtension extends DataExtension
         $gridConfig->removeComponentsByType(GridFieldDeleteAction::class);
         $gridConfig->addComponent(new GridFieldDeleteAction());
         $gridConfig->addComponent(new GridFieldVersionedState());
-        if (class_exists(GridFieldSortableRows::class)) {
-            $gridConfig->addComponent(new GridFieldSortableRows('SortOrder'));
-        }
+        $gridConfig->addComponent(new GridFieldOrderableRows('SortOrder'));
         $gridConfig->removeComponentsByType(GridFieldSortableHeader::class);
         $gridField->setModelClass(CarouselItem::class);
 
