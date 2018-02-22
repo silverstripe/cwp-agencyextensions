@@ -8,7 +8,7 @@
     ],
     "license": "BSD-3-Clause",
     "require": {
-        "cwp/cwp": "^2",
+        "cwp/cwp": "2.0.0-rc1",
         "silverstripe/framework": "^4.1",
         "symbiote/silverstripe-gridfieldextensions": "^3.1"
     },
