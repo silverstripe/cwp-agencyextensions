@@ -31,3 +31,12 @@ en:
     LogoRetinaUploadField: 'High resolution logo, to appear in the top left (recommended twice the height and width of the standard logo)'
     LogoUploadField: 'Logo, to appear in the top left'
     LogosIconsTab: Logos/Icons
+    MainFontFamily: 'Main font family'
+    HeaderBackground: 'Header background'
+    NavigationBarBackground: 'Navigation bar background'
+    CarouselBackground: 'Carousel background'
+    CarouselBackgroundDescription: 'The background colour of the carousel when there is no image set.'
+    FooterBackground: 'Footer background'
+    AccentColor: 'Accent colour'
+    AccentColorDescription: 'Affects colour of buttons, current navigation items etc.'
+    TextLinkColor: 'Text link colour'
