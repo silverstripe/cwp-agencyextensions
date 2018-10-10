@@ -565,13 +565,15 @@ class CWPSiteConfigExtension extends DataExtension
     }
 
     /**
-     * If HeaderBackground is not set, assume no theme colours exist and call populateDefaults.
+     * If HeaderBackground is not set, assume no theme colours exist and call populateDefaults if the color picker is enabled.
      * This is done as SiteConfig won't call populateDefaults() on existing sites, so would
      * not have any default theme_colors
      */
     public function onBeforeWrite()
     {
-        if (!isset($this->owner->record['HeaderBackground'])) {
+        $colorPickerEnabled = $this->owner->config()->get('enable_theme_color_picker');
+
+        if ($colorPickerEnabled && !isset($this->owner->record['HeaderBackground'])) {
             $this->owner->populateDefaults();
         }
     }
