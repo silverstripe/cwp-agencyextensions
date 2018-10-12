@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { loadComponent } from 'lib/Injector';
 
 jQuery.entwine('ss', ($) => {
-  $('.js-injector-boot .color-picker-field').entwine({
+  $('.js-injector-boot .form__field-holder .color-picker-field').entwine({
     onmatch() {
       const ColorPickerComponent = loadComponent('ColorPickerField');
       const schemaData = this.data('schema');

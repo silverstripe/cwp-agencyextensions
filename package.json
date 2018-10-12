@@ -18,7 +18,8 @@
     "classnames": "^2.2.5",
     "jquery": "^3.2.1",
     "react": "15.3.1",
-    "react-dom": "15.3.1"
+    "react-dom": "15.3.1",
+    "reactstrap": "^6.5.0"
   },
   "devDependencies": {
     "@silverstripe/webpack-config": "^0.4.1",
