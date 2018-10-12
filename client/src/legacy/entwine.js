@@ -9,8 +9,6 @@ jQuery.entwine('ss', ($) => {
       const ColorPickerComponent = loadComponent('ColorPickerField');
       const schemaData = this.data('schema');
 
-      console.log(schemaData);
-
       const props = {
         colors: schemaData.source,
       };

@@ -11,4 +11,13 @@ class ColorPickerField extends SingleSelectField {
 
         $this->addExtraClass('color-picker-field');
     }
+
+    public function getSchemaDataDefaults()
+    {
+        $schemaData = parent::getSchemaDataDefaults();
+
+        $schemaData['source'] = $this->getSource();
+
+        return $schemaData;
+    }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { inject } from 'lib/Injector';
+import i18n from 'i18n';
 
 class ColorPickerField extends Component {
   constructor(props) {
@@ -9,12 +10,13 @@ class ColorPickerField extends Component {
   render() {
     const { PopoverOptionSetComponent, colors } = this.props;
 
+    const buttons = colors.map(({ Title, Color, CSSClass }) => ({
+      key: CSSClass,
+      text: Title,
+      className: `hex-${Color}`,
+    }));
 
-    console.log(colors);
-
-    // const buttons = colors.map(({}) => ({
-    //
-    // }));
+    console.log(buttons);
 
     return (
       <PopoverOptionSetComponent
@@ -34,6 +36,6 @@ class ColorPickerField extends Component {
 
 export default inject(
   ['PopoverOptionSet'],
-  (PopoverOptionSetComponent) => ({ PopoverOptionComponent }),
+  (PopoverOptionSetComponent) => ({ PopoverOptionSetComponent }),
   () => 'ColorPickerField'
 )(ColorPickerField);

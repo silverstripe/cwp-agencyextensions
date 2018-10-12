@@ -416,7 +416,6 @@ class CWPSiteConfigExtension extends DataExtension
         }
 
         $themeColors = $this->owner->config()->get('theme_colors');
-        $fieldType = DropdownField::class;
         $allThemeColors = $this->getThemeOptionsExcluding();
 
         if ($this->useColorPaletteField) {
@@ -429,7 +428,7 @@ class CWPSiteConfigExtension extends DataExtension
                 ColorPickerField::create(
                     'Test',
                     'Test',
-                    $this->getThemeOptionsExcluding()
+                    $allThemeColors
                 ),
                 DropdownField::create(
                     'MainFontFamily',
@@ -439,84 +438,84 @@ class CWPSiteConfigExtension extends DataExtension
                     ),
                     $this->owner->config()->get('theme_fonts')
                 ),
-                $fieldType::create(
-                    'HeaderBackground',
-                    _t(
-                        __CLASS__ . '.HeaderBackground',
-                        'Header background'
-                    ),
-                    $this->getThemeOptionsExcluding([
-                        'default-accent',
-                    ])
-                ),
-                $fieldType::create(
-                    'NavigationBarBackground',
-                    _t(
-                        __CLASS__ . '.NavigationBarBackground',
-                        'Navigation bar background'
-                    ),
-                    $this->getThemeOptionsExcluding([
-                        'default-accent',
-                    ])
-                ),
-                $fieldType::create(
-                    'CarouselBackground',
-                    _t(
-                        __CLASS__ . '.CarouselBackground',
-                        'Carousel background'
-                    ),
-                    $this->getThemeOptionsExcluding([
-                        'default-accent',
-                    ])
-                )->setDescription(
-                    _t(
-                        __CLASS__ . '.CarouselBackgroundDescription',
-                        'The background colour of the carousel when there is no image set.'
-                    )
-                ),
-                $fieldType::create(
-                    'FooterBackground',
-                    _t(
-                        __CLASS__ . '.FooterBackground',
-                        'Footer background'
-                    ),
-                    $this->getThemeOptionsExcluding([
-                        'light-grey',
-                        'white',
-                        'default-accent',
-                    ])
-                ),
-                $fieldType::create(
-                    'AccentColor',
-                    _t(
-                        __CLASS__ . '.AccentColor',
-                        'Accent colour'
-                    ),
-                    $this->getThemeOptionsExcluding([
-                        'light-grey',
-                        'white',
-                        'default-background',
-                    ])
-                )->setDescription(
-                    _t(
-                        __CLASS__ . '.AccentColorDescription',
-                        'Affects colour of buttons, current navigation items etc.'
-                    )
-                ),
-                $fieldType::create(
-                    'TextLinkColor',
-                    _t(
-                        __CLASS__ . '.TextLinkColor',
-                        'Text link colour'
-                    ),
-                    $this->getThemeOptionsExcluding([
-                        'black',
-                        'light-grey',
-                        'dark-grey',
-                        'white',
-                        'default-background',
-                    ])
-                ),
+                // ColorPickerField::create(
+                //     'HeaderBackground',
+                //     _t(
+                //         __CLASS__ . '.HeaderBackground',
+                //         'Header background'
+                //     ),
+                //     $this->getThemeOptionsExcluding([
+                //         'default-accent',
+                //     ])
+                // ),
+                // ColorPickerField::create(
+                //     'NavigationBarBackground',
+                //     _t(
+                //         __CLASS__ . '.NavigationBarBackground',
+                //         'Navigation bar background'
+                //     ),
+                //     $this->getThemeOptionsExcluding([
+                //         'default-accent',
+                //     ])
+                // ),
+                // ColorPickerField::create(
+                //     'CarouselBackground',
+                //     _t(
+                //         __CLASS__ . '.CarouselBackground',
+                //         'Carousel background'
+                //     ),
+                //     $this->getThemeOptionsExcluding([
+                //         'default-accent',
+                //     ])
+                // )->setDescription(
+                //     _t(
+                //         __CLASS__ . '.CarouselBackgroundDescription',
+                //         'The background colour of the carousel when there is no image set.'
+                //     )
+                // ),
+                // ColorPickerField::create(
+                //     'FooterBackground',
+                //     _t(
+                //         __CLASS__ . '.FooterBackground',
+                //         'Footer background'
+                //     ),
+                //     $this->getThemeOptionsExcluding([
+                //         'light-grey',
+                //         'white',
+                //         'default-accent',
+                //     ])
+                // ),
+                // ColorPickerField::create(
+                //     'AccentColor',
+                //     _t(
+                //         __CLASS__ . '.AccentColor',
+                //         'Accent colour'
+                //     ),
+                //     $this->getThemeOptionsExcluding([
+                //         'light-grey',
+                //         'white',
+                //         'default-background',
+                //     ])
+                // )->setDescription(
+                //     _t(
+                //         __CLASS__ . '.AccentColorDescription',
+                //         'Affects colour of buttons, current navigation items etc.'
+                //     )
+                // ),
+                // ColorPickerField::create(
+                //     'TextLinkColor',
+                //     _t(
+                //         __CLASS__ . '.TextLinkColor',
+                //         'Text link colour'
+                //     ),
+                //     $this->getThemeOptionsExcluding([
+                //         'black',
+                //         'light-grey',
+                //         'dark-grey',
+                //         'white',
+                //         'default-background',
+                //     ])
+                // ),
             ]
         );
 
@@ -540,11 +539,7 @@ class CWPSiteConfigExtension extends DataExtension
                 continue;
             }
 
-            if ($this->useColorPaletteField) {
-                $options[$themeColor['CSSClass']] = $themeColor['Color'];
-            } else {
-                $options[$themeColor['CSSClass']] = $themeColor['Title'];
-            }
+            $options[] = $themeColor;
         }
 
         return $options;
