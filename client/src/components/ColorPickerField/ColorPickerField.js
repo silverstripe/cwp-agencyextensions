@@ -32,8 +32,7 @@ class ColorPickerField extends Component {
 
     const buttons = colors.map(({ Title, Color, CSSClass }) => ({
       key: CSSClass,
-      text: Title,
-      className: `hex-${Color}`,
+      text: <div><span className="color-picker-field__option-color" style={{ backgroundColor: Color }} />{Title}</div>,
     }));
 
     console.log(buttons);
@@ -45,7 +44,7 @@ class ColorPickerField extends Component {
           buttons={buttons}
           onButtonClick={this.handleButtonClick}
           searchPlaceholder={i18n._t('AddElementPopover.SEARCH_BLOCKS', 'Search blocks')}
-          // extraClass={popoverClassNames}
+          extraClass="color-picker-field__popover"
           // container={container}
           isOpen={isOpen}
           // placement={placement}

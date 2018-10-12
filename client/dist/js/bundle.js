@@ -308,8 +308,12 @@ var ColorPickerField = function (_Component) {
             CSSClass = _ref.CSSClass;
         return {
           key: CSSClass,
-          text: Title,
-          className: 'hex-' + Color
+          text: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            null,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'color-picker-field__option-color', style: { backgroundColor: Color } }),
+            Title
+          )
         };
       });
 
@@ -327,6 +331,7 @@ var ColorPickerField = function (_Component) {
           buttons: buttons,
           onButtonClick: this.handleButtonClick,
           searchPlaceholder: __WEBPACK_IMPORTED_MODULE_2_i18n___default.a._t('AddElementPopover.SEARCH_BLOCKS', 'Search blocks'),
+          extraClass: 'color-picker-field__popover',
 
           isOpen: isOpen,
 
