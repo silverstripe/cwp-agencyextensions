@@ -27,7 +27,8 @@
     },
     "extra": {
         "expose": [
-            "thirdparty/TinyMCE-FontAwesome-Plugin/fontawesome"
+            "thirdparty/TinyMCE-FontAwesome-Plugin/fontawesome",
+            "client/dist"
         ],
         "branch-alias": {
             "dev-master": "2.x-dev"

@@ -2,6 +2,7 @@
 
 namespace CWP\AgencyExtensions\Extensions;
 
+use CWP\AgencyExtensions\Forms\ColorPickerField;
 use Heyday\ColorPalette\Fields\ColorPaletteField;
 use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
@@ -425,6 +426,11 @@ class CWPSiteConfigExtension extends DataExtension
         $fields->addFieldsToTab(
             'Root.ThemeOptions',
             [
+                ColorPickerField::create(
+                    'Test',
+                    'Test',
+                    $this->getThemeOptionsExcluding()
+                ),
                 DropdownField::create(
                     'MainFontFamily',
                     _t(
