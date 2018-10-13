@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "Base module for the default CWP theme to add features",
   "scripts": {
-    "build": "yarn && NODE_ENV=production webpack -p --bail --progress",
+    "build": "yarn && yarn lint && NODE_ENV=production webpack -p --bail --progress",
     "watch": "yarn && NODE_ENV=development webpack --watch --progress",
     "css": "WEBPACK_CHILD=css npm run build",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint client/src && sass-lint --verbose client/src/**/*.scss",
+    "lint-js": "eslint client/src",
+    "lint-js-fix": "eslint client/src --fix",
+    "lint-sass": "sass-lint --verbose client/src/**/*.scss"
   },
   "repository": {
     "type": "git",
@@ -19,7 +23,8 @@
     "jquery": "^3.2.1",
     "react": "15.3.1",
     "react-dom": "15.3.1",
-    "reactstrap": "^6.5.0"
+    "reactstrap": "^6.5.0",
+    "prop-types": "^15.6.2"
   },
   "devDependencies": {
     "@silverstripe/webpack-config": "^0.4.1",

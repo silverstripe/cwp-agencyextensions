@@ -1,0 +1,40 @@
+.color-picker-field-button {
+  background-color: white;
+  border: 1px solid $border-color-light;
+  min-width: 270px;
+  height: 62px;
+  display: flex;
+
+  &__color-icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid $border-color-light;
+  }
+
+  &__color-label {
+    align-self: center;
+    margin-left: 12px;
+  }
+}
+
+.color-picker-field-popover {
+  max-width: 380px;
+  width: 380px;
+
+  &__option {
+    display: flex;
+    padding: 4px;
+    max-height: 50px;
+  }
+
+  &__option-icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid $border-color-light;
+  }
+
+  &__option-label {
+    align-self: center;
+    margin-left: 12px;
+  }
+}

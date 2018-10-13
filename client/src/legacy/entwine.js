@@ -11,6 +11,8 @@ jQuery.entwine('ss', ($) => {
 
       const props = {
         colors: schemaData.source,
+        value: schemaData.value,
+        name: schemaData.name,
       };
 
       ReactDOM.render(

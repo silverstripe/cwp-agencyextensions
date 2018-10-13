@@ -1,5 +1,9 @@
-.color-picker-field__option-color {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-}
+// Core variables
+@import 'variables';
+
+// Thirdparty
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/variables';
+
+@import '../components/ColorPickerField/ColorPickerField';

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { inject } from 'lib/Injector';
 import i18n from 'i18n';
 import { Button } from 'reactstrap';
@@ -7,54 +8,117 @@ class ColorPickerField extends Component {
   constructor(props) {
     super(props);
 
-    this.handleButtonClick = this.handleButtonClick.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
 
     this.state = {
       isOpen: false,
+      value: props.value,
     };
   }
 
-  handleButtonClick() {
-
-  }
-
   handleToggle() {
-    console.log(this.state.isOpen);
     this.setState({
       isOpen: !this.state.isOpen
     });
   }
 
-  render() {
-    const { PopoverOptionSetComponent, colors } = this.props;
+  renderButton() {
+    const { value } = this.state;
+    const { colors, name } = this.props;
+    let color;
+
+    if (value) {
+      color = colors.find(({ CSSClass }) => CSSClass === value);
+    }
+    if (!color) {
+      color = colors[0];
+    }
+
+    return (
+      <Button
+        id={`Popover_${name}`}
+        onClick={this.handleToggle}
+        className="color-picker-field-button"
+      >
+        <div
+          className="color-picker-field-button__color-icon"
+          style={{ backgroundColor: color ? color.Color : 'transparent' }}
+        />
+        <div className="color-picker-field-button__color-label">
+          { color ? color.Title : <em>None</em> }
+        </div>
+      </Button>
+    );
+  }
+
+  renderPopover() {
+    const { PopoverOptionSetComponent, colors, name } = this.props;
     const { isOpen } = this.state;
 
-    const buttons = colors.map(({ Title, Color, CSSClass }) => ({
-      key: CSSClass,
-      text: <div><span className="color-picker-field__option-color" style={{ backgroundColor: Color }} />{Title}</div>,
+    const buttonContent = (color) => [
+      <span
+        className="color-picker-field-popover__option-icon"
+        style={{ backgroundColor: color.Color }}
+      />,
+      <span className="color-picker-field-popover__option-label">
+        {color.Title}
+      </span>
+    ];
+
+    const buttons = colors.map((color) => ({
+      key: color.CSSClass,
+      content: buttonContent(color),
+      className: 'color-picker-field-popover__option',
+      text: color.Title,
+      onClick: () => {
+        this.handleToggle();
+        this.setState({
+          value: color.CSSClass,
+        });
+      },
     }));
 
-    console.log(buttons);
+    const handleSearch = (term, set) => set.filter(
+      ({ text }) => text.toLowerCase().includes(term.toLowerCase())
+    );
+
+    return (
+      <PopoverOptionSetComponent
+        buttons={buttons}
+        searchPlaceholder={i18n._t('AddElementPopover.SEARCH_BLOCKS', 'Search colors')}
+        extraClass="color-picker-field-popover"
+        placement="bottom-start"
+        onSearch={handleSearch}
+        isOpen={isOpen}
+        target={`Popover_${name}`}
+        toggle={this.handleToggle}
+      />
+    );
+  }
+
+  render() {
+    const { name } = this.props;
+    const { value } = this.state;
 
     return (
       <div>
-        <Button id="Popover1" onClick={this.handleToggle}>click me!</Button>
-        <PopoverOptionSetComponent
-          buttons={buttons}
-          onButtonClick={this.handleButtonClick}
-          searchPlaceholder={i18n._t('AddElementPopover.SEARCH_BLOCKS', 'Search blocks')}
-          extraClass="color-picker-field__popover"
-          // container={container}
-          isOpen={isOpen}
-          // placement={placement}
-          target="Popover1"
-          toggle={this.handleToggle}
-        />
+        { this.renderButton() }
+        { this.renderPopover() }
+        <input name={name} type="hidden" value={value} />
       </div>
     );
   }
 }
+
+ColorPickerField.proptypes = {
+  colors: PropTypes.arrayOf(PropTypes.shape({
+    Title: PropTypes.text,
+    CSSClass: PropTypes.text,
+    Color: PropTypes.text,
+  })),
+  name: PropTypes.string,
+  value: PropTypes.string,
+};
 
 export default inject(
   ['PopoverOptionSet'],
