@@ -25,4 +25,26 @@ jQuery.entwine('ss', ($) => {
       ReactDOM.unmountComponentAtNode(this[0]);
     }
   });
+
+  $('.js-injector-boot .form__field-holder .font-picker-field').entwine({
+    onmatch() {
+      const FontPickerComponent = loadComponent('FontPickerField');
+      const schemaData = this.data('schema');
+
+      const props = {
+        fonts: schemaData.source,
+        value: schemaData.value,
+        name: schemaData.name,
+      };
+
+      ReactDOM.render(
+        <FontPickerComponent {...props} />,
+        this[0]
+      );
+    },
+
+    onunmatch() {
+      ReactDOM.unmountComponentAtNode(this[0]);
+    }
+  });
 });

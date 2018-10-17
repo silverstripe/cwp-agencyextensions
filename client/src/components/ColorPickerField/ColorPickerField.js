@@ -85,8 +85,8 @@ class ColorPickerField extends Component {
     return (
       <PopoverOptionSetComponent
         buttons={buttons}
-        searchPlaceholder={i18n._t('AddElementPopover.SEARCH_BLOCKS', 'Search colors')}
-        extraClass="color-picker-field-popover"
+        searchPlaceholder={i18n._t('ColorPickerField.SEARCH_BLOCKS', 'Search colors')}
+        className="color-picker-field-popover"
         placement="bottom-start"
         onSearch={handleSearch}
         isOpen={isOpen}

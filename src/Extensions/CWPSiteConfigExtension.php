@@ -3,6 +3,7 @@
 namespace CWP\AgencyExtensions\Extensions;
 
 use CWP\AgencyExtensions\Forms\ColorPickerField;
+use CWP\AgencyExtensions\Forms\FontPickerField;
 use Heyday\ColorPalette\Fields\ColorPaletteField;
 use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
@@ -13,6 +14,7 @@ use SilverStripe\Forms\FileHandleField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Versioned\Versioned;
+use SilverStripe\View\Requirements;
 
 /**
  * Class CWPCleanupSiteConfigExtension
@@ -422,16 +424,21 @@ class CWPSiteConfigExtension extends DataExtension
             $fieldType = ColorPaletteField::class;
         }
 
+        $fonts = $this->owner->config()->get('theme_fonts');
+        foreach ($fonts as $fontTitle) {
+            $fontFamilyName = str_replace(' ', '+', $fontTitle);
+            Requirements::css("//fonts.googleapis.com/css?family=$fontFamilyName");
+        }
         $fields->addFieldsToTab(
             'Root.ThemeOptions',
             [
-                DropdownField::create(
+                FontPickerField::create(
                     'MainFontFamily',
                     _t(
                         __CLASS__ . '.MainFontFamily',
                         'Main font family'
                     ),
-                    $this->owner->config()->get('theme_fonts')
+                    $fonts
                 ),
                  ColorPickerField::create(
                      'HeaderBackground',

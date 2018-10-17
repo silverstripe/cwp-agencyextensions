@@ -1,0 +1,39 @@
+.font-picker-field-button {
+  background-color: white;
+  border: 1px solid $border-color-light;
+  min-width: 270px;
+  width: 100%;
+  display: flex;
+  padding-top: $input-padding-y;
+  padding-bottom: $input-padding-y;
+
+  &[class*="font-icon-caret-up-down"]::before {
+    position: absolute;
+    right: 10px;
+    margin: 0 0 0 6px;
+  }
+}
+
+.font-picker-field-popover {
+  max-width: 380px;
+  width: 380px;
+
+  &__option {
+    padding: 4px;
+    max-height: 50px;
+    width: 100%;
+
+    &:nth-child(odd) {
+      margin-right: 0;
+    }
+
+    &:nth-child(-n+2) {
+      margin-bottom: 4px;
+    }
+  }
+}
+
+.font-picker-field__selection-preview {
+  font-size: 1.8em;
+  margin: 1rem 0;
+}
