@@ -4,7 +4,6 @@ namespace CWP\AgencyExtensions\Extensions;
 
 use CWP\AgencyExtensions\Forms\ColorPickerField;
 use CWP\AgencyExtensions\Forms\FontPickerField;
-use Heyday\ColorPalette\Fields\ColorPaletteField;
 use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
 use SilverStripe\Core\Injector\Injector;
@@ -72,12 +71,6 @@ class CWPSiteConfigExtension extends DataExtension
         'AccentColor' => 'default-accent',
         'TextLinkColor' => 'default-accent',
     ];
-
-    /**
-     * Defines whether to use the ColorPaletteField to render theme colour picker
-     * @var boolean
-     */
-    private $useColorPaletteField = true;
 
     /**
      * Defines if the theme colour picker is enabled in the CMS
@@ -187,11 +180,6 @@ class CWPSiteConfigExtension extends DataExtension
             'Color' => '#FFFFFF',
         ],
     ];
-
-    public function __construct()
-    {
-        $this->useColorPaletteField = class_exists(ColorPaletteField::class);
-    }
 
     /**
      * @param FieldList $fields
@@ -404,8 +392,7 @@ class CWPSiteConfigExtension extends DataExtension
     }
 
     /**
-     * Add field for selecting the theme colour for different areas of the site. Will create fields
-     * with ColorPaletteField if the ColorPalette modules exists, falling back to DropdownField.
+     * Add fields for selecting the font theme colour for different areas of the site.
      *
      * @param  FieldList $fields
      * @return $this
@@ -419,16 +406,14 @@ class CWPSiteConfigExtension extends DataExtension
 
         $themeColors = $this->owner->config()->get('theme_colors');
         $allThemeColors = $this->getThemeOptionsExcluding();
-
-        if ($this->useColorPaletteField) {
-            $fieldType = ColorPaletteField::class;
-        }
-
         $fonts = $this->owner->config()->get('theme_fonts');
+
+        // Import each font via the google fonts api to render font preview
         foreach ($fonts as $fontTitle) {
             $fontFamilyName = str_replace(' ', '+', $fontTitle);
             Requirements::css("//fonts.googleapis.com/css?family=$fontFamilyName");
         }
+
         $fields->addFieldsToTab(
             'Root.ThemeOptions',
             [
@@ -525,7 +510,7 @@ class CWPSiteConfigExtension extends DataExtension
     }
 
     /**
-     * Returns theme_colors in a format consumable by a DropdownField/ColorPaletteField.
+     * Returns theme_colors used for ColorPickerField.
      *
      * @param  array  $excludedColors list of colours to exclude from the returned options
      *                                based on the theme colour's 'CSSClass' value
@@ -545,15 +530,6 @@ class CWPSiteConfigExtension extends DataExtension
         }
 
         return $options;
-    }
-
-    /**
-     * Setter for the useColorPaletteField property
-     * @param boolean $useColorPaletteField
-     */
-    public function setUseColorPaletteField($useColorPaletteField)
-    {
-        $this->useColorPaletteField = $useColorPaletteField;
     }
 
     /**

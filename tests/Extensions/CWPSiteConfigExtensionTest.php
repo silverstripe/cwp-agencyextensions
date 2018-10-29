@@ -40,34 +40,29 @@ class CWPSiteConfigExtensionTest extends SapphireTest
         ]);
         $siteConfig = SiteConfig::create();
 
-        // Case where ColorPaletteField exists
-        $siteConfig->setUseColorPaletteField(true);
         // Returns all colors by default
         $themeColors = $siteConfig->getThemeOptionsExcluding();
         $this->assertEquals([
-            'color-1' => '#111111',
-            'color-2' => '#222222',
+            [
+                'Title' => 'Color 1',
+                'CSSClass' => 'color-1',
+                'Color' => '#111111',
+            ],
+            [
+                'Title' => 'Color 2',
+                'CSSClass' => 'color-2',
+                'Color' => '#222222',
+            ],
         ], $themeColors);
 
         // Returns colors without excludedColors
         $themeColors = $siteConfig->getThemeOptionsExcluding(['color-1']);
         $this->assertEquals([
-            'color-2' => '#222222',
-        ], $themeColors);
-
-        // Case where ColorPaletteField doesn't exists
-        $siteConfig->setUseColorPaletteField(false);
-        // Returns all colors by default
-        $themeColors = $siteConfig->getThemeOptionsExcluding();
-        $this->assertEquals([
-            'color-1' => 'Color 1',
-            'color-2' => 'Color 2',
-        ], $themeColors);
-
-        // Returns colors without excludedColors
-        $themeColors = $siteConfig->getThemeOptionsExcluding(['color-1']);
-        $this->assertEquals([
-            'color-2' => 'Color 2',
+            [
+                'Title' => 'Color 2',
+                'CSSClass' => 'color-2',
+                'Color' => '#222222',
+            ],
         ], $themeColors);
     }
 }

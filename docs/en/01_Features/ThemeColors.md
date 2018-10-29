@@ -3,11 +3,7 @@ summary: Information on configuration around the theme colour picker
 
 # Theme colour picker
 
-The theme colour picker is a way of providing CMS users to adjust the colours of different areas of their site without requiring developer intervention. For a more CMS admin friendly approach, ensure the ColorPalette module is installed:
-
-```bash
-$ composer require heyday/silverstripe-colorpalette
-```
+The theme colour picker is a way of providing CMS users to adjust the colours of different areas of their site without requiring developer intervention.
 
 ## Enabling
 

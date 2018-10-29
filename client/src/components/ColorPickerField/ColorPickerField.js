@@ -30,9 +30,8 @@ class ColorPickerField extends Component {
     if (value) {
       color = colors.find(({ CSSClass }) => CSSClass === value);
     }
-    if (!color) {
-      color = colors[0];
-    }
+
+    color = color || colors[0];
 
     return (
       <Button
@@ -45,7 +44,7 @@ class ColorPickerField extends Component {
           style={{ backgroundColor: color ? color.Color : 'transparent' }}
         />
         <div className="color-picker-field-button__color-label">
-          { color ? color.Title : <em>None</em> }
+          { color ? color.Title : <em>{i18n._t('ColorPickerField.EMPTY_TITLE', 'None')}</em> }
         </div>
       </Button>
     );
@@ -85,7 +84,7 @@ class ColorPickerField extends Component {
     return (
       <PopoverOptionSetComponent
         buttons={buttons}
-        searchPlaceholder={i18n._t('ColorPickerField.SEARCH_BLOCKS', 'Search colors')}
+        searchPlaceholder={i18n._t('ColorPickerField.SEARCH_BLOCKS', 'Search colours')}
         className="color-picker-field-popover"
         placement="bottom-start"
         onSearch={handleSearch}

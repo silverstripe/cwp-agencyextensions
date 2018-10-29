@@ -8,24 +8,32 @@ class FontPickerField extends Component {
   constructor(props) {
     super(props);
 
-    this.handleButtonClick = this.handleButtonClick.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
 
     this.state = {
       isOpen: false,
       value: props.value,
-      selectedFont: 'inherit',
+      selectedFont: this.getFontByValue(props.value).Title,
     };
   }
 
-  handleButtonClick(button) {
-    return () => {
-      this.handleToggle();
-      this.setState({
-        value: button.key,
-        selectedFont: button.text
-      });
-    };
+  /**
+   * Returns a font from props.fonts based on the given value, defaulting to the
+   * first item in the fonts list if a font cannot be found.
+   * @param  {String} value
+   * @return {Object}
+   */
+  getFontByValue(value) {
+    const { fonts } = this.props;
+    let font;
+
+    if (value) {
+      font = fonts.find(({ CSSClass }) => CSSClass === value);
+    }
+
+    font = font || fonts[0];
+
+    return font;
   }
 
   handleToggle() {
@@ -36,23 +44,16 @@ class FontPickerField extends Component {
 
   renderSelectorButton() {
     const { value } = this.state;
-    const { fonts, name } = this.props;
-    let font;
-
-    if (value) {
-      font = fonts.find(({ CSSClass }) => CSSClass === value);
-    }
-    if (!font) {
-      font = fonts[0];
-    }
+    const { name } = this.props;
+    const font = this.getFontByValue(value);
 
     return (
       <Button
         id={`Popover_${name}`}
         onClick={this.handleToggle}
-        className="font-picker-field-button font-icon-caret-up-down"
+        className="font-picker-field-button font-icon-caret-down-two"
       >
-        { font ? font.Title : <em>None</em> }
+        { font ? font.Title : <em>{i18n._t('FontPickerField.EMPTY_TITLE', 'None')}</em> }
       </Button>
     );
   }
@@ -65,15 +66,21 @@ class FontPickerField extends Component {
       key: font.CSSClass,
       content: font.Title,
       className: 'font-picker-field-popover__option',
-      buttonProps: { style: { fontFamily: `"${font.Title}"` } },
+      buttonProps: { style: { fontFamily: `'${font.Title}'` } },
       text: font.Title,
+      onClick: () => {
+        this.handleToggle();
+        this.setState({
+          value: font.CSSClass,
+          selectedFont: font.Title,
+        });
+      }
     }));
 
     return (
       <PopoverOptionSetComponent
+        disableSearch
         buttons={buttons}
-        provideButtonClickHandler={this.handleButtonClick}
-        searchPlaceholder={i18n._t('FontPickerField.SEARCH_BLOCKS', 'Search font families')}
         className="font-picker-field-popover"
         placement="bottom-start"
         isOpen={isOpen}
@@ -85,16 +92,23 @@ class FontPickerField extends Component {
 
   renderSelectedFontPreview() {
     const { selectedFont } = this.state;
-    const previewText = i18n._t(
-      'FontPickerField.PREVIEW_FONT',
-      'The quick brown fox jumped over the lazy dog'
+
+    const previewTextSentence = i18n._t(
+      'FontPickerField.PREVIEW_FONT_SENTENCE',
+      'The quick brown fox jumps over the lazy dog.'
+    );
+    const previewTextAlphabet = i18n._t(
+      'FontPickerField.PREVIEW_FONT_ALPHABET',
+      'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz 0123456789 - = _ + < > ? / . , : "'
     );
     return (
       <div
         className="font-picker-field__selection-preview"
-        style={{ fontFamily: `"${selectedFont}"` || 'inherit' }}
+        style={{ fontFamily: `'${selectedFont}'` || 'inherit' }}
       >
-        { previewText }
+        { previewTextSentence }
+        <br />
+        { previewTextAlphabet }
       </div>
     );
   }
