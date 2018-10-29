@@ -486,7 +486,7 @@ class CWPSiteConfigExtension extends DataExtension
                  )->setDescription(
                      _t(
                          __CLASS__ . '.AccentColorDescription',
-                         'Affects colour of buttons, current navigation items etc.'
+                         'Affects colour of buttons, current navigation items, etc. Please ensure sufficient contrast with background colours.'
                      )
                  ),
                  ColorPickerField::create(

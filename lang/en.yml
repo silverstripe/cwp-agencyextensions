@@ -38,5 +38,5 @@ en:
     CarouselBackgroundDescription: 'The background colour of the carousel when there is no image set.'
     FooterBackground: 'Footer background'
     AccentColor: 'Accent colour'
-    AccentColorDescription: 'Affects colour of buttons, current navigation items etc.'
+    AccentColorDescription: 'Affects colour of buttons, current navigation items, etc. Please ensure sufficient contrast with background colours.'
     TextLinkColor: 'Text link colour'
