@@ -21,6 +21,9 @@ Except:
 SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
     - "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    - "cwp/agency-extensions:client/dist/styles/bundle.css"
+  extra_requirements_javascript:
+    - "cwp/agency-extensions:client/dist/js/bundle.js"
 SilverStripe\Forms\HTMLEditor\TinyMCEConfig:
   editor_css:
     - "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"

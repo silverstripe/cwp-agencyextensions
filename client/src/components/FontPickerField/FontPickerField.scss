@@ -1,0 +1,50 @@
+.font-picker-field-button {
+  background-color: white;
+  border: 1px solid $border-color-light;
+  min-width: 270px;
+  width: 100%;
+  display: flex;
+  padding-top: $input-padding-y;
+  padding-bottom: $input-padding-y;
+
+  &.font-icon-caret-down-two::before {
+    position: absolute;
+    right: 10px;
+    margin: 0 0 0 6px;
+  }
+}
+
+.font-picker-field-popover {
+  max-width: 380px;
+  width: 380px;
+
+  &__option {
+    padding: 4px 8px;
+    max-height: 50px;
+    width: 100%;
+    line-height: 20px;
+
+    &:nth-last-child(-n+2) {
+      margin-bottom: 4px;
+    }
+
+    &:nth-child(odd) {
+      margin-right: 0;
+    }
+
+    &--selected {
+      &,
+      &.btn.btn-secondary:hover,
+      &.btn.btn-secondary:focus {
+        background-color: $link-color;
+        color: $white;
+      }
+    }
+  }
+}
+
+.font-picker-field__selection-preview {
+  font-size: 1.8em;
+  margin-top: 1rem;
+  word-break: break-word;
+}
