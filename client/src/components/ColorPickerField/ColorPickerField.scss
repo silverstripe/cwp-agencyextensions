@@ -25,6 +25,15 @@
     display: flex;
     padding: 4px;
     max-height: 50px;
+
+    &--selected {
+      &,
+      &.btn.btn-secondary:hover,
+      &.btn.btn-secondary:focus {
+        background-color: $link-color;
+        color: $white;
+      }
+    }
   }
 
   &__option-icon {

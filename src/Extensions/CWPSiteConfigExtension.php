@@ -486,7 +486,8 @@ class CWPSiteConfigExtension extends DataExtension
                  )->setDescription(
                      _t(
                          __CLASS__ . '.AccentColorDescription',
-                         'Affects colour of buttons, current navigation items, etc. Please ensure sufficient contrast with background colours.'
+                         'Affects colour of buttons, current navigation items, etc. '.
+                         'Please ensure sufficient contrast with background colours.'
                      )
                  ),
                  ColorPickerField::create(
@@ -544,8 +545,8 @@ class CWPSiteConfigExtension extends DataExtension
     }
 
     /**
-     * If HeaderBackground is not set, assume no theme colours exist and call populateDefaults if the color picker is enabled.
-     * This is done as SiteConfig won't call populateDefaults() on existing sites, so would
+     * If HeaderBackground is not set, assume no theme colours exist and call populateDefaults if the color
+     * picker is enabled. This is done as SiteConfig won't call populateDefaults() on existing sites, so would
      * not have any default theme_colors
      */
     public function onBeforeWrite()

@@ -52,7 +52,7 @@ class ColorPickerField extends Component {
 
   renderPopover() {
     const { PopoverOptionSetComponent, colors, name } = this.props;
-    const { isOpen } = this.state;
+    const { isOpen, value } = this.state;
 
     const buttonContent = (color) => [
       <span
@@ -67,7 +67,9 @@ class ColorPickerField extends Component {
     const buttons = colors.map((color) => ({
       key: color.CSSClass,
       content: buttonContent(color),
-      className: 'color-picker-field-popover__option',
+      className: ['color-picker-field-popover__option', {
+        'color-picker-field-popover__option--selected': color.CSSClass === value
+      }],
       text: color.Title,
       onClick: () => {
         this.handleToggle();
