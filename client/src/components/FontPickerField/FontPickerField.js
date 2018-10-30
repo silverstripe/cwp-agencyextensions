@@ -60,12 +60,14 @@ class FontPickerField extends Component {
 
   renderPopover() {
     const { PopoverOptionSetComponent, fonts, name } = this.props;
-    const { isOpen } = this.state;
+    const { isOpen, value } = this.state;
 
     const buttons = fonts.map((font) => ({
       key: font.CSSClass,
       content: font.Title,
-      className: 'font-picker-field-popover__option',
+      className: ['font-picker-field-popover__option', {
+        'font-picker-field-popover__option--selected': font.CSSClass === value,
+      }],
       buttonProps: { style: { fontFamily: `'${font.Title}'` } },
       text: font.Title,
       onClick: () => {
