@@ -404,8 +404,6 @@ class CWPSiteConfigExtension extends DataExtension
             return $this;
         }
 
-        $themeColors = $this->owner->config()->get('theme_colors');
-        $allThemeColors = $this->getThemeOptionsExcluding();
         $fonts = $this->owner->config()->get('theme_fonts');
 
         // Import each font via the google fonts api to render font preview
@@ -553,7 +551,7 @@ class CWPSiteConfigExtension extends DataExtension
     {
         $colorPickerEnabled = $this->owner->config()->get('enable_theme_color_picker');
 
-        if ($colorPickerEnabled && !isset($this->owner->record['HeaderBackground'])) {
+        if ($colorPickerEnabled && !$this->owner->HeaderBackground) {
             $this->owner->populateDefaults();
         }
     }
