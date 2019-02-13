@@ -2,6 +2,7 @@
 
 namespace CWP\AgencyExtensions\Model;
 
+use CWP\CWP\PageTypes\BaseHomePage;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Versioned\Versioned;
 use SilverStripe\Core\Injector\Injector;
@@ -36,7 +37,7 @@ class CarouselItem extends DataObject
     ];
 
     private static $has_one = [
-        'Parent' => 'HomePage',
+        'Parent' => BaseHomePage::class,
         'Image' => Image::class,
         'PrimaryCallToAction' => SiteTree::class,
         'SecondaryCallToAction' => SiteTree::class
