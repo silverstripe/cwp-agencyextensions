@@ -62,16 +62,6 @@ class CWPSiteConfigExtension extends DataExtension
         'AppleTouchIcon57'
     ];
 
-    private static $defaults = [
-        'MainFontFamily' => 'nunito-sans',
-        'HeaderBackground' => 'default-background',
-        'NavigationBarBackground' => 'default-background',
-        'CarouselBackground' => 'default-background',
-        'FooterBackground' => 'default-background',
-        'AccentColor' => 'default-accent',
-        'TextLinkColor' => 'default-accent',
-    ];
-
     /**
      * Defines if the theme colour picker is enabled in the CMS
      *
@@ -404,8 +394,6 @@ class CWPSiteConfigExtension extends DataExtension
             return $this;
         }
 
-        $themeColors = $this->owner->config()->get('theme_colors');
-        $allThemeColors = $this->getThemeOptionsExcluding();
         $fonts = $this->owner->config()->get('theme_fonts');
 
         // Import each font via the google fonts api to render font preview
@@ -545,16 +533,24 @@ class CWPSiteConfigExtension extends DataExtension
     }
 
     /**
-     * If HeaderBackground is not set, assume no theme colours exist and call populateDefaults if the color
-     * picker is enabled. This is done as SiteConfig won't call populateDefaults() on existing sites, so would
-     * not have any default theme_colors
+     * If HeaderBackground is not set, assume no theme colours exist and populate some defaults if the colour
+     * picker is enabled. We don't use populateDefaults() because we don't want SiteConfig to re-populate its own
+     * defaults.
      */
     public function onBeforeWrite()
     {
         $colorPickerEnabled = $this->owner->config()->get('enable_theme_color_picker');
 
-        if ($colorPickerEnabled && !isset($this->owner->record['HeaderBackground'])) {
-            $this->owner->populateDefaults();
+        if ($colorPickerEnabled && !$this->owner->HeaderBackground) {
+            $this->owner->update([
+                'MainFontFamily' => FontPickerField::DEFAULT_VALUE,
+                'HeaderBackground' => 'default-background',
+                'NavigationBarBackground' => 'default-background',
+                'CarouselBackground' => 'default-background',
+                'FooterBackground' => 'default-background',
+                'AccentColor' => 'default-accent',
+                'TextLinkColor' => 'default-accent',
+            ]);
         }
     }
 }

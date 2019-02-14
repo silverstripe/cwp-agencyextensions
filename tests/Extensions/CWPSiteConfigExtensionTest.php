@@ -65,4 +65,24 @@ class CWPSiteConfigExtensionTest extends SapphireTest
             ],
         ], $themeColors);
     }
+
+    public function testDefaultValuesAreNotWrittenWhenDisabled()
+    {
+        SiteConfig::config()->set('enable_theme_color_picker', false);
+
+        $siteConfig = SiteConfig::create();
+        $siteConfig->write();
+
+        $this->assertEmpty($siteConfig->HeaderBackground, 'Colour fields should not be written when disabled');
+    }
+
+    public function testDefaultValuesAreWrittenWhenEnabled()
+    {
+        SiteConfig::config()->set('enable_theme_color_picker', true);
+
+        $siteConfig = SiteConfig::create();
+        $siteConfig->write();
+
+        $this->assertNotEmpty($siteConfig->HeaderBackground, 'Colour fields should be written when enabled');
+    }
 }

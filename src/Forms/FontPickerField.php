@@ -6,6 +6,13 @@ use SilverStripe\Forms\SingleSelectField;
 
 class FontPickerField extends SingleSelectField
 {
+    /**
+     * The default value if none is already configured
+     *
+     * @var string
+     */
+    const DEFAULT_VALUE = 'nunito-sans';
+
     public function __construct($name, $title = null, $source = array(), $value = null)
     {
         parent::__construct($name, $title, $source, $value);
@@ -30,5 +37,10 @@ class FontPickerField extends SingleSelectField
         $schemaData['value'] = $this->Value();
 
         return $schemaData;
+    }
+
+    public function Value()
+    {
+        return parent::Value() ?: self::DEFAULT_VALUE;
     }
 }
