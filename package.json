@@ -21,13 +21,15 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "jquery": "^3.2.1",
+    "merge": "^1.2.1",
+    "mime": "^1.4.1",
+    "prop-types": "^15.6.2",
     "react": "15.3.1",
     "react-dom": "15.3.1",
-    "reactstrap": "^6.5.0",
-    "prop-types": "^15.6.2"
+    "reactstrap": "^6.5.0"
   },
   "devDependencies": {
-    "@silverstripe/webpack-config": "^0.4.1",
+    "@silverstripe/webpack-config": "^0.9.0",
     "babel-core": "^6.24.1",
     "babel-jest": "^20.0.3",
     "babel-loader": "^7.0.0",
