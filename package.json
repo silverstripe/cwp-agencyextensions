@@ -19,6 +19,7 @@
   "author": "SilverStripe",
   "license": "BSD-3-Clause",
   "dependencies": {
+    "@silverstripe/eslint-config": "^0.0.5",
     "classnames": "^2.2.5",
     "jquery": "^3.2.1",
     "merge": "^1.2.1",
