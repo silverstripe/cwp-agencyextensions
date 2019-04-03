@@ -58,7 +58,6 @@ class CarouselPageExtension extends DataExtension
         $gridConfig->removeComponentsByType(GridFieldAddExistingAutocompleter::class);
         $gridConfig->removeComponentsByType(GridFieldDeleteAction::class);
         $gridConfig->addComponent(new GridFieldDeleteAction());
-        $gridConfig->addComponent(new GridFieldVersionedState());
         $gridConfig->addComponent(new GridFieldOrderableRows('SortOrder'));
         $gridConfig->removeComponentsByType(GridFieldSortableHeader::class);
         $gridField->setModelClass(CarouselItem::class);
