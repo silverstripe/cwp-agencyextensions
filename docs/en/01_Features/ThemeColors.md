@@ -50,5 +50,5 @@ $custom-theme-colors: (
 @import '../../../watea/src/scss/main';
 ```
 
-For more information on using customisable theme colours and fonts in the Wātea theme, please refer to the theme's
-documentation.
+For more information on using customisable theme colours and fonts in the Wātea theme, please refer to the CWP
+Developer documentation: [Using the Wātea theme](https://github.com/silverstripe/cwp/blob/master/docs/en/01_Working_with_projects/14_Using_the_Watea_theme.md).
