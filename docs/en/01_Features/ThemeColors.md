@@ -3,11 +3,13 @@ summary: Information on configuration around the theme colour picker
 
 # Theme colour picker
 
-The theme colour picker is a way of providing CMS users to adjust the colours of different areas of their site without requiring developer intervention.
+The theme colour picker is a way of providing CMS users to adjust the colours of different areas of their site without
+requiring developer intervention.
 
 ## Enabling
 
-By default the theme colour picker is disabled, to enable this you can adjust your YAML configuration. E.g. in `_config/config.yml`:
+By default the theme colour picker is disabled, to enable this you can adjust your YAML configuration. E.g. in
+`app/_config/config.yml`:
 
 ```yml
 SilverStripe\SiteConfig\SiteConfig:
@@ -16,7 +18,8 @@ SilverStripe\SiteConfig\SiteConfig:
 
 ## Adjusting/adding colours
 
-The theme colours are all configurable, so via YAML configuration you can adjust existing colours or add new ones to the theme colour picker. see CWPSiteConfigExtension#theme_colors for a list of the default colours.
+The theme colours are all configurable, so via YAML configuration you can adjust existing colours or add new ones to
+the theme colour picker. see `CWPSiteConfigExtension.theme_colors` for a list of the default colours.
 
 ```yml
 SilverStripe\SiteConfig\SiteConfig:
@@ -32,7 +35,8 @@ SilverStripe\SiteConfig\SiteConfig:
       Color: '#594116'
 ```
 
-Now you can add the matching colour to your scss. Assuming your project is using a custom theme which imports watea's `main.scss` file, create a `$custom-theme-colors` as follows:
+Now you can add the matching colour to your SCSS. Assuming your project is using a custom theme which imports Wātea's
+`main.scss` file, create a `$custom-theme-colors` as follows:
 
 ```scss
 // themes/customtheme/scss/main.scss
@@ -45,3 +49,6 @@ $custom-theme-colors: (
 
 @import '../../../watea/src/scss/main';
 ```
+
+For more information on using customisable theme colours and fonts in the Wātea theme, please refer to the CWP
+Developer documentation: [Using the Wātea theme](https://github.com/silverstripe/cwp/blob/master/docs/en/01_Working_with_projects/14_Using_the_Watea_theme.md).
