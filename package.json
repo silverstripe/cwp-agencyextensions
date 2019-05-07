@@ -21,7 +21,7 @@
   "dependencies": {
     "@silverstripe/eslint-config": "^0.0.5",
     "classnames": "^2.2.5",
-    "jquery": "^3.2.1",
+    "jquery": "^3.4.0",
     "merge": "^1.2.1",
     "mime": "^1.4.1",
     "prop-types": "^15.6.2",
