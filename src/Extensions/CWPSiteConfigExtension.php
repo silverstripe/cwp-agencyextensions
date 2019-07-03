@@ -2,18 +2,15 @@
 
 namespace CWP\AgencyExtensions\Extensions;
 
-use CWP\AgencyExtensions\Forms\ColorPickerField;
 use CWP\AgencyExtensions\Forms\FontPickerField;
 use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
 use SilverStripe\Core\Injector\Injector;
-use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\FileHandleField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Versioned\Versioned;
-use SilverStripe\View\Requirements;
 
 /**
  * Class CWPCleanupSiteConfigExtension
@@ -32,8 +29,6 @@ class CWPSiteConfigExtension extends DataExtension
         'NavigationBarBackground' => 'Varchar(50)',
         'CarouselBackground' => 'Varchar(50)',
         'FooterBackground' => 'Varchar(50)',
-        'AccentColor' => 'Varchar(50)',
-        'TextLinkColor' => 'Varchar(50)',
     );
 
     private static $has_one = array(
@@ -63,14 +58,6 @@ class CWPSiteConfigExtension extends DataExtension
     ];
 
     /**
-     * Defines if the theme colour picker is enabled in the CMS
-     *
-     * @config
-     * @var boolean
-     */
-    private static $enable_theme_color_picker = false;
-
-    /**
      * Defines the theme fonts that can be selected via the CMS
      *
      * @config
@@ -83,95 +70,6 @@ class CWPSiteConfigExtension extends DataExtension
     ];
 
     /**
-     * Defines the theme colours that can be selected via the CMS
-     *
-     * @config
-     * @var array
-     */
-    private static $theme_colors = [
-        'default-accent' => [
-            'Title' => 'Default',
-            'CSSClass' => 'default-accent',
-            'Color' => '#0F7EB2',
-        ],
-        'default-background' => [
-            'Title' => 'Default',
-            'CSSClass' => 'default-background',
-            'Color' => '#001F2C',
-        ],
-        'red' => [
-            'Title' => 'Red',
-            'CSSClass' => 'red',
-            'Color' => '#E51016',
-        ],
-        'dark-red' => [
-            'Title' => 'Dark red',
-            'CSSClass' => 'dark-red',
-            'Color' => '#AD161E',
-        ],
-        'pink' => [
-            'Title' => 'Pink',
-            'CSSClass' => 'pink',
-            'Color' => '#B32A95',
-        ],
-        'purple' => [
-            'Title' => 'Purple',
-            'CSSClass' => 'purple',
-            'Color' => '#6239C8',
-        ],
-        'blue' => [
-            'Title' => 'Blue',
-            'CSSClass' => 'blue',
-            'Color' => '#1F6BFE',
-        ],
-        'dark-blue' => [
-            'Title' => 'Dark blue',
-            'CSSClass' => 'dark-blue',
-            'Color' => '#123581',
-        ],
-        'teal' => [
-            'Title' => 'Teal',
-            'CSSClass' => 'teal',
-            'Color' => '#00837A',
-        ],
-        'green' => [
-            'Title' => 'Green',
-            'CSSClass' => 'green',
-            'Color' => '#298436',
-        ],
-        'dark-orange' => [
-            'Title' => 'Dark orange',
-            'CSSClass' => 'dark-orange',
-            'Color' => '#D34300',
-        ],
-        'dark-ochre' => [
-            'Title' => 'Dark ochre',
-            'CSSClass' => 'dark-ochre',
-            'Color' => '#947200',
-        ],
-        'black' => [
-            'Title' => 'Black',
-            'CSSClass' => 'black',
-            'Color' => '#111111',
-        ],
-        'dark-grey' => [
-            'Title' => 'Dark grey',
-            'CSSClass' => 'dark-grey',
-            'Color' => '#555555',
-        ],
-        'light-grey' => [
-            'Title' => 'Light grey',
-            'CSSClass' => 'light-grey',
-            'Color' => '#EAEAEA',
-        ],
-        'white' => [
-            'Title' => 'White',
-            'CSSClass' => 'white',
-            'Color' => '#FFFFFF',
-        ],
-    ];
-
-    /**
      * @param FieldList $fields
      */
     public function updateCMSFields(FieldList $fields)
@@ -179,7 +77,40 @@ class CWPSiteConfigExtension extends DataExtension
         $this
             ->addLogosAndIcons($fields)
             ->addSearchOptions($fields)
-            ->addThemeColorPicker($fields);
+            ->addFontPicker($fields);
+    }
+
+    /**
+     * Add fields for selecting the font for different areas of the site.
+     *
+     * @param  FieldList $fields
+     * @return $this
+     */
+    protected function addFontPicker(FieldList $fields)
+    {
+        $fonts = $this->owner->config()->get('theme_fonts');
+
+        // Import each font via the google fonts api to render font preview
+        foreach ($fonts as $fontTitle) {
+            $fontFamilyName = str_replace(' ', '+', $fontTitle);
+            Requirements::css("//fonts.googleapis.com/css?family=$fontFamilyName");
+        }
+
+        $fields->addFieldsToTab(
+            'Root.ThemeOptions',
+            [
+                FontPickerField::create(
+                    'MainFontFamily',
+                    _t(
+                        __CLASS__ . '.MainFontFamily',
+                        'Main font family'
+                    ),
+                    $fonts
+                )
+            ]
+        );
+
+        return $this;
     }
 
     /**
@@ -382,146 +313,6 @@ class CWPSiteConfigExtension extends DataExtension
     }
 
     /**
-     * Add fields for selecting the font theme colour for different areas of the site.
-     *
-     * @param  FieldList $fields
-     * @return $this
-     */
-    protected function addThemeColorPicker(FieldList $fields)
-    {
-        // Only show theme colour selector if enabled
-        if (!$this->owner->config()->get('enable_theme_color_picker')) {
-            return $this;
-        }
-
-        $fonts = $this->owner->config()->get('theme_fonts');
-
-        // Import each font via the google fonts api to render font preview
-        foreach ($fonts as $fontTitle) {
-            $fontFamilyName = str_replace(' ', '+', $fontTitle);
-            Requirements::css("//fonts.googleapis.com/css?family=$fontFamilyName");
-        }
-
-        $fields->addFieldsToTab(
-            'Root.ThemeOptions',
-            [
-                FontPickerField::create(
-                    'MainFontFamily',
-                    _t(
-                        __CLASS__ . '.MainFontFamily',
-                        'Main font family'
-                    ),
-                    $fonts
-                ),
-                 ColorPickerField::create(
-                     'HeaderBackground',
-                     _t(
-                         __CLASS__ . '.HeaderBackground',
-                         'Header background'
-                     ),
-                     $this->getThemeOptionsExcluding([
-                         'default-accent',
-                     ])
-                 ),
-                 ColorPickerField::create(
-                     'NavigationBarBackground',
-                     _t(
-                         __CLASS__ . '.NavigationBarBackground',
-                         'Navigation bar background'
-                     ),
-                     $this->getThemeOptionsExcluding([
-                         'default-accent',
-                     ])
-                 ),
-                 ColorPickerField::create(
-                     'CarouselBackground',
-                     _t(
-                         __CLASS__ . '.CarouselBackground',
-                         'Carousel background'
-                     ),
-                     $this->getThemeOptionsExcluding([
-                         'default-accent',
-                     ])
-                 )->setDescription(
-                     _t(
-                         __CLASS__ . '.CarouselBackgroundDescription',
-                         'The background colour of the carousel when there is no image set.'
-                     )
-                 ),
-                 ColorPickerField::create(
-                     'FooterBackground',
-                     _t(
-                         __CLASS__ . '.FooterBackground',
-                         'Footer background'
-                     ),
-                     $this->getThemeOptionsExcluding([
-                         'light-grey',
-                         'white',
-                         'default-accent',
-                     ])
-                 ),
-                 ColorPickerField::create(
-                     'AccentColor',
-                     _t(
-                         __CLASS__ . '.AccentColor',
-                         'Accent colour'
-                     ),
-                     $this->getThemeOptionsExcluding([
-                         'light-grey',
-                         'white',
-                         'default-background',
-                     ])
-                 )->setDescription(
-                     _t(
-                         __CLASS__ . '.AccentColorDescription',
-                         'Affects colour of buttons, current navigation items, etc. '.
-                         'Please ensure sufficient contrast with background colours.'
-                     )
-                 ),
-                 ColorPickerField::create(
-                     'TextLinkColor',
-                     _t(
-                         __CLASS__ . '.TextLinkColor',
-                         'Text link colour'
-                     ),
-                     $this->getThemeOptionsExcluding([
-                         'black',
-                         'light-grey',
-                         'dark-grey',
-                         'white',
-                         'default-background',
-                     ])
-                 ),
-            ]
-        );
-
-        return $this;
-    }
-
-    /**
-     * Returns theme_colors used for ColorPickerField.
-     *
-     * @param  array  $excludedColors list of colours to exclude from the returned options
-     *                                based on the theme colour's 'CSSClass' value
-     * @return array
-     */
-    public function getThemeOptionsExcluding($excludedColors = [])
-    {
-        $themeColors = $this->owner->config()->get('theme_colors');
-        $options = [];
-
-        foreach ($themeColors as $themeColor) {
-            if (in_array($themeColor['CSSClass'], $excludedColors)) {
-                continue;
-            }
-
-            $options[] = $themeColor;
-        }
-
-        return $options;
-    }
-
-    /**
      * Auto-publish any images attached to the SiteConfig object if it's not versioned. Versioned objects will
      * handle their related objects via the "owns" API by default.
      */
@@ -533,23 +324,14 @@ class CWPSiteConfigExtension extends DataExtension
     }
 
     /**
-     * If HeaderBackground is not set, assume no theme colours exist and populate some defaults if the colour
-     * picker is enabled. We don't use populateDefaults() because we don't want SiteConfig to re-populate its own
-     * defaults.
+     * If MainFontFamily is not set, populate the defaults.
+     * We don't use populateDefaults() because we don't want SiteConfig to re-populate its own defaults.
      */
     public function onBeforeWrite()
     {
-        $colorPickerEnabled = $this->owner->config()->get('enable_theme_color_picker');
-
-        if ($colorPickerEnabled && !$this->owner->HeaderBackground) {
+        if (!$this->owner->MainFontFamily) {
             $this->owner->update([
                 'MainFontFamily' => FontPickerField::DEFAULT_VALUE,
-                'HeaderBackground' => 'default-background',
-                'NavigationBarBackground' => 'default-background',
-                'CarouselBackground' => 'default-background',
-                'FooterBackground' => 'default-background',
-                'AccentColor' => 'default-accent',
-                'TextLinkColor' => 'default-accent',
             ]);
         }
     }

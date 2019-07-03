@@ -11,13 +11,11 @@ This module provides some added configuration and underlying functionality that 
 
 This module provides the following (may not be a definitive list):
 
-* [Theme colour picker](docs/en/01_Features/ThemeColors.md). Allows CMS users to adjust the colours of different areas of their site without requiring developer intervention
 * [Carousel/hero image](docs/en/01_Features/Carousel.md) for the home page
 * Customise search results labels from SiteConfig
 * Upload custom header and footer logos from SiteConfig
 * Upload custom favicon and Apple touch logos from SiteConfig
 * [FontAwesome](http://fontawesome.io) icon popup dialog to the TinyMCE content editor (Wātea theme only, by default)
-* Customisable theme colours in site settings
 
 ## Installation
 
@@ -39,10 +37,9 @@ composer require cwp/agency-extensions
 
 ### Features
 
-* [Theme colour picker](docs/en/01_Features/ThemeColors.md)
 * [Carousel/hero image](docs/en/01_Features/Carousel.md)
 * [FontAwesome icon plugin for TinyMCE](docs/en/01_Features/FontAwesomePlugin.md)
-* [Customisable theme colours](docs/en/01_Features/ThemeColors.md)
+* todo: Font picker 
 
 ## Versioning
 
