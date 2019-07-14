@@ -3,6 +3,7 @@
 namespace CWP\AgencyExtensions\Extensions;
 
 use CWP\AgencyExtensions\Model\CarouselItem;
+use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
@@ -18,12 +19,16 @@ use SilverStripe\Forms\LiteralField;
 
 class CarouselPageExtension extends DataExtension
 {
+    private static $db = [
+        'CarouselTitle' => 'Text',
+    ];
+
     private static $has_many = [
-        'CarouselItems' => CarouselItem::class
+        'CarouselItems' => CarouselItem::class,
     ];
 
     private static $owns = [
-        'CarouselItems'
+        'CarouselItems',
     ];
 
     /**
@@ -49,7 +54,7 @@ class CarouselPageExtension extends DataExtension
         );
         $gridField->setDescription(_t(
             __CLASS__ . 'NOTE',
-            'NOTE: Carousel functionality will automatically be loaded when 2 or more items are added below'
+            'Carousel functionality will automatically be loaded when 2 or more items are added below'
         ));
         $gridConfig = $gridField->getConfig();
         $gridConfig->getComponentByType(GridFieldAddNewButton::class)->setButtonName(
@@ -67,6 +72,13 @@ class CarouselPageExtension extends DataExtension
             _t(__CLASS__ . 'TITLE', 'Hero/Carousel')
         );
 
+        $titleField = TextField::create('CarouselTitle', 'Carousel Title');
+        $titleField->setDescription(_t(
+            __CLASS__ . 'TITLE_NOTE',
+            'Used by screen readers'
+        ));
+
+        $fields->addFieldToTab('Root.Carousel', $titleField);
         $fields->addFieldToTab('Root.Carousel', $gridField);
     }
 }
