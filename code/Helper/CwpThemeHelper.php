@@ -7,7 +7,7 @@
  *
  * @deprecated 2.0
  */
-class CwpThemeHelper extends Object
+class CwpThemeHelper extends SS_Object
 {
     /**
      * Define the theme names that will have combined styles and scripts added - see {@link DefaultThemeExtension}
