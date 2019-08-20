@@ -12,7 +12,8 @@
   },
   "require-dev": {
     "phpunit/phpunit": "^3.7",
-    "friendsofphp/php-cs-fixer": "~2.0"
+    "friendsofphp/php-cs-fixer": "~2.0",
+    "silverstripe/selectupload": "^1.0"
   },
   "extra": {
     "branch-alias": {
