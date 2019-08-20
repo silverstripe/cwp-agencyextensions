@@ -32,7 +32,7 @@ class CWPSiteConfigExtensionTest extends SapphireTest
     {
         Config::inst()->update('SSViewer', 'theme', 'simple');
         $fields = SiteConfig::create()->getCMSFields();
-        $this->assertInstanceOf(SelectUploadField::class, $fields->fieldByName('Root.LogosIcons.LogoRetina'));
+        $this->assertInstanceOf(UploadField::class, $fields->fieldByName('Root.LogosIcons.LogoRetina'));
     }
 
     /**
