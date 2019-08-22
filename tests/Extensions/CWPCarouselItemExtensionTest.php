@@ -2,6 +2,8 @@
 
 class CWPCarouselItemExtensionTest extends SapphireTest
 {
+    protected $usesDatabase = true;
+
     /**
      * Ensure that the caption is replaced by a HTML editor for content
      */
