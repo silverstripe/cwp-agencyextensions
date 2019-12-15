@@ -13,11 +13,15 @@ if (!Environment::getEnv('CWP_AGENCY_DISABLE_FONTAWESOME_PLUGIN')) {
         ->getURL();
     $cwpEditor->enablePlugins(['fontawesome' => $pluginPath]);
     $cwpEditor->addButtonsToLine(2, 'fontawesome');
-    
+
     $contentCSS = (array)$cwpEditor->getOption('editor_css');
     $contentCSS[] = 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
     $cwpEditor->setOption('editor_css', $contentCSS);
 
     // Allow span tags in TinyMCE to have aria-hidden attributes
-    $cwpEditor->setOption('extended_valid_elements', 'span[class|align|style|aria-hidden]');
+    $cwpEditor->setOption(
+        'extended_valid_elements',
+        $cwpEditor->getOption('extended_valid_elements') // appending is necessary as setOption is overriding values
+        . ',span[class|align|style|aria-hidden]' // later definition will be used in case of multiple elements in config
+    );
 }
