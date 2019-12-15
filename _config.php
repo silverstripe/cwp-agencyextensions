@@ -21,7 +21,7 @@ if (!Environment::getEnv('CWP_AGENCY_DISABLE_FONTAWESOME_PLUGIN')) {
     // Allow span tags in TinyMCE to have aria-hidden attributes
     $cwpEditor->setOption(
         'extended_valid_elements',
-        $cwpEditor->getOption('extended_valid_elements')
-        . ',span[class|align|style|aria-hidden]'
+        $cwpEditor->getOption('extended_valid_elements') // appending is necessary as setOption is overriding values
+        . ',span[class|align|style|aria-hidden]' // later definition will be used in case of multiple elements in config
     );
 }
