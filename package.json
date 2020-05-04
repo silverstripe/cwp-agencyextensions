@@ -20,7 +20,7 @@
   "license": "BSD-3-Clause",
   "dependencies": {
     "classnames": "^2.2.5",
-    "jquery": "^3.4.0",
+    "jquery": "^3.5.0",
     "merge": "^1.2.1",
     "mime": "^1.4.1",
     "prop-types": "^15.6.2",
