@@ -1,6 +1,13 @@
 language: php
 
-dist: trusty
+dist: xenial
+
+services:
+  - mysql
+
+cache:
+  directories:
+    - $HOME/.composer/cache/files
 
 env:
   global:
@@ -9,11 +16,11 @@ env:
 matrix:
   include:
     - php: 5.6
-      env: DB=MYSQL RECIPE_VERSION=4.3.x-dev PHPCS_TEST=1 PHPUNIT_TEST=1
+      env: DB=MYSQL RECIPE_VERSION=4.4.x-dev PHPUNIT_TEST=1 PHPCS_TEST=1
     - php: 7.1
-      env: DB=MYSQL RECIPE_VERSION=4.4.x-dev PHPUNIT_TEST=1
-    - php: 7.2
       env: DB=MYSQL RECIPE_VERSION=4.5.x-dev PHPUNIT_COVERAGE_TEST=1
+    - php: 7.2
+      env: DB=MYSQL RECIPE_VERSION=4.6.x-dev PHPUNIT_TEST=1
     - php: 7.3
       env: DB=MYSQL RECIPE_VERSION=4.6.x-dev PHPUNIT_TEST=1
     - php: 7.4
@@ -28,6 +35,7 @@ before_script:
   # Install composer dependencies
   - composer validate
   - composer require --no-update silverstripe/recipe-cms:"$RECIPE_VERSION" cwp/starter-theme:^2 silverstripe/fulltextsearch:^3
+  # Fix for running phpunit 5 on php 7.4+
   - composer require --no-update sminnee/phpunit-mock-objects:^3
   - composer install --prefer-dist --no-interaction --no-progress --no-suggest --optimize-autoloader --verbose --profile
 
