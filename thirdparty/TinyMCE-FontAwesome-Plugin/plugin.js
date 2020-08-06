@@ -1,7 +1,6 @@
 // Created by Josh Hunt
 // joshhunt180@gmail.com
 // v2.1.0
-tinymce.PluginManager.requireLangPack('fontawesome');
 tinymce.PluginManager.add('fontawesome', function(editor, url) {
 
     var translate = tinymce.util.I18n.translate;
