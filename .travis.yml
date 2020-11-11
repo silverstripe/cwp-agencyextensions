@@ -1,8 +1,7 @@
-# https://docs.travis-ci.com/user/build-config-imports/
 version: ~> 1.0
 
 import:
-  - silverstripe/silverstripe-travis-shared:config/provision/cwp-jobs.yml
+  - silverstripe/silverstripe-travis-shared:config/provision/cwp-jobs-range.yml
 
 env:
   global:
