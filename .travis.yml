@@ -1,9 +1,8 @@
 version: ~> 1.0
 
 import:
-  - silverstripe/silverstripe-travis-shared:config/provision/cwp-jobs-range.yml
+  - silverstripe/silverstripe-travis-shared:config/provision/standard-jobs-range.yml
 
 env:
   global:
-    - COMPOSER_ROOT_VERSION=2.x-dev
     - REQUIRE_EXTRA="silverstripe/fulltextsearch:^3"
