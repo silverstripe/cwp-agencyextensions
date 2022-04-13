@@ -28,6 +28,6 @@ class ColorPickerField extends SingleSelectField
     {
         return array_merge([''], array_map(function ($color) {
             return $color['CSSClass'];
-        }, $this->getSource()));
+        }, $this->getSource() ?? []));
     }
 }
