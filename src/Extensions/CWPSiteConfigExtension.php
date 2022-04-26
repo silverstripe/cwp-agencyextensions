@@ -398,7 +398,7 @@ class CWPSiteConfigExtension extends DataExtension
 
         // Import each font via the google fonts api to render font preview
         foreach ($fonts as $fontTitle) {
-            $fontFamilyName = str_replace(' ', '+', $fontTitle);
+            $fontFamilyName = str_replace(' ', '+', $fontTitle ?? '');
             Requirements::css("//fonts.googleapis.com/css?family=$fontFamilyName");
         }
 
@@ -511,7 +511,7 @@ class CWPSiteConfigExtension extends DataExtension
         $options = [];
 
         foreach ($themeColors as $themeColor) {
-            if (in_array($themeColor['CSSClass'], $excludedColors)) {
+            if (in_array($themeColor['CSSClass'], $excludedColors ?? [])) {
                 continue;
             }
 
