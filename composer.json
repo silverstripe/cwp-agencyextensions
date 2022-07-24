@@ -17,6 +17,9 @@
         "phpunit/phpunit": "^9.5",
         "squizlabs/php_codesniffer": "^3"
     },
+    "conflict": {
+        "silverstripe/auditor": "<2.2.1"
+    },
     "autoload": {
         "psr-4": {
             "CWP\\AgencyExtensions\\": "src/",
