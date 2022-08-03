@@ -1,9 +1,7 @@
 # CWP Agency Extensions Module
 
 [![CI](https://github.com/silverstripe/cwp-agencyextensions/actions/workflows/ci.yml/badge.svg)](https://github.com/silverstripe/cwp-agencyextensions/actions/workflows/ci.yml)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/silverstripe/cwp-agencyextensions/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/silverstripe/cwp-agencyextensions/?branch=master)
-[![codecov](https://codecov.io/gh/silverstripe/cwp-agencyextensions/branch/master/graph/badge.svg)](https://codecov.io/gh/silverstripe/cwp-agencyextensions)
-[![SilverStripe supported module](https://img.shields.io/badge/silverstripe-supported-0071C4.svg)](https://www.silverstripe.org/software/addons/silverstripe-commercially-supported-module-list/)
+[![Silverstripe supported module](https://img.shields.io/badge/silverstripe-supported-0071C4.svg)](https://www.silverstripe.org/software/addons/silverstripe-commercially-supported-module-list/)
 
 This module provides some added configuration and underlying functionality that may be useful to allow clients/agencies to adjust website functionality theirselves, or to provide additional functionality that may not always be required for a CWP project. It provides the content management side of the functionality provided by the Watea theme (specifically the Carousel).
 
