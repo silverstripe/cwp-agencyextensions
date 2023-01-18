@@ -1,9 +1,9 @@
 {
   "name": "agency-extensions",
-  "version": "1.0.0",
   "description": "Base module for the default CWP theme to add features",
   "scripts": {
-    "build": "yarn && yarn lint && NODE_ENV=production webpack -p --bail --progress",
+    "build": "yarn && yarn lint && rm -rf client/dist/* && NODE_ENV=production webpack --mode production --bail --progress",
+    "dev": "NODE_ENV=development webpack --progress",
     "watch": "yarn && NODE_ENV=development webpack --watch --progress",
     "css": "WEBPACK_CHILD=css npm run build",
     "lint": "eslint client/src && sass-lint --verbose client/src/**/*.scss",
@@ -17,24 +17,27 @@
   },
   "author": "SilverStripe",
   "license": "BSD-3-Clause",
+  "engines": {
+    "node": "^18.x"
+  },
   "dependencies": {
-    "classnames": "^2.2.5",
-    "jquery": "^3.5.0",
+    "classnames": "^2.3.2",
     "merge": "^2.1.1",
-    "mime": "^1.4.1",
-    "prop-types": "^15.6.2",
-    "react": "^15.3.1",
-    "react-dom": "^15.3.1",
-    "reactstrap": "^6.5.0"
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "reactstrap": "^8.9.0"
   },
   "devDependencies": {
-    "@silverstripe/eslint-config": "^0.0.5",
-    "@silverstripe/webpack-config": "^1.2.0",
-    "babel-jest": "^20.0.3",
-    "bootstrap": "^4.3.1",
-    "jest-cli": "^19.0.2"
+    "@silverstripe/eslint-config": "^1.0.0-alpha6",
+    "@silverstripe/webpack-config": "^2.0.0-alpha5",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^5.0.0"
   },
-  "engines": {
-    "node": "^10.x"
-  }
+  "resolutions": {
+    "colors": "1.4.0"
+  },
+  "browserslist": [
+    "defaults"
+  ]
 }

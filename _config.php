@@ -1,22 +1,13 @@
 <?php
 
 use SilverStripe\Core\Environment;
-use SilverStripe\Forms\HTMLEditor\HTMLEditorConfig;
-use SilverStripe\Core\Manifest\ModuleLoader;
+use SilverStripe\Forms\HTMLEditor\TinyMCEConfig;
 
-// By default the FontAwesome plugin for TinyMCE is enabled. You can disable it by defining
-// CWP_AGENCY_DISABLE_FONTAWESOME_PLUGIN = true in your environment configuration.
-if (!Environment::getEnv('CWP_AGENCY_DISABLE_FONTAWESOME_PLUGIN')) {
-    $cwpEditor = HtmlEditorConfig::get('cwp');
-    $pluginPath = ModuleLoader::getModule('cwp/agency-extensions')
-        ->getResource('thirdparty/TinyMCE-FontAwesome-Plugin/fontawesome/plugin.min.js')
-        ->getURL();
-    $cwpEditor->enablePlugins(['fontawesome' => $pluginPath]);
-    $cwpEditor->addButtonsToLine(2, 'fontawesome');
-
-    $contentCSS = (array)$cwpEditor->getOption('editor_css');
-    $contentCSS[] = 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
-    $cwpEditor->setOption('editor_css', $contentCSS);
+// CWP_AGENCY_DISABLE_FONTAWESOME_PLUGIN used to control whether an actual tinymce plugin was used.
+// CWP_AGENCY_ENABLE_FONTAWESOME_STYLES replaces it as the inverse, since that plugin is no longer available.
+// This config is here only to control whether legacy config is kept or not, to make upgrading from CMS 4 easier.
+if (Environment::getEnv('CWP_AGENCY_ENABLE_FONTAWESOME_STYLES')) {
+    $cwpEditor = TinyMCEConfig::get('cwp');
 
     // Allow span tags in TinyMCE to have aria-hidden attributes
     $cwpEditor->setOption(

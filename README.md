@@ -14,7 +14,6 @@ This module provides the following (may not be a definitive list):
 * Customise search results labels from SiteConfig
 * Upload custom header and footer logos from SiteConfig
 * Upload custom favicon and Apple touch logos from SiteConfig
-* [FontAwesome](http://fontawesome.io) icon popup dialog to the TinyMCE content editor (Wātea theme only, by default)
 * Customisable theme colours in site settings
 
 ## Installation
@@ -29,9 +28,9 @@ composer require cwp/agency-extensions
 
 ## Requirements
 
-* `cwp/cwp` 2.0 or above
+* `cwp/cwp` 3.0 or above
 
-**Note** For use with CWP versions less than 2, please see the `1.x` [release line](https://github.com/silverstripe/cwp-agencyextensions/releases).
+**Note** For use with CWP versions less than 3, please see the `2.x` [release line](https://github.com/silverstripe/cwp-agencyextensions/releases).
 
 ## Documentation
 
@@ -39,7 +38,6 @@ composer require cwp/agency-extensions
 
 * [Theme colour picker](docs/en/01_Features/ThemeColors.md)
 * [Carousel/hero image](docs/en/01_Features/Carousel.md)
-* [FontAwesome icon plugin for TinyMCE](docs/en/01_Features/FontAwesomePlugin.md)
 * [Customisable theme colours](docs/en/01_Features/ThemeColors.md)
 
 ## Versioning
@@ -47,7 +45,3 @@ composer require cwp/agency-extensions
 This library follows [Semver](http://semver.org). According to Semver, you will be able to upgrade to any minor or patch version of this library without any breaking changes to the public API. Semver also requires that we clearly define the public API for this library.
 
 All methods, with `public` visibility, are part of the public API. All other methods are not part of the public API. Where possible, we'll try to keep `protected` methods backwards-compatible in minor/patch versions, but if you're overriding methods then please test your work before upgrading.
-
-## Notes
-
-This library includes a version of the [TinyMCE-FontAwesome-Plugin by Josh18](https://github.com/josh18/TinyMCE-FontAwesome-Plugin) which is open and permissive via the [expat/MIT Licence](https://en.wikipedia.org/wiki/MIT_License).

@@ -111,7 +111,7 @@ class ColorPickerField extends Component {
   }
 }
 
-ColorPickerField.proptypes = {
+ColorPickerField.propTypes = {
   colors: PropTypes.arrayOf(PropTypes.shape({
     Title: PropTypes.text,
     CSSClass: PropTypes.text,

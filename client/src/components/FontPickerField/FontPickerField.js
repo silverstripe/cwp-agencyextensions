@@ -130,7 +130,7 @@ class FontPickerField extends Component {
   }
 }
 
-FontPickerField.proptypes = {
+FontPickerField.propTypes = {
   fonts: PropTypes.arrayOf(PropTypes.shape({
     Title: PropTypes.text,
     CSSClass: PropTypes.text,

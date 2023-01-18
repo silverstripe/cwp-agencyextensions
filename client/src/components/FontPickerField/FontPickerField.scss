@@ -15,9 +15,6 @@
 }
 
 .font-picker-field-popover {
-  max-width: 380px;
-  width: 380px;
-
   &__option {
     padding: 4px 8px;
     max-height: 50px;
@@ -40,6 +37,11 @@
         color: $white;
       }
     }
+  }
+
+  .popover {
+    max-width: 380px;
+    width: 380px;
   }
 }
 
