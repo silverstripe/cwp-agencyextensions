@@ -1,10 +1,12 @@
 import jQuery from 'jquery';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { loadComponent } from 'lib/Injector';
 
 jQuery.entwine('ss', ($) => {
   $('.js-injector-boot .form__field-holder .color-picker-field').entwine({
+    ReactRoot: null,
+
     onmatch() {
       const ColorPickerComponent = loadComponent('ColorPickerField');
       const schemaData = this.data('schema');
@@ -15,18 +17,26 @@ jQuery.entwine('ss', ($) => {
         name: schemaData.name,
       };
 
-      ReactDOM.render(
-        <ColorPickerComponent {...props} />,
-        this[0]
-      );
+      let root = this.getReactRoot();
+      if (!root) {
+        root = createRoot(this[0]);
+        this.setReactRoot(root);
+      }
+      root.render(<ColorPickerComponent {...props} />,);
     },
 
     onunmatch() {
-      ReactDOM.unmountComponentAtNode(this[0]);
+      const root = this.getReactRoot();
+      if (root) {
+        root.unmount();
+        this.setReactRoot(null);
+      }
     }
   });
 
   $('.js-injector-boot .form__field-holder .font-picker-field').entwine({
+    ReactRoot: null,
+
     onmatch() {
       const FontPickerComponent = loadComponent('FontPickerField');
       const schemaData = this.data('schema');
@@ -37,14 +47,20 @@ jQuery.entwine('ss', ($) => {
         name: schemaData.name,
       };
 
-      ReactDOM.render(
-        <FontPickerComponent {...props} />,
-        this[0]
-      );
+      let root = this.getReactRoot();
+      if (!root) {
+        root = createRoot(this[0]);
+        this.setReactRoot(root);
+      }
+      root.render(<FontPickerComponent {...props} />);
     },
 
     onunmatch() {
-      ReactDOM.unmountComponentAtNode(this[0]);
+      const root = this.getReactRoot();
+      if (root) {
+        root.unmount();
+        this.setReactRoot(null);
+      }
     }
   });
 });

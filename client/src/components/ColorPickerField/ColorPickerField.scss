@@ -18,9 +18,6 @@
 }
 
 .color-picker-field-popover {
-  max-width: 380px;
-  width: 380px;
-
   &__option {
     display: flex;
     padding: 4px;
@@ -45,5 +42,10 @@
   &__option-label {
     align-self: center;
     margin-left: 12px;
+  }
+
+  .popover {
+    max-width: 380px;
+    width: 380px;
   }
 }
