@@ -29,7 +29,8 @@
     "extra": {
         "expose": [
             "thirdparty/TinyMCE-FontAwesome-Plugin/fontawesome",
-            "client/dist"
+            "client/dist",
+            "client/lang"
         ]
     },
     "minimum-stability": "dev",

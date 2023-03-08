@@ -38,6 +38,7 @@ en:
     php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionADDNEW: 'Add new'
     php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionNOTE: 'NOTE: Carousel functionality will automatically be loaded when 2 or more items are added below'
     php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionTITLE: Hero/Carousel
+    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionTITLE_NOTE: 'Used by screen readers'
   CwpConfig:
     AppleIconField144: 'Apple Touch Web Clip and Windows 8 Tile Icon (dimensions of 144x144, PNG format)'
     FooterLogoLinkDesc: 'Please include the protocol (ie, http:// or https://) unless it is an internal link.'

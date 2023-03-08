@@ -2,6 +2,13 @@ mi:
   CWP\AgencyExtensions\Model\CarouselItem:
     PLURALNAME: 'Ngā tuemi takawhawhe'
     SINGULARNAME: 'Tuemi Takawhawhe'
+    CONTENT_HELPTIP: ''
+    IMAGE_HELPTIP: ''
+    PLURALS:
+      one: ''
+      other: ''
+    PRIMARYCALLTOACTION: ''
+    SECONDARYCALLTOACTION: ''
   CWP\AgencyExtensions\Extensions\CWPSiteConfigExtension:
     AddThisField: TāpiriTēneiTTKōtaha
     AddThisFieldDesc: 'Me whakamahi i te TT kōtaha puta noa i te pae (ki te hōputu <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
@@ -17,7 +24,34 @@ mi:
     FooterLogoRetinaField: 'Moko hiko taumira rahi (ka taunakitia kia rua whakareanga ake te teitei me te whānui o te moko hiku arowhānui)'
     LogoRetinaUploadField: 'Moko taumira rahi kia whakaaturia ki runga mauī (ka taunakitia kia rua whakareanga ake te teitei me te whānui o te moko hiku arowhānui)'
     LogoUploadField: 'Moko, kia whakaaturia ki runga mauī'
+    AccentColor: ''
+    AccentColorDescription: ''
+    CarouselBackground: ''
+    CarouselBackgroundDescription: ''
+    FooterBackground: ''
+    FooterLogoSecondaryDescField: ''
+    FooterLogoSecondaryField: ''
+    FooterLogoSecondaryLinkField: ''
+    HeaderBackground: ''
+    LogosIconsTab: ''
+    MainFontFamily: ''
+    NavigationBarBackground: ''
+    TextLinkColor: ''
   CwpCarousel:
     ArchivedField: 'Me pūranga tēnei tuemi takawhawhe?'
     LinkField: Hono
     NoteField: 'Tuhipoka: Me hanga e koe te tuemi takawhawhe i mua i te tāpiri atahanga'
+  CWP:
+    SITECONFIG.EmptySearch: ''
+    SITECONFIG.NoResult: ''
+  CarouselPageExtension:
+    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionADDNEW: ''
+    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionNOTE: ''
+    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionTITLE: ''
+    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionTITLE_NOTE: ''
+  CwpConfig:
+    AppleIconField144: ''
+    FooterLogoLinkDesc: ''
+    FooterLogoRetinaField: ''
+    FooterLogoSecondaryLinkDesc: ''
+    LogoRetinaUploadField: ''

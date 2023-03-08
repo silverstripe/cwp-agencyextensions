@@ -2,6 +2,17 @@ ar:
   CWP\AgencyExtensions\Model\CarouselItem:
     PLURALNAME: 'العناصر الدائرية'
     SINGULARNAME: 'عنصر دائرى'
+    CONTENT_HELPTIP: ''
+    IMAGE_HELPTIP: ''
+    PLURALS:
+      zero: ''
+      one: ''
+      two: ''
+      few: ''
+      many: ''
+      other: ''
+    PRIMARYCALLTOACTION: ''
+    SECONDARYCALLTOACTION: ''
   CwpCarousel:
     ArchivedField: 'هل تود أن تقوم بتخزين هذا العنصر الدائرى؟'
     LinkField: رابط
@@ -22,3 +33,29 @@ ar:
     LogoRetinaUploadField: 'شعار عالى الدقة, ليظهر فى أعلى اليسار (يوصى بضعف الطول و العرض للشعار التقليدى)'
     LogoUploadField: 'الشعار, ليظهر أعلى اليسار'
     LogosIconsTab: الشعارات/الأيقونات
+    AccentColor: ''
+    AccentColorDescription: ''
+    CarouselBackground: ''
+    CarouselBackgroundDescription: ''
+    FooterBackground: ''
+    FooterLogoSecondaryDescField: ''
+    FooterLogoSecondaryField: ''
+    FooterLogoSecondaryLinkField: ''
+    HeaderBackground: ''
+    MainFontFamily: ''
+    NavigationBarBackground: ''
+    TextLinkColor: ''
+  CWP:
+    SITECONFIG.EmptySearch: ''
+    SITECONFIG.NoResult: ''
+  CarouselPageExtension:
+    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionADDNEW: ''
+    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionNOTE: ''
+    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionTITLE: ''
+    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionTITLE_NOTE: ''
+  CwpConfig:
+    AppleIconField144: ''
+    FooterLogoLinkDesc: ''
+    FooterLogoRetinaField: ''
+    FooterLogoSecondaryLinkDesc: ''
+    LogoRetinaUploadField: ''
