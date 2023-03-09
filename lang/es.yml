@@ -2,6 +2,14 @@ es:
   CWP\AgencyExtensions\Model\CarouselItem:
     PLURALNAME: 'Items del carrusel'
     SINGULARNAME: 'Item del carrusel'
+    CONTENT_HELPTIP: ''
+    IMAGE_HELPTIP: ''
+    PLURALS:
+      one: ''
+      many: ''
+      other: ''
+    PRIMARYCALLTOACTION: ''
+    SECONDARYCALLTOACTION: ''
   CwpCarousel:
     ArchivedField: '¿Archiva este item del carrusel?'
     LinkField: Enlace
@@ -21,3 +29,29 @@ es:
     LogoRetinaUploadField: 'Logo de alta resolución, a aparecer en la esquina superior izquierda (serecomineda el doble del alto y ancho del logo estándar)'
     LogoUploadField: 'Logo, a aparecer en la esquina superior izquierda'
     LogosIconsTab: Logos/iconos
+    AccentColor: ''
+    AccentColorDescription: ''
+    CarouselBackground: ''
+    CarouselBackgroundDescription: ''
+    FooterBackground: ''
+    FooterLogoSecondaryDescField: ''
+    FooterLogoSecondaryField: ''
+    FooterLogoSecondaryLinkField: ''
+    HeaderBackground: ''
+    MainFontFamily: ''
+    NavigationBarBackground: ''
+    TextLinkColor: ''
+  CWP:
+    SITECONFIG.EmptySearch: ''
+    SITECONFIG.NoResult: ''
+  CarouselPageExtension:
+    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionADDNEW: ''
+    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionNOTE: ''
+    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionTITLE: ''
+    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionTITLE_NOTE: ''
+  CwpConfig:
+    AppleIconField144: ''
+    FooterLogoLinkDesc: ''
+    FooterLogoRetinaField: ''
+    FooterLogoSecondaryLinkDesc: ''
+    LogoRetinaUploadField: ''
