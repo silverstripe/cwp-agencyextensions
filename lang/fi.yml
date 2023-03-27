@@ -2,13 +2,6 @@ fi:
   CWP\AgencyExtensions\Model\CarouselItem:
     PLURALNAME: 'Karusellin kohteet'
     SINGULARNAME: 'Karusellin kohde'
-    CONTENT_HELPTIP: ''
-    IMAGE_HELPTIP: ''
-    PLURALS:
-      one: ''
-      other: ''
-    PRIMARYCALLTOACTION: ''
-    SECONDARYCALLTOACTION: ''
   CWP\AgencyExtensions\Extensions\CWPSiteConfigExtension:
     AddThisField: 'AddThis profiili-ID'
     AddThisFieldDesc: 'Profiili-ID käytettäväksi läpi sivuston (formaatissa <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
@@ -25,33 +18,7 @@ fi:
     LogoRetinaUploadField: 'Korkearesoluutioinen logo vasempaan yläkulmaan (suositellaan kaksinkertaista resoluutiota suhteessa peruslogoon)'
     LogoUploadField: 'Logo vasempaan yläkulmaan'
     LogosIconsTab: Logot/ikonit
-    AccentColor: ''
-    AccentColorDescription: ''
-    CarouselBackground: ''
-    CarouselBackgroundDescription: ''
-    FooterBackground: ''
-    FooterLogoSecondaryDescField: ''
-    FooterLogoSecondaryField: ''
-    FooterLogoSecondaryLinkField: ''
-    HeaderBackground: ''
-    MainFontFamily: ''
-    NavigationBarBackground: ''
-    TextLinkColor: ''
   CwpCarousel:
     ArchivedField: 'Arkistoi tämä karuselliartikkeli?'
     LinkField: Linkki
     NoteField: 'Huomio: sinun täytyy luoda karusellisisältö ennen kuin lisäät siihen kuvan'
-  CWP:
-    SITECONFIG.EmptySearch: ''
-    SITECONFIG.NoResult: ''
-  CarouselPageExtension:
-    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionADDNEW: ''
-    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionNOTE: ''
-    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionTITLE: ''
-    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionTITLE_NOTE: ''
-  CwpConfig:
-    AppleIconField144: ''
-    FooterLogoLinkDesc: ''
-    FooterLogoRetinaField: ''
-    FooterLogoSecondaryLinkDesc: ''
-    LogoRetinaUploadField: ''

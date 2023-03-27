@@ -13,41 +13,5 @@ id:
     FooterLogoLinkField: 'Tautan Logo Footer'
     FooterLogoRetinaField: 'Logo footer beresolusi tinggi (direkomendasikan berukuran dua kali tinggi dan lebar dari logo footer standar)'
     LogosIconsTab: Logo/Ikon
-    AccentColor: ''
-    AccentColorDescription: ''
-    CarouselBackground: ''
-    CarouselBackgroundDescription: ''
-    FooterBackground: ''
-    FooterLogoSecondaryDescField: ''
-    FooterLogoSecondaryField: ''
-    FooterLogoSecondaryLinkField: ''
-    HeaderBackground: ''
-    LogoUploadField: ''
-    MainFontFamily: ''
-    NavigationBarBackground: ''
-    TextLinkColor: ''
   CwpCarousel:
     LinkField: Tautan
-  CWP:
-    SITECONFIG.EmptySearch: ''
-    SITECONFIG.NoResult: ''
-  CWP\AgencyExtensions\Model\CarouselItem:
-    CONTENT_HELPTIP: ''
-    IMAGE_HELPTIP: ''
-    PLURALNAME: ''
-    PLURALS:
-      other: ''
-    PRIMARYCALLTOACTION: ''
-    SECONDARYCALLTOACTION: ''
-    SINGULARNAME: ''
-  CarouselPageExtension:
-    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionADDNEW: ''
-    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionNOTE: ''
-    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionTITLE: ''
-    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionTITLE_NOTE: ''
-  CwpConfig:
-    AppleIconField144: ''
-    FooterLogoLinkDesc: ''
-    FooterLogoRetinaField: ''
-    FooterLogoSecondaryLinkDesc: ''
-    LogoRetinaUploadField: ''
