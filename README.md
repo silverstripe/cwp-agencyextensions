@@ -22,15 +22,9 @@ This module will automatically be installed along with either the "default" or W
 
 If you want to install this module on its own you can do so with Composer:
 
-```
+```sh
 composer require cwp/agency-extensions
 ```
-
-## Requirements
-
-* `cwp/cwp` 3.0 or above
-
-**Note** For use with CWP versions less than 3, please see the `2.x` [release line](https://github.com/silverstripe/cwp-agencyextensions/releases).
 
 ## Documentation
 
