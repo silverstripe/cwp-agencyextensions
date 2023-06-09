@@ -48,17 +48,17 @@ class CarouselPageExtension extends DataExtension
     {
         $gridField = GridField::create(
             'CarouselItems',
-            _t(__CLASS__ . 'TITLE', 'Hero/Carousel'),
+            _t(__CLASS__ . '.TITLE', 'Hero/Carousel'),
             $this->getCarouselItems(),
             GridFieldConfig_RelationEditor::create()
         );
         $gridField->setDescription(_t(
-            __CLASS__ . 'NOTE',
+            __CLASS__ . '.NOTE',
             'Carousel functionality will automatically be loaded when 2 or more items are added below'
         ));
         $gridConfig = $gridField->getConfig();
         $gridConfig->getComponentByType(GridFieldAddNewButton::class)->setButtonName(
-            _t(__CLASS__ . 'ADDNEW', 'Add new')
+            _t(__CLASS__ . '.ADDNEW', 'Add new')
         );
         $gridConfig->removeComponentsByType(GridFieldAddExistingAutocompleter::class);
         $gridConfig->removeComponentsByType(GridFieldDeleteAction::class);
@@ -69,12 +69,12 @@ class CarouselPageExtension extends DataExtension
 
         $fields->findOrMakeTab(
             'Root.Carousel',
-            _t(__CLASS__ . 'TITLE', 'Hero/Carousel')
+            _t(__CLASS__ . '.TITLE', 'Hero/Carousel')
         );
 
         $titleField = TextField::create('CarouselTitle', 'Carousel Title');
         $titleField->setDescription(_t(
-            __CLASS__ . 'TITLE_NOTE',
+            __CLASS__ . '.TITLE_NOTE',
             'Used by screen readers'
         ));
 

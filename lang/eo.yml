@@ -44,11 +44,6 @@ eo:
   CWP:
     SITECONFIG.EmptySearch: 'Teksto vidigota kiam mankas serĉpeto'
     SITECONFIG.NoResult: 'Teksto vidigota kiam mankas rezultoj'
-  CarouselPageExtension:
-    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionADDNEW: 'Aldoni novan'
-    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionNOTE: 'NOTU: Karusela funkciado aŭtomate ŝarĝiĝos kiam 2 aŭ pliaj elementoj aldoniĝos sube'
-    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionTITLE: Heroo/Karuselo
-    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionTITLE_NOTE: 'Uzota de ekranlegiloj'
   CwpConfig:
     AppleIconField144: 'Apple Touch Web Clip kaj Windows 8 Tile emblemo (dimensioj 144x144, PNG formato)'
     FooterLogoLinkDesc: 'Bonvolu inkludi la protokolon (t.e. http:// aŭ https://) krom se ĝi estas interna ligilo.'
