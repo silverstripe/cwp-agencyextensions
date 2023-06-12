@@ -24,6 +24,11 @@ en:
     MainFontFamily: 'Main font family'
     NavigationBarBackground: 'Navigation bar background'
     TextLinkColor: 'Text link colour'
+  CWP\AgencyExtensions\Extensions\CarouselPageExtension:
+    ADDNEW: 'Add new'
+    NOTE: 'Carousel functionality will automatically be loaded when 2 or more items are added below'
+    TITLE: Hero/Carousel
+    TITLE_NOTE: 'Used by screen readers'
   CWP\AgencyExtensions\Model\CarouselItem:
     CONTENT_HELPTIP: 'Recommended: Use less than 50 words. For carousel slides, use a similar amount of content as other items to ensure carousel height does not vary.'
     IMAGE_HELPTIP: 'Recommended: Use high resolution images greater than 1600x900px.'
@@ -34,11 +39,6 @@ en:
     PRIMARYCALLTOACTION: 'Primary Call To Action Link'
     SECONDARYCALLTOACTION: 'Secondary Call To Action Link'
     SINGULARNAME: 'Carousel Item'
-  CarouselPageExtension:
-    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionADDNEW: 'Add new'
-    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionNOTE: 'NOTE: Carousel functionality will automatically be loaded when 2 or more items are added below'
-    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionTITLE: Hero/Carousel
-    php.CWP\AgencyExtensions\Extensions\CarouselPageExtensionTITLE_NOTE: 'Used by screen readers'
   CwpConfig:
     AppleIconField144: 'Apple Touch Web Clip and Windows 8 Tile Icon (dimensions of 144x144, PNG format)'
     FooterLogoLinkDesc: 'Please include the protocol (ie, http:// or https://) unless it is an internal link.'
