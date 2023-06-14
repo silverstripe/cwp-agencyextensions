@@ -24,11 +24,36 @@ en:
     MainFontFamily: 'Main font family'
     NavigationBarBackground: 'Navigation bar background'
     TextLinkColor: 'Text link colour'
+    db_AccentColor: 'Accent color'
+    db_CarouselBackground: 'Carousel background'
+    db_EmptySearch: 'Empty search'
+    db_FooterBackground: 'Footer background'
+    db_FooterLogoDescription: 'Footer logo description'
+    db_FooterLogoLink: 'Footer logo link'
+    db_FooterLogoSecondaryDescription: 'Footer logo secondary description'
+    db_FooterLogoSecondaryLink: 'Footer logo secondary link'
+    db_HeaderBackground: 'Header background'
+    db_MainFontFamily: 'Main font family'
+    db_NavigationBarBackground: 'Navigation bar background'
+    db_NoSearchResults: 'No search results'
+    db_TextLinkColor: 'Text link color'
+    has_one_AppleTouchIcon114: 'Apple touch icon114'
+    has_one_AppleTouchIcon144: 'Apple touch icon144'
+    has_one_AppleTouchIcon57: 'Apple touch icon57'
+    has_one_AppleTouchIcon72: 'Apple touch icon72'
+    has_one_FavIcon: 'Fav icon'
+    has_one_FooterLogo: 'Footer logo'
+    has_one_FooterLogoRetina: 'Footer logo retina'
+    has_one_FooterLogoSecondary: 'Footer logo secondary'
+    has_one_Logo: Logo
+    has_one_LogoRetina: 'Logo retina'
   CWP\AgencyExtensions\Extensions\CarouselPageExtension:
     ADDNEW: 'Add new'
     NOTE: 'Carousel functionality will automatically be loaded when 2 or more items are added below'
     TITLE: Hero/Carousel
     TITLE_NOTE: 'Used by screen readers'
+    db_CarouselTitle: 'Carousel title'
+    has_many_CarouselItems: 'Carousel items'
   CWP\AgencyExtensions\Model\CarouselItem:
     CONTENT_HELPTIP: 'Recommended: Use less than 50 words. For carousel slides, use a similar amount of content as other items to ensure carousel height does not vary.'
     IMAGE_HELPTIP: 'Recommended: Use high resolution images greater than 1600x900px.'
@@ -39,6 +64,16 @@ en:
     PRIMARYCALLTOACTION: 'Primary Call To Action Link'
     SECONDARYCALLTOACTION: 'Secondary Call To Action Link'
     SINGULARNAME: 'Carousel Item'
+    db_Content: Content
+    db_PrimaryCallToActionLabel: 'Primary call to action label'
+    db_SecondaryCallToActionLabel: 'Secondary call to action label'
+    db_SortOrder: 'Sort order'
+    db_Title: Title
+    db_Version: Version
+    has_one_Image: Image
+    has_one_Parent: Parent
+    has_one_PrimaryCallToAction: 'Primary call to action'
+    has_one_SecondaryCallToAction: 'Secondary call to action'
   CwpConfig:
     AppleIconField144: 'Apple Touch Web Clip and Windows 8 Tile Icon (dimensions of 144x144, PNG format)'
     FooterLogoLinkDesc: 'Please include the protocol (ie, http:// or https://) unless it is an internal link.'
