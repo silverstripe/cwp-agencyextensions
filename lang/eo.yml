@@ -41,6 +41,11 @@ eo:
     MainFontFamily: 'Ĉefa tipara familio'
     NavigationBarBackground: 'Fono de naviga breto'
     TextLinkColor: 'Koloro de teksta ligilo'
+    db_CarouselBackground: 'Karusela fono'
+    db_FooterBackground: 'Paĝopieda fono'
+    db_HeaderBackground: 'Paĝokapa fono'
+    db_MainFontFamily: 'Ĉefa tipara familio'
+    db_NavigationBarBackground: 'Fono de naviga breto'
   CWP:
     SITECONFIG.EmptySearch: 'Teksto vidigota kiam mankas serĉpeto'
     SITECONFIG.NoResult: 'Teksto vidigota kiam mankas rezultoj'
@@ -50,3 +55,8 @@ eo:
     FooterLogoRetinaField: 'Altdistingiva paĝopieda emblemo (rekomendite duoble la alton kaj larĝon de la ordinara paĝopieda emblemo)'
     FooterLogoSecondaryLinkDesc: 'Bonvolu inkludi la protokolon (t.e. http:// aŭ https://) krom se ĝi estas interna ligilo.'
     LogoRetinaUploadField: 'Altdistingiva paĝopieda emblemo ĉe la supro maldekstra (rekomendite duoble la alton kaj larĝon de la ordinara emblemo)'
+  CWP\AgencyExtensions\Extensions\CarouselPageExtension:
+    ADDNEW: 'Aldoni novan'
+    NOTE: 'NOTU: Karusela funkciado aŭtomate ŝarĝiĝos kiam 2 aŭ pliaj elementoj aldoniĝos sube'
+    TITLE: Heroo/Karuselo
+    TITLE_NOTE: 'Uzota de ekranlegiloj'
