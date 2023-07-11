@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import jQuery from 'jquery';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
