@@ -9,7 +9,7 @@ if (typeof(ss) === 'undefined' || typeof(ss.i18n) === 'undefined') {
     "ColorPickerField.EMPTY_TITLE": "Neniu",
     "ColorPickerField.SEARCH_BLOCKS": "Serĉaj koloroj",
     "FontPickerField.EMPTY_TITLE": "Neniu",
-    "FontPickerField.PREVIEW_FONT_SENTENCE": "Ĉi-ĵaŭde ŝi havigu informojn pri biciklista ĝazo-ĥoro.",
-    "FontPickerField.PREVIEW_FONT_ALPHABET": "AaBbCcĈĉDdEeFfGgĜĝHhĤĥIiJjĴĵKkLlMmNnOoPpQqRrSsŜŝTtUuŬŭVvWwXxYyZz 0123456789 - = _ + < > ? / . , : \""
+    "FontPickerField.PREVIEW_FONT_ALPHABET": "AaBbCcĈĉDdEeFfGgĜĝHhĤĥIiJjĴĵKkLlMmNnOoPpQqRrSsŜŝTtUuŬŭVvWwXxYyZz 0123456789 - = _ + < > ? / . , : \"",
+    "FontPickerField.PREVIEW_FONT_SENTENCE": "Ĉi-ĵaŭde ŝi havigu informojn pri biciklista ĝazo-ĥoro."
 });
 }

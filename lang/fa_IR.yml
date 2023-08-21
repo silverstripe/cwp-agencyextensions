@@ -1,12 +1,12 @@
 fa_IR:
-  CWP\AgencyExtensions\Extensions\CarouselPageExtension:
-    DESCRIPTION: 'صفحه محتوای عمومی'
-    FeatureContentFieldLabel: محتوا
-    Title: عنوان
   BasePage:
     ColumnTitle: عنوان
     DESCRIPTION: 'صفحه محتوای عمومی'
     PLURALNAME: 'صفحه اصلی'
+  CWP\AgencyExtensions\Extensions\CarouselPageExtension:
+    DESCRIPTION: 'صفحه محتوای عمومی'
+    FeatureContentFieldLabel: محتوا
+    Title: عنوان
   CwpSearchPage:
     DESCRIPTION: 'صفحه محتوای عمومی'
     PLURALNAME: 'صفحه اصلی'
