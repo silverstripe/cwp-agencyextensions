@@ -2,13 +2,13 @@ it:
   AssetTableField:
     BACKLINKCOUNT: 'Usato in:'
     PAGES: pagina(e)
+  BasePage:
+    ColumnTitle: Titolo
   CWP\AgencyExtensions\Extensions\CarouselPageExtension:
     AddNewButton: 'Aggiungi nuova'
     FeatureContentFieldLabel: Contenuto
     PLURALNAME: 'Pagine Principali'
     Title: Titolo
-  BasePage:
-    ColumnTitle: Titolo
   DateUpdatePage:
     AuthorFieldLabel: Autore
   FooterHolder:

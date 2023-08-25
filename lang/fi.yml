@@ -1,7 +1,4 @@
 fi:
-  CWP\AgencyExtensions\Model\CarouselItem:
-    PLURALNAME: 'Karusellin kohteet'
-    SINGULARNAME: 'Karusellin kohde'
   CWP\AgencyExtensions\Extensions\CWPSiteConfigExtension:
     AddThisField: 'AddThis profiili-ID'
     AddThisFieldDesc: 'Profiili-ID käytettäväksi läpi sivuston (formaatissa <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
@@ -18,6 +15,9 @@ fi:
     LogoRetinaUploadField: 'Korkearesoluutioinen logo vasempaan yläkulmaan (suositellaan kaksinkertaista resoluutiota suhteessa peruslogoon)'
     LogoUploadField: 'Logo vasempaan yläkulmaan'
     LogosIconsTab: Logot/ikonit
+  CWP\AgencyExtensions\Model\CarouselItem:
+    PLURALNAME: 'Karusellin kohteet'
+    SINGULARNAME: 'Karusellin kohde'
   CwpCarousel:
     ArchivedField: 'Arkistoi tämä karuselliartikkeli?'
     LinkField: Linkki

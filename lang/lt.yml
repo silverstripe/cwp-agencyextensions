@@ -1,13 +1,13 @@
 lt:
-  CWP\AgencyExtensions\Extensions\CarouselPageExtension:
-    DESCRIPTION: 'Standartinio turinio puslapis'
-    FeatureContentFieldLabel: Turinys
-    Title: Pavadinimas
   BasePage:
     ColumnPageType: 'Puslapio tipas'
     ColumnTitle: Pavadinimas
     DESCRIPTION: 'Standartinio turinio puslapis'
     PLURALNAME: 'Baziniai puslapiai'
+  CWP\AgencyExtensions\Extensions\CarouselPageExtension:
+    DESCRIPTION: 'Standartinio turinio puslapis'
+    FeatureContentFieldLabel: Turinys
+    Title: Pavadinimas
   CwpSearchPage:
     DESCRIPTION: 'Standartinio turinio puslapis'
     PLURALNAME: 'Baziniai puslapiai'

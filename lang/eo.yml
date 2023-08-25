@@ -1,62 +1,92 @@
 eo:
-  CWP\AgencyExtensions\Model\CarouselItem:
-    PLURALNAME: 'Karuselaj elementoj'
-    SINGULARNAME: 'Karusela elemento'
-    CONTENT_HELPTIP: 'Rekomendo: Uzu malpli ol 50 vortojn. Por karuselaj lumbildoj, uzu similan kvanton da enhavo kiel aliaj elementoj, por certigi, ke la karusela alto ne variu.'
-    IMAGE_HELPTIP: 'Rekomendo: Uzu altdistingivajn bildojn kun pli ol 1600x900 bilderoj.'
-    PLURALS:
-      one: 'Unu karusela elemento'
-      other: '{count} karuselaj elementoj'
-    PRIMARYCALLTOACTION: 'Unuaranga agvoka ligilo'
-    SECONDARYCALLTOACTION: 'Duaranga agvoka ligilo'
-  CwpCarousel:
-    ArchivedField: 'Ĉu enarkivigi ĉi tiun karuselan elementon?'
-    LinkField: Ligilo
-    NoteField: 'Notu: Necesas krei la karuselan elementon antaŭ ol vi povos aldoni bildon'
+  CWP:
+    SITECONFIG.EmptySearch: 'Teksto vidigota kiam mankas serĉpeto'
+    SITECONFIG.NoResult: 'Teksto vidigota kiam mankas rezultoj'
   CWP\AgencyExtensions\Extensions\CWPSiteConfigExtension:
+    AccentColor: 'Emfaza koloro'
+    AccentColorDescription: 'Influas la koloron de butonoj, aktualaj navigan elementoj, ktp. Bonvolu certigi sufiĉan kontraston kun fonaj koloroj.'
     AddThisField: 'Aldoni ĉi tiun ID-agordaron'
     AddThisFieldDesc: 'ID-agordaro uzota ie en la retejo (en la formato <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
     AppleIconField114: 'Bildsimbolo por Apple Touch Web eltondaĵo (dimensioj 114x114, PNG-formato)'
     AppleIconField144: 'Bildsimbolo por Apple Touch Web eltondaĵo kaj Windows 8 kahelo (dimensioj 144x144, PNG-formato)'
     AppleIconField57: 'Bildsimbolo por Apple Touch Web eltondaĵo (dimensioj 57x57, PNG-formato)'
     AppleIconField72: 'Bildsimbolo por Apple Touch Web eltondaĵo (dimensioj 72x72, PNG-formato)'
+    CarouselBackground: 'Karusela fono'
+    CarouselBackgroundDescription: 'La fona koloro de la karuselo kiam bildo ne agordita.'
     FavIconField: 'Favorbildo, en .ico-formato, dimensioj 16x16, 32x32, aŭ 48x48'
+    FooterBackground: 'Paĝopieda fono'
     FooterLogoDescField: 'Priskribo de la paĝopieda bildsimbolo'
     FooterLogoField: 'Paĝopieda bildsimbolo, aperonta en la paĝopiedo'
     FooterLogoLinkDesc: 'Bonvole inkludu la protokolon (t.e., http:// or https://) krom se ĝi estas interna ligilo.'
     FooterLogoLinkField: 'Paĝopieda bildsimbola ligilo'
     FooterLogoRetinaField: 'Tredistingiva paĝopieda bildsimbolo (rekomeninda dufoje la alton kaj larĝon de la normala paĝopieda bildsimbolo)'
-    LogoRetinaUploadField: 'Tredistingiva bildsimbolo, aperonta ĉe la maldekstra supro (rekomeninda dufoje la alton kaj larĝon de la normala bildsimbolo)'
-    LogoUploadField: 'Bildsimbolo, aperonta ĉe la maldekstra supro'
-    LogosIconsTab: Bildsimboloj
-    AccentColor: 'Emfaza koloro'
-    AccentColorDescription: 'Influas la koloron de butonoj, aktualaj navigan elementoj, ktp. Bonvolu certigi sufiĉan kontraston kun fonaj koloroj.'
-    CarouselBackground: 'Karusela fono'
-    CarouselBackgroundDescription: 'La fona koloro de la karuselo kiam bildo ne agordita.'
-    FooterBackground: 'Paĝopieda fono'
     FooterLogoSecondaryDescField: 'Priskribo de duaranga paĝopieda emblemo'
     FooterLogoSecondaryField: 'Duaranga paĝopieda emblemo, aperota en la paĝopiedo.'
     FooterLogoSecondaryLinkField: 'Ligilo al duaranga paĝopieda emblemo'
     HeaderBackground: 'Paĝokapa fono'
+    LogoRetinaUploadField: 'Tredistingiva bildsimbolo, aperonta ĉe la maldekstra supro (rekomeninda dufoje la alton kaj larĝon de la normala bildsimbolo)'
+    LogoUploadField: 'Bildsimbolo, aperonta ĉe la maldekstra supro'
+    LogosIconsTab: Bildsimboloj
     MainFontFamily: 'Ĉefa tipara familio'
     NavigationBarBackground: 'Fono de naviga breto'
     TextLinkColor: 'Koloro de teksta ligilo'
+    db_AccentColor: 'Emfaza koloro'
     db_CarouselBackground: 'Karusela fono'
+    db_EmptySearch: 'Vaka ŝerĉo'
     db_FooterBackground: 'Paĝopieda fono'
+    db_FooterLogoDescription: 'Priskribo de la paĝopieda bildsimbolo'
+    db_FooterLogoLink: 'Paĝopieda bildsimbola ligilo'
+    db_FooterLogoSecondaryDescription: 'Priskribo de la duaranga paĝopieda bildsimbolo'
+    db_FooterLogoSecondaryLink: 'Paĝopieda bildsimbola duaranga ligilo'
     db_HeaderBackground: 'Paĝokapa fono'
     db_MainFontFamily: 'Ĉefa tipara familio'
     db_NavigationBarBackground: 'Fono de naviga breto'
-  CWP:
-    SITECONFIG.EmptySearch: 'Teksto vidigota kiam mankas serĉpeto'
-    SITECONFIG.NoResult: 'Teksto vidigota kiam mankas rezultoj'
+    db_NoSearchResults: 'Mankas serĉaj rezultoj'
+    db_TextLinkColor: 'Koloro de teksta ligilo'
+    has_one_AppleTouchIcon114: 'Apple touch icon114'
+    has_one_AppleTouchIcon144: 'Apple touch icon144'
+    has_one_AppleTouchIcon57: 'Apple touch icon57'
+    has_one_AppleTouchIcon72: 'Apple touch icon72'
+    has_one_FavIcon: 'Favorata bildsimbolo'
+    has_one_FooterLogo: 'Paĝopieda bildsimbolo'
+    has_one_FooterLogoRetina: 'Paĝopieda bildsimbola retino'
+    has_one_FooterLogoSecondary: 'Paĝopieda bildsimbola duaranga'
+    has_one_Logo: Bildsimbolo
+    has_one_LogoRetina: 'Bildsimbola retino'
+  CWP\AgencyExtensions\Extensions\CarouselPageExtension:
+    ADDNEW: 'Aldoni novan'
+    NOTE: 'NOTU: Karusela funkciado aŭtomate ŝarĝiĝos kiam 2 aŭ pliaj elementoj aldoniĝos sube'
+    TITLE: Heroo/Karuselo
+    TITLE_NOTE: 'Uzota de ekranlegiloj'
+    db_CarouselTitle: 'Karusela titolo'
+    has_many_CarouselItems: 'Karuselaj elementoj'
+  CWP\AgencyExtensions\Model\CarouselItem:
+    CONTENT_HELPTIP: 'Rekomendo: Uzu malpli ol 50 vortojn. Por karuselaj lumbildoj, uzu similan kvanton da enhavo kiel aliaj elementoj, por certigi, ke la karusela alto ne variu.'
+    IMAGE_HELPTIP: 'Rekomendo: Uzu altdistingivajn bildojn kun pli ol 1600x900 bilderoj.'
+    PLURALNAME: 'Karuselaj elementoj'
+    PLURALS:
+      one: 'Unu karusela elemento'
+      other: '{count} karuselaj elementoj'
+    PRIMARYCALLTOACTION: 'Unuaranga agvoka ligilo'
+    SECONDARYCALLTOACTION: 'Duaranga agvoka ligilo'
+    SINGULARNAME: 'Karusela elemento'
+    db_Content: Enhavo
+    db_PrimaryCallToActionLabel: 'Unuaranga agvoka etikedo'
+    db_SecondaryCallToActionLabel: 'Duaranga agvoka etikedo'
+    db_SortOrder: 'Ordiga ordo'
+    db_Title: Titolo
+    db_Version: Versio
+    has_one_Image: Bildo
+    has_one_Parent: Patro
+    has_one_PrimaryCallToAction: 'Unuaranga agvoko'
+    has_one_SecondaryCallToAction: 'Duaranga agvoko'
+  CwpCarousel:
+    ArchivedField: 'Ĉu enarkivigi ĉi tiun karuselan elementon?'
+    LinkField: Ligilo
+    NoteField: 'Notu: Necesas krei la karuselan elementon antaŭ ol vi povos aldoni bildon'
   CwpConfig:
     AppleIconField144: 'Apple Touch Web Clip kaj Windows 8 Tile emblemo (dimensioj 144x144, PNG formato)'
     FooterLogoLinkDesc: 'Bonvolu inkludi la protokolon (t.e. http:// aŭ https://) krom se ĝi estas interna ligilo.'
     FooterLogoRetinaField: 'Altdistingiva paĝopieda emblemo (rekomendite duoble la alton kaj larĝon de la ordinara paĝopieda emblemo)'
     FooterLogoSecondaryLinkDesc: 'Bonvolu inkludi la protokolon (t.e. http:// aŭ https://) krom se ĝi estas interna ligilo.'
     LogoRetinaUploadField: 'Altdistingiva paĝopieda emblemo ĉe la supro maldekstra (rekomendite duoble la alton kaj larĝon de la ordinara emblemo)'
-  CWP\AgencyExtensions\Extensions\CarouselPageExtension:
-    ADDNEW: 'Aldoni novan'
-    NOTE: 'NOTU: Karusela funkciado aŭtomate ŝarĝiĝos kiam 2 aŭ pliaj elementoj aldoniĝos sube'
-    TITLE: Heroo/Karuselo
-    TITLE_NOTE: 'Uzota de ekranlegiloj'

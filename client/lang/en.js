@@ -9,7 +9,7 @@ if (typeof(ss) === 'undefined' || typeof(ss.i18n) === 'undefined') {
     "ColorPickerField.EMPTY_TITLE": "None",
     "ColorPickerField.SEARCH_BLOCKS": "Search colours",
     "FontPickerField.EMPTY_TITLE": "None",
-    "FontPickerField.PREVIEW_FONT_SENTENCE": "The quick brown fox jumps over the lazy dog.",
-    "FontPickerField.PREVIEW_FONT_ALPHABET": "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz 0123456789 - = _ + < > ? / . , : \""
+    "FontPickerField.PREVIEW_FONT_ALPHABET": "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz 0123456789 - = _ + < > ? / . , : \"",
+    "FontPickerField.PREVIEW_FONT_SENTENCE": "The quick brown fox jumps over the lazy dog."
 });
 }
