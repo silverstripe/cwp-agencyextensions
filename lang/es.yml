@@ -1,11 +1,4 @@
 es:
-  CWP\AgencyExtensions\Model\CarouselItem:
-    PLURALNAME: 'Items del carrusel'
-    SINGULARNAME: 'Item del carrusel'
-  CwpCarousel:
-    ArchivedField: '¿Archiva este item del carrusel?'
-    LinkField: Enlace
-    NoteField: 'Nota: Ud necesitará crear el ítem de carrusel antes de poder agregarle una imagen'
   CWP\AgencyExtensions\Extensions\CWPSiteConfigExtension:
     AddThisField: 'Agregar este ID de perfil'
     AddThisFieldDesc: 'El ID de perfil a usarse en todo el sitio (en el formato <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
@@ -21,3 +14,10 @@ es:
     LogoRetinaUploadField: 'Logo de alta resolución, a aparecer en la esquina superior izquierda (serecomineda el doble del alto y ancho del logo estándar)'
     LogoUploadField: 'Logo, a aparecer en la esquina superior izquierda'
     LogosIconsTab: Logos/iconos
+  CWP\AgencyExtensions\Model\CarouselItem:
+    PLURALNAME: 'Items del carrusel'
+    SINGULARNAME: 'Item del carrusel'
+  CwpCarousel:
+    ArchivedField: '¿Archiva este item del carrusel?'
+    LinkField: Enlace
+    NoteField: 'Nota: Ud necesitará crear el ítem de carrusel antes de poder agregarle una imagen'

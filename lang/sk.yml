@@ -1,13 +1,13 @@
 sk:
-  CWP\AgencyExtensions\Extensions\CarouselPageExtension:
-    DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
-    FeatureContentFieldLabel: Obsah
-    Title: Názov
   BasePage:
     ColumnPageType: 'Typ stránky'
     ColumnTitle: Názov
     DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
     PLURALNAME: 'Základné stránky'
+  CWP\AgencyExtensions\Extensions\CarouselPageExtension:
+    DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
+    FeatureContentFieldLabel: Obsah
+    Title: Názov
   CwpSearchPage:
     DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
     PLURALNAME: 'Základné stránky'

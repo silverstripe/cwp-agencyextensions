@@ -1,11 +1,4 @@
 ar:
-  CWP\AgencyExtensions\Model\CarouselItem:
-    PLURALNAME: 'العناصر الدائرية'
-    SINGULARNAME: 'عنصر دائرى'
-  CwpCarousel:
-    ArchivedField: 'هل تود أن تقوم بتخزين هذا العنصر الدائرى؟'
-    LinkField: رابط
-    NoteField: 'ملاحظة: سوف تحتاج أن تقوم بإنشاء العنصر الدائرى قبل أن تتمكن من إضافة صورة'
   CWP\AgencyExtensions\Extensions\CWPSiteConfigExtension:
     AddThisField: 'قم بإضافة'
     AddThisFieldDesc: 'ملف التعريف الشخصى الذى سيتم استخدامه عبر الموقع (بصيغة <strong>ra-XXXXXXXXXXXXXXXX<strong/>)'
@@ -22,3 +15,10 @@ ar:
     LogoRetinaUploadField: 'شعار عالى الدقة, ليظهر فى أعلى اليسار (يوصى بضعف الطول و العرض للشعار التقليدى)'
     LogoUploadField: 'الشعار, ليظهر أعلى اليسار'
     LogosIconsTab: الشعارات/الأيقونات
+  CWP\AgencyExtensions\Model\CarouselItem:
+    PLURALNAME: 'العناصر الدائرية'
+    SINGULARNAME: 'عنصر دائرى'
+  CwpCarousel:
+    ArchivedField: 'هل تود أن تقوم بتخزين هذا العنصر الدائرى؟'
+    LinkField: رابط
+    NoteField: 'ملاحظة: سوف تحتاج أن تقوم بإنشاء العنصر الدائرى قبل أن تتمكن من إضافة صورة'
