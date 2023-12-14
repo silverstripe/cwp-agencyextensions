@@ -17,6 +17,16 @@ use SilverStripe\View\Requirements;
 
 /**
  * Class CWPCleanupSiteConfigExtension
+ * @method File AppleTouchIcon114()
+ * @method File AppleTouchIcon144()
+ * @method File AppleTouchIcon57()
+ * @method File AppleTouchIcon72()
+ * @method File FavIcon()
+ * @method Image FooterLogo()
+ * @method Image FooterLogoRetina()
+ * @method Image FooterLogoSecondary()
+ * @method Image Logo()
+ * @method Image LogoRetina()
  */
 class CWPSiteConfigExtension extends DataExtension
 {
