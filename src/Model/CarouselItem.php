@@ -18,6 +18,12 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\FileHandleField;
 
+/**
+ * @method Image Image()
+ * @method BaseHomePage Parent()
+ * @method SiteTree PrimaryCallToAction()
+ * @method SiteTree SecondaryCallToAction()
+ */
 class CarouselItem extends DataObject
 {
     private static $table_name = 'CarouselItem';
