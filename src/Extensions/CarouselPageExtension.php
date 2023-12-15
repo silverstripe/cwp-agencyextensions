@@ -17,6 +17,9 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\GridField\GridFieldVersionedState;
 use SilverStripe\Forms\LiteralField;
 
+/**
+ * @method SilverStripe\ORM\HasManyList<CarouselItem> CarouselItems()
+ */
 class CarouselPageExtension extends DataExtension
 {
     private static $db = [
