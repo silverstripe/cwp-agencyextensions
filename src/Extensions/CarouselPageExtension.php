@@ -3,6 +3,7 @@
 namespace CWP\AgencyExtensions\Extensions;
 
 use CWP\AgencyExtensions\Model\CarouselItem;
+use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
@@ -19,6 +20,8 @@ use SilverStripe\Forms\LiteralField;
 
 /**
  * @method SilverStripe\ORM\HasManyList<CarouselItem> CarouselItems()
+ *
+ * @extends DataExtension<SiteTree>
  */
 class CarouselPageExtension extends DataExtension
 {
@@ -35,7 +38,7 @@ class CarouselPageExtension extends DataExtension
     ];
 
     /**
-     * @return DataList
+     * @return DataList<CarouselItem>
      */
     public function getCarouselItems()
     {

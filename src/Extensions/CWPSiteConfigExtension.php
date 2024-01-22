@@ -12,11 +12,11 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\FileHandleField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\DataExtension;
+use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Versioned\Versioned;
 use SilverStripe\View\Requirements;
 
 /**
- * Class CWPCleanupSiteConfigExtension
  * @method File AppleTouchIcon114()
  * @method File AppleTouchIcon144()
  * @method File AppleTouchIcon57()
@@ -27,6 +27,8 @@ use SilverStripe\View\Requirements;
  * @method Image FooterLogoSecondary()
  * @method Image Logo()
  * @method Image LogoRetina()
+ *
+ * @extends DataExtension<SiteConfig>
  */
 class CWPSiteConfigExtension extends DataExtension
 {

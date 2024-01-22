@@ -2,13 +2,13 @@
 
 namespace CWP\AgencyExtensions\Extensions;
 
+use PageController;
+use SilverStripe\CMS\Controllers\ContentController;
 use SilverStripe\Core\Extension;
 use SilverStripe\SiteConfig\SiteConfig;
 
 /**
- * Class CWPPageExtension
- *
- * @property Page_Controller $owner
+ * @extends Extension<PageController>
  */
 class CWPPageExtension extends Extension
 {
