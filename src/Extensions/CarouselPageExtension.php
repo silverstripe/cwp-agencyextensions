@@ -14,12 +14,13 @@ use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use SilverStripe\Forms\GridField\GridFieldSortableHeader;
 use SilverStripe\ORM\DataList;
+use SilverStripe\ORM\HasManyList;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\GridField\GridFieldVersionedState;
 use SilverStripe\Forms\LiteralField;
 
 /**
- * @method SilverStripe\ORM\HasManyList<CarouselItem> CarouselItems()
+ * @method HasManyList<CarouselItem> CarouselItems()
  *
  * @extends DataExtension<SiteTree>
  */
