@@ -41,6 +41,6 @@ class FontPickerField extends SingleSelectField
 
     public function Value()
     {
-        return parent::Value() ?: self::DEFAULT_VALUE;
+        return parent::Value() ?: FontPickerField::DEFAULT_VALUE;
     }
 }
