@@ -373,6 +373,7 @@ class CWPSiteConfigExtension extends DataExtension
             'Root.SearchOptions',
             TextField::create(
                 'EmptySearch',
+                /** @phpstan-ignore translation.key (legacy string for EOL module) */
                 _t(
                     'CWP.SITECONFIG.EmptySearch',
                     'Text to display when there is no search query'
@@ -383,6 +384,7 @@ class CWPSiteConfigExtension extends DataExtension
             'Root.SearchOptions',
             TextField::create(
                 'NoSearchResults',
+                /** @phpstan-ignore translation.key (legacy string for EOL module) */
                 _t(
                     'CWP.SITECONFIG.NoResult',
                     'Text to display when there are no results'
