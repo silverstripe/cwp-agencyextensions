@@ -1,5 +1,5 @@
 .font-picker-field-button {
-  background-color: white;
+  background-color: $white;
   border: 1px solid $border-color-light;
   min-width: 270px;
   width: 100%;
@@ -7,7 +7,7 @@
   padding-top: $input-padding-y;
   padding-bottom: $input-padding-y;
 
-  &.font-icon-caret-down-two::before {
+  &.font-icon-caret-down-two:before {
     position: absolute;
     right: 10px;
     margin: 0 0 0 6px;
